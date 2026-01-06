@@ -1,0 +1,17 @@
+{
+  environment.etc."opt/chrome/policies/managed/managed_policies.json".text = builtins.toJSON {
+
+    ExtensionInstallForcelist = [
+      "cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
+      "fmkadmapgofadopljbjfkapdkoienihi" # React Developer Tools
+      "lmhkpmbekcpmknklioeibfkpmmfibljd" # Redux DevTools
+      "lomlmaamgdjplnhhgnoajlbnlgnpkobl" # Video Popout
+      "nhdogjmejiglipccpnnnanhbledajbpd" # Vue.js devtools
+      "jchobbjgibcahbheicfocecmhocglkco" # URLs Cleaner
+      "lphicbbhfmllgmomkkhjfkpbdlncafbn" # LetyShops
+      "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+    ];
+
+    RestoreOnStartup = 5;
+  };
+}
