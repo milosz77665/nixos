@@ -1,0 +1,44 @@
+{
+  system = [
+    ../../system/browser-policies/brave.nix
+    ../../system/tools/wireshark.nix
+    ../../system/tools/timeshift.nix
+    ../../system/wm-x11/betterlockscreen.nix
+    ../../system/wm-x11/qtile.nix
+  ];
+
+  home = [
+    ../../home-manager/programs/audio/pavucontrol.nix
+    ../../home-manager/programs/battery/acpi.nix
+    ../../home-manager/programs/browsers/brave.nix
+    ../../home-manager/programs/cli-tools/atuin.nix
+    ../../home-manager/programs/cli-tools/yazi.nix
+    ../../home-manager/programs/dev/vscode.nix
+    ../../home-manager/programs/disk/baobab.nix
+    ../../home-manager/programs/disk/gnome-disk-utility.nix
+    ../../home-manager/programs/disk/udiskie.nix
+    ../../home-manager/programs/file-managers/nemo.nix
+    ../../home-manager/programs/music/spotify.nix
+    ../../home-manager/programs/notes/gnome-text-editor.nix
+    ../../home-manager/programs/notes/obsidian.nix
+    ../../home-manager/programs/notifications/dunst.nix
+    ../../home-manager/programs/secrets/polkit-gnome.nix
+    ../../home-manager/programs/secrets/seahorse.nix
+    ../../home-manager/programs/shells/bash.nix
+    ../../home-manager/programs/terminals/alacritty.nix
+    ../../home-manager/programs/terminals/ghostty.nix
+    ../../home-manager/programs/tools/evince.nix
+    ../../home-manager/programs/tools/flameshot.nix
+    ../../home-manager/programs/tools/libreoffice.nix
+    ../../home-manager/programs/tools/okular.nix
+    ../../home-manager/programs/tools/qalculate.nix
+    ../../home-manager/programs/tools/zathura.nix
+    ../../home-manager/programs/wm-x11/feh.nix
+    ../../home-manager/programs/wm-x11/picom.nix
+    ../../home-manager/programs/wm-x11/pywal.nix
+    ../../home-manager/programs/wm-x11/qtile.nix
+    ../../home-manager/programs/wm-x11/rofi.nix
+    ../../home-manager/programs/wm-x11/x11-packages.nix
+    ../../home-manager/programs/gtk.nix
+  ];
+}

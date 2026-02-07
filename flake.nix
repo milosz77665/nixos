@@ -16,6 +16,7 @@
     let
       userConfig = import ./vars;
       mainModules = import ./hosts/main/modules.nix;
+      lowSpecModules = import ./hosts/lowSpec/modules.nix;
 
       mkSystem =
         {
@@ -66,6 +67,12 @@
           inherit userConfig;
           extraSystemModules = mainModules.system;
           extraHomeModules = mainModules.home;
+        };
+        lowSpec = mkSystem {
+          hostName = "lowSpec";
+          inherit userConfig;
+          extraSystemModules = lowSpecModules.system;
+          extraHomeModules = lowSpecModules.home;
         };
       };
     };
