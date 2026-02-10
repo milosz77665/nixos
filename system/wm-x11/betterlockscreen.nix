@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
-  security.pam.services.betterlockscreen = { };
+  programs.i3lock = {
+    enable = true;
+    package = pkgs.i3lock-color;
+  };
 
-  environment.systemPackages = with pkgs; [
-    betterlockscreen
+  environment.systemPackages = [
+    pkgs.betterlockscreen
   ];
 }
