@@ -1,6 +1,6 @@
 {
   services.udiskie = {
     enable = true;
-    tray = "auto";
+    tray = "always";
   };
 }
