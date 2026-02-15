@@ -6,7 +6,7 @@ from ..variables import FAST_UPDATE_INTERVAL, TOOLTIP_DEFAULTS, ASSETS_PATH
 from ..services.BatteryService import battery_service
 
 
-class BatteryWidget(base.ThreadPoolText, TooltipMixin):
+class BatteryWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)

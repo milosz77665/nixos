@@ -7,7 +7,7 @@ from ..variables import AUDIO_APP, TOOLTIP_DEFAULTS
 from ..services.MicService import mic_service
 
 
-class MicWidget(base.ThreadPoolText, TooltipMixin):
+class MicWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)

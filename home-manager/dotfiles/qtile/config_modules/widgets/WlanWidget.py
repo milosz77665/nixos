@@ -12,7 +12,7 @@ from ..services.WlanService import wlan_service
 from ..services.AirplaneModeService import airplane_mode_service
 
 
-class WlanWidget(base.ThreadPoolText, TooltipMixin):
+class WlanWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)

@@ -7,7 +7,7 @@ from ..variables import AUDIO_APP, TOOLTIP_DEFAULTS
 from ..services.VolumeService import volume_service
 
 
-class VolumeWidget(base.ThreadPoolText, TooltipMixin):
+class VolumeWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)

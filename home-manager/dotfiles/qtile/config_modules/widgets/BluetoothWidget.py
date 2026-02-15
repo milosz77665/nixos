@@ -11,7 +11,7 @@ from ..services.BluetoothService import bt_service
 from ..services.AirplaneModeService import airplane_mode_service
 
 
-class BluetoothWidget(base.ThreadPoolText, TooltipMixin):
+class BluetoothWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)

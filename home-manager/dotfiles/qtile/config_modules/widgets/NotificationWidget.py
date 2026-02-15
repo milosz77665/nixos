@@ -5,7 +5,7 @@ from ..variables import FAST_UPDATE_INTERVAL, TOOLTIP_DEFAULTS
 from ..services.NotificationService import notification_service
 
 
-class NotificationWidget(base.ThreadPoolText, TooltipMixin):
+class NotificationWidget(base.BackgroundPoll, TooltipMixin):
     def __init__(self, **config):
         super().__init__("", **config)
         TooltipMixin.__init__(self, **config)
