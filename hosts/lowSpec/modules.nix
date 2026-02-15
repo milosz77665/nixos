@@ -13,6 +13,7 @@
     ../../home-manager/programs/browsers/brave.nix
     ../../home-manager/programs/cli-tools/atuin.nix
     ../../home-manager/programs/cli-tools/yazi.nix
+    ../../home-manager/programs/cli-tools/lazygit.nix
     ../../home-manager/programs/dev/vscode.nix
     ../../home-manager/programs/disk/baobab.nix
     ../../home-manager/programs/disk/gnome-disk-utility.nix

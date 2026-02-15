@@ -20,6 +20,7 @@
     ../../home-manager/programs/cli-tools/atuin.nix
     ../../home-manager/programs/cli-tools/lazydocker.nix
     ../../home-manager/programs/cli-tools/yazi.nix
+    ../../home-manager/programs/cli-tools/lazygit.nix
     ../../home-manager/programs/communicators/discord.nix
     ../../home-manager/programs/dev/drawio.nix
     ../../home-manager/programs/dev/postman.nix
