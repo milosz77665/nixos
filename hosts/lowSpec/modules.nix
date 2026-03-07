@@ -35,6 +35,7 @@
     ../../home-manager/programs/tools/qalculate.nix
     ../../home-manager/programs/tools/zathura.nix
     ../../home-manager/programs/wm-x11/feh.nix
+    ../../home-manager/programs/wm-x11/high-dpi.nix
     ../../home-manager/programs/wm-x11/picom.nix
     ../../home-manager/programs/wm-x11/pywal.nix
     ../../home-manager/programs/wm-x11/qtile.nix
