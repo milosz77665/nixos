@@ -9,6 +9,7 @@
     ./enable-flakes.nix
     ./i18n.nix
     ./network.nix
+    ./printing.nix
     ./sddm.nix
     ./secrets.nix
     ./user.nix
