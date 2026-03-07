@@ -3,6 +3,8 @@
   gtk = {
     enable = true;
 
+    colorScheme = "dark";
+
     theme = {
       name = "Dracula";
       package = pkgs.dracula-theme;
@@ -14,9 +16,9 @@
     };
 
     font = {
-      name = "Fira Sans";
+      name = "JetBrainsMono Nerd Font";
       size = 11;
-      package = pkgs.fira;
+      package = pkgs.nerd-fonts.jetbrains-mono;
     };
 
     cursorTheme = {
