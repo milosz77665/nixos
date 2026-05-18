@@ -252,6 +252,12 @@ keys = [
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+
+    Key([MOD], "left", lazy.layout.left(), desc="Move focus to left"),
+    Key([MOD], "right", lazy.layout.right(), desc="Move focus to right"),
+    Key([MOD], "down", lazy.layout.down(), desc="Move focus down"),
+    Key([MOD], "up", lazy.layout.up(), desc="Move focus up"),
+
     Key([MOD], "space", lazy.layout.next(), desc="Move window focus to other window"),
     #############################
     ######### Move Wins #########
@@ -269,6 +275,18 @@ keys = [
     ),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+
+    Key(
+        [MOD, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [MOD, "shift"],
+        "right",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
+    Key([MOD, "shift"], "down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([MOD, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
     #############################
     ######### Grow Wins #########
     #############################
@@ -280,6 +298,14 @@ keys = [
     ),
     Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+
+    Key([MOD, "control"], "left", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key(
+        [MOD, "control"], "right", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
+    Key([MOD, "control"], "down", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, "control"], "up", lazy.layout.grow_up(), desc="Grow window up"),
+
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     #############################
     ##### Split vs Unsplit ######
