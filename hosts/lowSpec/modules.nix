@@ -15,6 +15,9 @@
     ../../home-manager/programs/cli-tools/yazi.nix
     ../../home-manager/programs/cli-tools/lazygit.nix
     ../../home-manager/programs/dev/vscode.nix
+    ../../home-manager/programs/dev/neovim.nix
+    ../../home-manager/programs/dev/languages/go.nix
+    ../../home-manager/programs/dev/languages/nodejs.nix
     ../../home-manager/programs/disk/baobab.nix
     ../../home-manager/programs/disk/gnome-disk-utility.nix
     ../../home-manager/programs/disk/udiskie.nix
