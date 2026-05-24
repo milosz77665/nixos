@@ -6,6 +6,11 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -14,11 +19,13 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      nix-on-droid,
     }:
     let
       userConfig = import ./vars;
       mainModules = import ./hosts/main/modules.nix;
       lowSpecModules = import ./hosts/lowSpec/modules.nix;
+      nixOnDroidModules = import ./hosts/nixOnDroid/modules.nix;
 
       mkSystem =
         {
@@ -71,6 +78,55 @@
           ]
           ++ extraSystemModules;
         };
+
+      mkNixOnDroid =
+        {
+          hostName,
+          system ? "aarch64-linux",
+          userConfig,
+          extraHomeModules ? [ ],
+        }:
+
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          
+          pkgsUnstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+
+        nix-on-droid.lib.nixOnDroidConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = {
+            inherit userConfig;
+            inherit hostName;
+            inherit pkgsUnstable;
+          };
+
+          modules = [
+            ./hosts/${hostName}/nix-on-droid.nix
+            {
+              home-manager.config = {
+                _module.args = {
+                  inherit userConfig;
+                  inherit hostName;
+                  inherit pkgsUnstable;
+                };
+                
+                imports = [
+                  ./home-manager
+                  ./home-manager/common
+                ]
+                ++ extraHomeModules;
+              };
+            }
+          ];
+        };
     in
     {
       nixosConfigurations = {
@@ -87,5 +143,14 @@
           extraHomeModules = lowSpecModules.home;
         };
       };
-    };
+
+      nixOnDroidConfigurations = {
+        nixOnDroid = mkNixOnDroid {
+          hostName = "nixOnDroid";
+          system = "aarch64-linux";
+          inherit userConfig;
+          extraHomeModules = nixOnDroidModules.home;
+       };
+     };
+   };
 }
