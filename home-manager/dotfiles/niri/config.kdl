@@ -37,7 +37,7 @@ binds {
         quit
     }
     Mod+Alt+L {
-        spawn "swaylock" "-f" "-c" "000000"
+        spawn "swaylock" "-f" "-i" "/home/milosz/wallpapers/fog.jpg"
     }
     XF86MonBrightnessUp allow-when-locked=true {
         spawn "brightnessctl" "set" "5%+"

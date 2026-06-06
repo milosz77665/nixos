@@ -5,6 +5,7 @@
     ../../system/tools/timeshift.nix
     ../../system/wm-x11/betterlockscreen.nix
     ../../system/wm-x11/qtile.nix
+    ../../system/wm-wayland/swaylock.nix
     ../../system/wm-wayland/niri.nix
   ];
 
@@ -52,6 +53,7 @@
     ../../home-manager/programs/wm-wayland/flameshot.nix
     ../../home-manager/programs/wm-wayland/wl-clipboard.nix
     ../../home-manager/programs/wm-wayland/swaync.nix
+    ../../home-manager/programs/wm-wayland/swaylock.nix
     ../../home-manager/programs/wm-wayland/waybar.nix
     ../../home-manager/programs/wm-wayland/niri.nix
     ../../home-manager/programs/wm-wayland/ozone-fix.nix
