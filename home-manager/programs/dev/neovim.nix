@@ -1,4 +1,4 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     neovim
@@ -9,8 +9,10 @@
     vue-language-server
     lua-language-server
     nixd
+    vscode-langservers-extracted
     # Formatters
     stylua
     nixfmt-rfc-style
+    kdlfmt
   ];
 }
