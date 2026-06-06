@@ -24,6 +24,7 @@
     ../../home-manager/programs/disk/udiskie.nix
     ../../home-manager/programs/file-managers/nemo.nix
     ../../home-manager/programs/music/spotify.nix
+    ../../home-manager/programs/network/network-manager.nix
     ../../home-manager/programs/notes/gnome-text-editor.nix
     ../../home-manager/programs/notes/obsidian.nix
     ../../home-manager/programs/notifications/dunst.nix
