@@ -5,6 +5,7 @@
     ../../system/tools/timeshift.nix
     ../../system/wm-x11/betterlockscreen.nix
     ../../system/wm-x11/qtile.nix
+    ../../system/wm-wayland/niri.nix
   ];
 
   home = [
@@ -46,6 +47,7 @@
     ../../home-manager/programs/wm-x11/rofi.nix
     ../../home-manager/programs/wm-x11/arandr.nix
     ../../home-manager/programs/wm-x11/xclip.nix
+    ../../home-manager/programs/wm-wayland/niri.nix
     ../../home-manager/programs/gtk.nix
     ../../home-manager/programs/wallpapers.nix
   ];
