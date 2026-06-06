@@ -49,6 +49,7 @@
     ../../home-manager/programs/wm-x11/xclip.nix
     ../../home-manager/programs/wm-wayland/fuzzel.nix
     ../../home-manager/programs/wm-wayland/swaybg.nix
+    ../../home-manager/programs/wm-wayland/wl-clipboard.nix
     ../../home-manager/programs/wm-wayland/swaync.nix
     ../../home-manager/programs/wm-wayland/waybar.nix
     ../../home-manager/programs/wm-wayland/niri.nix
