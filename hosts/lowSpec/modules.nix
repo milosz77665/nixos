@@ -52,6 +52,7 @@
     ../../home-manager/programs/wm-wayland/swaybg.nix
     ../../home-manager/programs/wm-wayland/flameshot.nix
     ../../home-manager/programs/wm-wayland/wl-clipboard.nix
+    ../../home-manager/programs/wm-wayland/wdisplays.nix
     ../../home-manager/programs/wm-wayland/swaync.nix
     ../../home-manager/programs/wm-wayland/swaylock.nix
     ../../home-manager/programs/wm-wayland/waybar.nix
