@@ -42,7 +42,6 @@
     ../../home-manager/programs/terminals/alacritty.nix
     ../../home-manager/programs/terminals/ghostty.nix
     ../../home-manager/programs/tools/evince.nix
-    ../../home-manager/programs/tools/flameshot.nix
     ../../home-manager/programs/tools/gimp.nix
     ../../home-manager/programs/tools/gnome-system-monitor.nix
     ../../home-manager/programs/tools/libreoffice.nix
@@ -51,6 +50,7 @@
     ../../home-manager/programs/tools/qbittorrent.nix
     ../../home-manager/programs/tools/zathura.nix
     ../../home-manager/programs/wm-x11/feh.nix
+    ../../home-manager/programs/wm-x11/flameshot.nix
     ../../home-manager/programs/wm-x11/picom.nix
     ../../home-manager/programs/wm-x11/pywal.nix
     ../../home-manager/programs/wm-x11/qtile.nix

@@ -34,7 +34,6 @@
     ../../home-manager/programs/terminals/alacritty.nix
     ../../home-manager/programs/terminals/ghostty.nix
     ../../home-manager/programs/tools/evince.nix
-    ../../home-manager/programs/tools/flameshot.nix
     ../../home-manager/programs/tools/libreoffice.nix
     ../../home-manager/programs/tools/okular.nix
     ../../home-manager/programs/tools/qalculate.nix
