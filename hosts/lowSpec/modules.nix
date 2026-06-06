@@ -53,6 +53,7 @@
     ../../home-manager/programs/wm-wayland/swaync.nix
     ../../home-manager/programs/wm-wayland/waybar.nix
     ../../home-manager/programs/wm-wayland/niri.nix
+    ../../home-manager/programs/wm-wayland/ozone-fix.nix
     ../../home-manager/programs/gtk.nix
     ../../home-manager/programs/wallpapers.nix
   ];
