@@ -4,6 +4,5 @@
     ./fonts.nix
     ./core-packages.nix
     ./xdg.nix
-    ./wallpapers.nix
   ];
 }

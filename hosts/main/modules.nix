@@ -57,5 +57,6 @@
     ../../home-manager/programs/wm-x11/rofi.nix
     ../../home-manager/programs/wm-x11/x11-packages.nix
     ../../home-manager/programs/gtk.nix
+    ../../home-manager/programs/wallpapers.nix
   ];
 }
