@@ -1,0 +1,25 @@
+{
+    home = [
+    ../../home-manager/programs/cli-tools/lazygit.nix
+    ../../home-manager/programs/cli-tools/yazi.nix
+    ../../home-manager/programs/cli-tools/atuin.nix
+    ../../home-manager/programs/cli-tools/starship.nix
+    ../../home-manager/programs/shells/bash.nix
+    ../../home-manager/programs/dev/neovim.nix
+    ../../home-manager/programs/file-managers/nemo.nix
+    ../../home-manager/programs/network/network-manager.nix
+    ../../home-manager/programs/terminals/ghostty.nix
+    ../../home-manager/programs/wm-wayland/fuzzel.nix
+    ../../home-manager/programs/wm-wayland/swaybg.nix
+    ../../home-manager/programs/wm-wayland/flameshot.nix
+    ../../home-manager/programs/wm-wayland/wl-clipboard.nix
+    ../../home-manager/programs/wm-wayland/wdisplays.nix
+    ../../home-manager/programs/wm-wayland/swaync.nix
+    ../../home-manager/programs/wm-wayland/swaylock.nix
+    ../../home-manager/programs/wm-wayland/waybar.nix
+    ../../home-manager/programs/wm-wayland/niri.nix
+    ../../home-manager/programs/wm-wayland/ozone-fix.nix
+    ../../home-manager/programs/gtk.nix
+    ../../home-manager/programs/wallpapers.nix
+  ];
+}

@@ -26,6 +26,7 @@
       mainModules = import ./hosts/main/modules.nix;
       lowSpecModules = import ./hosts/lowSpec/modules.nix;
       nixOnDroidModules = import ./hosts/nixOnDroid/modules.nix;
+      homeModules = import ./hosts/home/modules.nix;
 
       mkSystem =
         {
@@ -126,6 +127,43 @@
               };
             }
           ];
+        };
+
+
+        mkHome =
+        {
+          hostName,
+          system ? "x86_64-linux",
+          userConfig,
+          extraHomeModules ? [ ],
+        }:
+
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          pkgsUnstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          extraSpecialArgs = {
+            inherit userConfig;
+            inherit hostName;
+            inherit pkgsUnstable;
+          };
+
+          modules = [
+	  { targets.genericLinux.enable = true; }
+            ./home-manager
+            ./home-manager/common
+          ] ++ extraHomeModules;
         };
     in
     {
