@@ -6,7 +6,6 @@
     ../../system/wm-x11/betterlockscreen.nix
     ../../system/wm-x11/qtile.nix
     ../../system/wm-wayland/swaylock.nix
-    ../../system/wm-wayland/niri.nix
   ];
 
   home = [
