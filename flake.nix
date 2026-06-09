@@ -43,7 +43,7 @@
             config.allowUnfree = true;
           };
         in
-        
+
         nixpkgs.lib.nixosSystem {
           inherit system;
 
@@ -93,7 +93,7 @@
             inherit system;
             config.allowUnfree = true;
           };
-          
+
           pkgsUnstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
@@ -111,6 +111,7 @@
 
           modules = [
             ./hosts/${hostName}/nix-on-droid.nix
+            ./home-manager/programs/nix-on-droid/theme.nix
             {
               home-manager.config = {
                 _module.args = {
@@ -118,7 +119,7 @@
                   inherit hostName;
                   inherit pkgsUnstable;
                 };
-                
+
                 imports = [
                   ./home-manager
                   ./home-manager/common
@@ -188,7 +189,7 @@
           system = "aarch64-linux";
           inherit userConfig;
           extraHomeModules = nixOnDroidModules.home;
-       };
-     };
-   };
+        };
+      };
+    };
 }
