@@ -1,10 +1,24 @@
 {
-  programs.steam = {
-    enable = true;
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.sys.gaming.steam;
+in
+{
+  options.sys.gaming.steam = {
+    enable = lib.mkEnableOption "Steam";
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  config = lib.mkIf cfg.enable {
+    programs.steam = {
+      enable = true;
+    };
+
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 }
