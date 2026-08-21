@@ -13,5 +13,15 @@
     ./sddm.nix
     ./secrets.nix
     ./user.nix
+    ./gaming/steam.nix
+    ./tools/docker.nix
+    ./tools/timeshift.nix
+    ./tools/virtualbox.nix
+    ./tools/wireshark.nix
+    ./browser-policies/brave.nix
+    ./browser-policies/chrome.nix
+    ./wm-wayland/swaylock.nix
+    ./wm-x11/betterlockscreen.nix
+    ./wm-x11/qtile.nix
   ];
 }
