@@ -1,37 +1,50 @@
 {
-  programs.starship = {
-    enable = true;
-    enableBashIntegration = true;
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.usr.cli-tools.starship;
+in
+{
+  options.usr.cli-tools.starship = {
+    enable = lib.mkEnableOption "Starship";
+  };
 
-    settings = {
-      add_newline = true;
+  config = lib.mkIf cfg.enable {
+    programs.starship = {
+      enable = true;
+      enableBashIntegration = true;
 
-      format = "$directory$git_branch$git_status$line_break$character";
+      settings = {
+        add_newline = true;
 
-      directory = {
-        truncation_length = 1;
-        truncate_to_repo = false;
-        format = "[$path](bold cyan)";
-      };
+        format = "$directory$git_branch$git_status$line_break$character";
 
-      git_branch = {
-        format = " [on](white) [$branch](bold purple)";
-        ignore_branches = ["HEAD"];
-      };
+        directory = {
+          truncation_length = 1;
+          truncate_to_repo = false;
+          format = "[$path](bold cyan)";
+        };
 
-      git_status = {
-        format = " $ahead_behind";
-        ahead = "[\${count}](blue)[⇡](white)";
-        behind = "[\${count}](yellow)[⇣](white)";
-        diverged = "[\${ahead_count}](blue)[⇡](white) [\${behind_count}](yellow)[⇣](white)";
-        up_to_date = "";
-      };
+        git_branch = {
+          format = " [on](white) [$branch](bold purple)";
+          ignore_branches = [ "HEAD" ];
+        };
 
-      character = {
-        success_symbol = "[❯](bold green) ";
-        error_symbol = "[❯](bold red) ";
+        git_status = {
+          format = " $ahead_behind";
+          ahead = "[\${count}](blue)[⇡](white)";
+          behind = "[\${count}](yellow)[⇣](white)";
+          diverged = "[\${ahead_count}](blue)[⇡](white) [\${behind_count}](yellow)[⇣](white)";
+          up_to_date = "";
+        };
+
+        character = {
+          success_symbol = "[❯](bold green) ";
+          error_symbol = "[❯](bold red) ";
+        };
       };
     };
   };
 }
-
