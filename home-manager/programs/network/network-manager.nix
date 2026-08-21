@@ -1,8 +1,22 @@
-{ pkgs, ... }:
 {
-  services.network-manager-applet.enable = true;
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.usr.network.network-manager;
+in
+{
+  options.usr.network.network-manager = {
+    enable = lib.mkEnableOption "Network Manager";
+  };
 
-  home.packages = with pkgs; [
-    networkmanagerapplet
-  ];
+  config = lib.mkIf cfg.enable {
+    services.network-manager-applet.enable = true;
+
+    home.packages = with pkgs; [
+      networkmanagerapplet
+    ];
+  };
 }
