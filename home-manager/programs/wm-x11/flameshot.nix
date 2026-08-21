@@ -1,16 +1,32 @@
-{ pkgs, userConfig, ... }:
 {
-  services.flameshot = {
-    enable = true;
-    package = pkgs.flameshot;
+  config,
+  lib,
+  pkgs,
+  userConfig,
+  ...
+}:
+let
+  cfg = config.usr.wm-x11.flameshot;
+in
+{
+  options.usr.wm-x11.flameshot = {
+    enable = lib.mkEnableOption "Flameshot";
+  };
 
-    settings = {
-      General = {
-        disabledTrayIcon = true;
-        showStartupLaunchMessage = false;
-        savePath = "${userConfig.homeDirectory}/Pictures/Screenshots";
-        savePathFixed = true;
+  config = lib.mkIf cfg.enable {
+    services.flameshot = {
+      enable = true;
+      package = pkgs.flameshot;
+
+      settings = {
+        General = {
+          disabledTrayIcon = true;
+          showStartupLaunchMessage = false;
+          savePath = "${userConfig.homeDirectory}/Pictures/Screenshots";
+          savePathFixed = true;
+        };
       };
     };
+
   };
 }
