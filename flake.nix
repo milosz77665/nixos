@@ -23,18 +23,12 @@
     }:
     let
       userConfig = import ./vars;
-      mainModules = import ./hosts/main/modules.nix;
-      lowSpecModules = import ./hosts/lowSpec/modules.nix;
-      nixOnDroidModules = import ./hosts/nixOnDroid/modules.nix;
-      homeModules = import ./hosts/home/modules.nix;
 
       mkSystem =
         {
           hostName,
           system ? "x86_64-linux",
           userConfig,
-          extraSystemModules ? [ ],
-          extraHomeModules ? [ ],
         }:
 
         let
@@ -55,6 +49,7 @@
 
           modules = [
             ./hosts/${hostName}/configuration.nix
+            ./hosts/${hostName}/modules.nix
             ./system
             home-manager.nixosModules.home-manager
             {
@@ -71,13 +66,11 @@
                 {
                   imports = [
                     ./home-manager
-                    ./home-manager/common
-                  ]
-                  ++ extraHomeModules;
+                    ./home-manager/programs
+                  ];
                 };
             }
-          ]
-          ++ extraSystemModules;
+          ];
         };
 
       mkNixOnDroid =
@@ -85,7 +78,6 @@
           hostName,
           system ? "aarch64-linux",
           userConfig,
-          extraHomeModules ? [ ],
         }:
 
         let
@@ -111,7 +103,7 @@
 
           modules = [
             ./hosts/${hostName}/nix-on-droid.nix
-            ./home-manager/programs/nix-on-droid/theme.nix
+            ./hosts/${hostName}/modules.nix
             {
               home-manager.config = {
                 _module.args = {
@@ -122,21 +114,18 @@
 
                 imports = [
                   ./home-manager
-                  ./home-manager/common
-                ]
-                ++ extraHomeModules;
+                  ./home-manager/programs
+                ];
               };
             }
           ];
         };
 
-
-        mkHome =
+      mkHome =
         {
           hostName,
           system ? "x86_64-linux",
           userConfig,
-          extraHomeModules ? [ ],
         }:
 
         let
@@ -161,10 +150,11 @@
           };
 
           modules = [
-	  { targets.genericLinux.enable = true; }
+            { targets.genericLinux.enable = true; }
             ./home-manager
-            ./home-manager/common
-          ] ++ extraHomeModules;
+            ./hosts/${hostName}/modules.nix
+            ./home-manager/programs
+          ];
         };
     in
     {
@@ -172,14 +162,10 @@
         main = mkSystem {
           hostName = "main";
           inherit userConfig;
-          extraSystemModules = mainModules.system;
-          extraHomeModules = mainModules.home;
         };
         lowSpec = mkSystem {
           hostName = "lowSpec";
           inherit userConfig;
-          extraSystemModules = lowSpecModules.system;
-          extraHomeModules = lowSpecModules.home;
         };
       };
 
@@ -188,7 +174,6 @@
           hostName = "nixOnDroid";
           system = "aarch64-linux";
           inherit userConfig;
-          extraHomeModules = nixOnDroidModules.home;
         };
       };
     };
