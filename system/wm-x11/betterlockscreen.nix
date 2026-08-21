@@ -1,11 +1,25 @@
-{ pkgs, ... }:
 {
-  programs.i3lock = {
-    enable = true;
-    package = pkgs.i3lock-color;
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.sys.wm-x11.betterlockscreen;
+in
+{
+  options.sys.wm-wayland.betterlockscreen = {
+    enable = lib.mkEnableOption "Betterlockscreen";
   };
 
-  environment.systemPackages = [
-    pkgs.betterlockscreen
-  ];
+  config = lib.mkIf cfg.enable {
+    programs.i3lock = {
+      enable = true;
+      package = pkgs.i3lock-color;
+    };
+
+    environment.systemPackages = [
+      pkgs.betterlockscreen
+    ];
+  };
 }
