@@ -1,10 +1,24 @@
-{ pkgs, ... }:
 {
-  services.gnome.gnome-keyring.enable = true;
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.sys.secrets;
+in
+{
+  options.sys.secrets = {
+    enable = lib.mkEnableOption "Secrets";
+  };
 
-  security.polkit.enable = true;
+  config = lib.mkIf cfg.enable {
+    services.gnome.gnome-keyring.enable = true;
 
-  security.pam.services.login.enableGnomeKeyring = true;
+    security.polkit.enable = true;
 
-  environment.systemPackages = [ pkgs.libsecret ];
+    security.pam.services.login.enableGnomeKeyring = true;
+
+    environment.systemPackages = [ pkgs.libsecret ];
+  };
 }
