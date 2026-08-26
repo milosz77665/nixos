@@ -8,7 +8,7 @@ let
   cfg = config.sys.wm-x11.betterlockscreen;
 in
 {
-  options.sys.wm-wayland.betterlockscreen = {
+  options.sys.wm-x11.betterlockscreen = {
     enable = lib.mkEnableOption "Betterlockscreen";
   };
 

@@ -8,7 +8,7 @@ let
   cfg = config.sys.wm-x11.qtile;
 in
 {
-  options.sys.wm-wayland.qtile = {
+  options.sys.wm-x11.qtile = {
     enable = lib.mkEnableOption "Qtile";
   };
 
