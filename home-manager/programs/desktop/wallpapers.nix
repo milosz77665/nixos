@@ -13,7 +13,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.file."wallpapers" = {
-      source = ../wallpapers;
+      source = ../../wallpapers;
       recursive = true;
     };
   };
