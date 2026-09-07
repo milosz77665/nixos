@@ -167,6 +167,14 @@
           hostName = "lowSpec";
           inherit userConfig;
         };
+        testWayland = mkSystem {
+          hostName = "testWayland";
+          userConfig = import ./vars/default.example.nix;
+        };
+        testX11 = mkSystem {
+          hostName = "testX11";
+          userConfig = import ./vars/default.example.nix;
+        };
       };
 
       nixOnDroidConfigurations = {
