@@ -1,63 +1,71 @@
+{ userConfig, ... }:
 {
-  system = [
-    ../../system/browser-policies/brave.nix
-    ../../system/tools/wireshark.nix
-    ../../system/tools/timeshift.nix
-    ../../system/wm-x11/betterlockscreen.nix
-    ../../system/wm-x11/qtile.nix
-    ../../system/wm-wayland/swaylock.nix
-  ];
+  sys = {
+    browser-policies.brave.enable = true;
+    tools.timeshift.enable = true;
+    tools.wireshark.enable = true;
+    wm-wayland.swaylock.enable = true;
+    audio.enable = true;
+    battery.enable = true;
+    bluetooth.enable = true;
+    disk-utils.enable = true;
+    network.enable = true;
+    printing.hp.enable = true;
+    display-managers.sddm.enable = true;
+    secrets.enable = true;
+  };
 
-  home = [
-    ../../home-manager/programs/audio/pavucontrol.nix
-    ../../home-manager/programs/battery/acpi.nix
-    ../../home-manager/programs/browsers/brave.nix
-    ../../home-manager/programs/cli-tools/atuin.nix
-    ../../home-manager/programs/cli-tools/yazi.nix
-    ../../home-manager/programs/cli-tools/lazygit.nix
-    ../../home-manager/programs/cli-tools/starship.nix
-    ../../home-manager/programs/dev/vscode.nix
-    ../../home-manager/programs/dev/neovim.nix
-    ../../home-manager/programs/dev/languages/go.nix
-    ../../home-manager/programs/dev/languages/nodejs.nix
-    ../../home-manager/programs/disk/baobab.nix
-    ../../home-manager/programs/disk/gnome-disk-utility.nix
-    ../../home-manager/programs/disk/udiskie.nix
-    ../../home-manager/programs/file-managers/nemo.nix
-    ../../home-manager/programs/music/spotify.nix
-    ../../home-manager/programs/network/network-manager.nix
-    ../../home-manager/programs/notes/gnome-text-editor.nix
-    ../../home-manager/programs/notes/obsidian.nix
-    ../../home-manager/programs/notifications/dunst.nix
-    ../../home-manager/programs/secrets/polkit-gnome.nix
-    ../../home-manager/programs/secrets/seahorse.nix
-    ../../home-manager/programs/shells/bash.nix
-    ../../home-manager/programs/terminals/alacritty.nix
-    ../../home-manager/programs/terminals/ghostty.nix
-    ../../home-manager/programs/tools/evince.nix
-    ../../home-manager/programs/tools/libreoffice.nix
-    ../../home-manager/programs/tools/okular.nix
-    ../../home-manager/programs/tools/qalculate.nix
-    ../../home-manager/programs/tools/zathura.nix
-    ../../home-manager/programs/wm-x11/feh.nix
-    ../../home-manager/programs/wm-x11/high-dpi.nix
-    ../../home-manager/programs/wm-x11/picom.nix
-    ../../home-manager/programs/wm-x11/pywal.nix
-    ../../home-manager/programs/wm-x11/qtile.nix
-    ../../home-manager/programs/wm-x11/rofi.nix
-    ../../home-manager/programs/wm-x11/arandr.nix
-    ../../home-manager/programs/wm-x11/xclip.nix
-    ../../home-manager/programs/wm-wayland/fuzzel.nix
-    ../../home-manager/programs/wm-wayland/swaybg.nix
-    ../../home-manager/programs/wm-wayland/flameshot.nix
-    ../../home-manager/programs/wm-wayland/wl-clipboard.nix
-    ../../home-manager/programs/wm-wayland/wdisplays.nix
-    ../../home-manager/programs/wm-wayland/swaync.nix
-    ../../home-manager/programs/wm-wayland/swaylock.nix
-    ../../home-manager/programs/wm-wayland/waybar.nix
-    ../../home-manager/programs/wm-wayland/niri.nix
-    ../../home-manager/programs/wm-wayland/ozone-fix.nix
-    ../../home-manager/programs/gtk.nix
-    ../../home-manager/programs/wallpapers.nix
-  ];
+  home-manager.users.${userConfig.user.name}.usr = {
+    audio.pavucontrol.enable = true;
+    battery.acpi.enable = true;
+    browser.brave.enable = true;
+    cli-tools.atuin.enable = true;
+    cli-tools.lazygit.enable = true;
+    cli-tools.starship.enable = true;
+    cli-tools.yazi.enable = true;
+    cli-tools.zellij.enable = true;
+    core.packages.enable = true;
+    desktop.fonts.enable = true;
+    gtk.enable = true;
+    desktop.wallpapers.enable = true;
+    desktop.xdg.enable = true;
+    dev.direnv.enable = true;
+    dev.git.enable = true;
+    dev.neovim.enable = true;
+    dev.vscode.enable = true;
+    dev-languages.go.enable = true;
+    dev-languages.nodejs.enable = true;
+    disk.baobab.enable = true;
+    disk.gnome-disk-utility.enable = true;
+    disk.udiskie.enable = true;
+    file-managers.nemo.enable = true;
+    music.spotify.enable = true;
+    network.network-manager.enable = true;
+    notes.gnome-text-editor.enable = true;
+    notes.obsidian.enable = true;
+    notifications.dunst.enable = true;
+    secrets.polkit-gnome.enable = true;
+    secrets.seahorse.enable = true;
+    shells.bash.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
+    tools.evince.enable = true;
+    tools.gimp.enable = true;
+    tools.gnome-system-monitor.enable = true;
+    tools.libreoffice.enable = true;
+    tools.okular.enable = true;
+    tools.qalculate.enable = true;
+    tools.qbittorrent.enable = true;
+    tools.zathura.enable = true;
+    wm-wayland.fuzzel.enable = true;
+    wm-wayland.swaybg.enable = true;
+    wm-wayland.flameshot.enable = true;
+    wm-wayland.clipboard.enable = true;
+    wm-wayland.wdisplays.enable = true;
+    wm-wayland.swaync.enable = true;
+    wm-wayland.swaylock.enable = true;
+    wm-wayland.waybar.enable = true;
+    wm-wayland.niri.enable = true;
+    wm-wayland.ozone.enable = true;
+  };
 }
