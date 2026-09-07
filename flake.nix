@@ -28,7 +28,7 @@
         {
           hostName,
           system ? "x86_64-linux",
-          userConfig,
+          userConfig ? import ./vars/default.example.nix,
         }:
 
         let
@@ -77,7 +77,7 @@
         {
           hostName,
           system ? "aarch64-linux",
-          userConfig,
+          userConfig ? import ./vars/default.example.nix,
         }:
 
         let
@@ -125,7 +125,7 @@
         {
           hostName,
           system ? "x86_64-linux",
-          userConfig,
+          userConfig ? import ./vars/default.example.nix,
         }:
 
         let
@@ -169,11 +169,11 @@
         };
         testWayland = mkSystem {
           hostName = "testWayland";
-          userConfig = import ./vars/default.example.nix;
+          inherit userConfig;
         };
         testX11 = mkSystem {
           hostName = "testX11";
-          userConfig = import ./vars/default.example.nix;
+          inherit userConfig;
         };
       };
 
