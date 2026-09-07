@@ -1,63 +1,83 @@
+{ userConfig, ... }:
 {
-  system = [
-    ../../system/browser-policies/brave.nix
-    ../../system/browser-policies/chrome.nix
-    ../../system/gaming/steam.nix
-    ../../system/tools/virtualbox.nix
-    ../../system/tools/wireshark.nix
-    ../../system/tools/timeshift.nix
-    ../../system/tools/docker.nix
-    ../../system/wm-x11/betterlockscreen.nix
-    ../../system/wm-x11/qtile.nix
-  ];
+  sys = {
+    browser-policies.brave.enable = true;
+    browser-policies.chrome.enable = true;
+    gaming.steam.enable = true;
+    tools.docker.enable = true;
+    tools.timeshift.enable = true;
+    tools.virtualbox.enable = true;
+    tools.wireshark.enable = true;
+    wm-x11.betterlockscreen.enable = true;
+    wm-x11.qtile.enable = true;
+    audio.enable = true;
+    battery.enable = true;
+    bluetooth.enable = true;
+    disk-utils.enable = true;
+    network.enable = true;
+    printing.hp.enable = true;
+    display-managers.sddm.enable = true;
+    secrets.enable = true;
+  };
 
-  home = [
-    ../../home-manager/programs/audio/pavucontrol.nix
-    ../../home-manager/programs/battery/acpi.nix
-    ../../home-manager/programs/browsers/brave.nix
-    ../../home-manager/programs/browsers/chrome.nix
-    ../../home-manager/programs/browsers/firefox.nix
-    ../../home-manager/programs/cli-tools/atuin.nix
-    ../../home-manager/programs/cli-tools/lazydocker.nix
-    ../../home-manager/programs/cli-tools/yazi.nix
-    ../../home-manager/programs/cli-tools/lazygit.nix
-    ../../home-manager/programs/communicators/discord.nix
-    ../../home-manager/programs/dev/drawio.nix
-    ../../home-manager/programs/dev/postman.nix
-    ../../home-manager/programs/dev/vscode.nix
-    ../../home-manager/programs/disk/baobab.nix
-    ../../home-manager/programs/disk/gnome-disk-utility.nix
-    ../../home-manager/programs/disk/udiskie.nix
-    ../../home-manager/programs/file-managers/nemo.nix
-    ../../home-manager/programs/gaming/heroic.nix
-    ../../home-manager/programs/gaming/lutris.nix
-    ../../home-manager/programs/gaming/wine.nix
-    ../../home-manager/programs/music/spotify.nix
-    ../../home-manager/programs/notes/gnome-text-editor.nix
-    ../../home-manager/programs/notes/obsidian.nix
-    ../../home-manager/programs/notifications/dunst.nix
-    ../../home-manager/programs/secrets/polkit-gnome.nix
-    ../../home-manager/programs/secrets/seahorse.nix
-    ../../home-manager/programs/shells/bash.nix
-    ../../home-manager/programs/terminals/alacritty.nix
-    ../../home-manager/programs/terminals/ghostty.nix
-    ../../home-manager/programs/tools/evince.nix
-    ../../home-manager/programs/tools/gimp.nix
-    ../../home-manager/programs/tools/gnome-system-monitor.nix
-    ../../home-manager/programs/tools/libreoffice.nix
-    ../../home-manager/programs/tools/okular.nix
-    ../../home-manager/programs/tools/qalculate.nix
-    ../../home-manager/programs/tools/qbittorrent.nix
-    ../../home-manager/programs/tools/zathura.nix
-    ../../home-manager/programs/wm-x11/feh.nix
-    ../../home-manager/programs/wm-x11/flameshot.nix
-    ../../home-manager/programs/wm-x11/picom.nix
-    ../../home-manager/programs/wm-x11/pywal.nix
-    ../../home-manager/programs/wm-x11/qtile.nix
-    ../../home-manager/programs/wm-x11/rofi.nix
-    ../../home-manager/programs/wm-x11/arandr.nix
-    ../../home-manager/programs/wm-x11/xclip.nix
-    ../../home-manager/programs/gtk.nix
-    ../../home-manager/programs/wallpapers.nix
-  ];
+  home-manager.users.${userConfig.user.name}.usr = {
+    audio.pavucontrol.enable = true;
+    battery.acpi.enable = true;
+    browser.brave.enable = true;
+    browser.chrome.enable = true;
+    browser.firefox.enable = true;
+    cli-tools.atuin.enable = true;
+    cli-tools.lazydocker.enable = true;
+    cli-tools.lazygit.enable = true;
+    cli-tools.starship.enable = true;
+    cli-tools.yazi.enable = true;
+    cli-tools.zellij.enable = true;
+    communicators.discord.enable = true;
+    core.packages.enable = true;
+    desktop.fonts.enable = true;
+    gtk.enable = true;
+    desktop.wallpapers.enable = true;
+    desktop.xdg.enable = true;
+    dev.direnv.enable = true;
+    dev.drawio.enable = true;
+    dev.git.enable = true;
+    dev.neovim.enable = true;
+    dev.postman.enable = true;
+    dev.vscode.enable = true;
+    dev-languages.nodejs.enable = true;
+    disk.baobab.enable = true;
+    disk.gnome-disk-utility.enable = true;
+    disk.udiskie.enable = true;
+    file-managers.nemo.enable = true;
+    gaming.heroic.enable = true;
+    gaming.lutris.enable = true;
+    gaming.wine.enable = true;
+    music.spotify.enable = true;
+    network.network-manager.enable = true;
+    notes.gnome-text-editor.enable = true;
+    notes.obsidian.enable = true;
+    notifications.dunst.enable = true;
+    secrets.polkit-gnome.enable = true;
+    secrets.seahorse.enable = true;
+    shells.bash.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
+    tools.evince.enable = true;
+    tools.gimp.enable = true;
+    tools.gnome-system-monitor.enable = true;
+    tools.libreoffice.enable = true;
+    tools.okular.enable = true;
+    tools.qalculate.enable = true;
+    tools.qbittorrent.enable = true;
+    tools.zathura.enable = true;
+    wm-x11.arandr.enable = true;
+    wm-x11.feh.enable = true;
+    wm-x11.flameshot.enable = true;
+    wm-x11.high-dpi.enable = true;
+    wm-x11.picom.enable = true;
+    wm-x11.pywal.enable = true;
+    wm-x11.qtile.enable = true;
+    wm-x11.rofi.enable = true;
+    wm-x11.xclip.enable = true;
+  };
 }
