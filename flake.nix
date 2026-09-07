@@ -22,13 +22,17 @@
       nix-on-droid,
     }:
     let
-      userConfig = import ./vars;
+      userConfig =
+        if builtins.pathExists ./vars/default.nix then
+          import ./vars/default.nix
+        else
+          import ./vars/default.example.nix;
 
       mkSystem =
         {
           hostName,
           system ? "x86_64-linux",
-          userConfig ? import ./vars/default.example.nix,
+          userConfig,
         }:
 
         let
@@ -77,7 +81,7 @@
         {
           hostName,
           system ? "aarch64-linux",
-          userConfig ? import ./vars/default.example.nix,
+          userConfig,
         }:
 
         let
@@ -125,7 +129,7 @@
         {
           hostName,
           system ? "x86_64-linux",
-          userConfig ? import ./vars/default.example.nix,
+          userConfig,
         }:
 
         let
