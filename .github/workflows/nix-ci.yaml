@@ -1,0 +1,27 @@
+name: Nix Configuration CI
+
+on:
+  push:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test-flake:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Check syntax and inputs (Flake Check)
+        run: nix flake check
+
+      - name: Evaluate testWayland (Dry Run)
+        run: nix build .#nixosConfigurations.testWayland.config.system.build.toplevel --dry-run
+
+      - name: Evaluate testX11 (Dry Run)
+        run: nix build .#nixosConfigurations.testX11.config.system.build.toplevel --dry-run
+
