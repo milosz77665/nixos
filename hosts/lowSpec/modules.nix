@@ -1,4 +1,4 @@
-{ userConfig, ... }:
+{ vars, ... }:
 {
   sys = {
     browser-policies.brave.enable = true;
@@ -15,7 +15,7 @@
     secrets.enable = true;
   };
 
-  home-manager.users.${userConfig.user.name}.usr = {
+  home-manager.users.${vars.user.name}.usr = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
     browser.brave.enable = true;

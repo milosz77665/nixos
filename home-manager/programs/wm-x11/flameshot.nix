@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  userConfig,
+  vars,
   ...
 }:
 let
@@ -22,7 +22,7 @@ in
         General = {
           disabledTrayIcon = true;
           showStartupLaunchMessage = false;
-          savePath = "${userConfig.homeDirectory}/Pictures/Screenshots";
+          savePath = "${vars.homeDirectory}/Pictures/Screenshots";
           savePathFixed = true;
         };
       };

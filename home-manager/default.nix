@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  userConfig,
+  vars,
   hostName,
   ...
 }:
@@ -9,8 +9,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = userConfig.user.name;
-    homeDirectory = userConfig.homeDirectory;
+    username = vars.user.name;
+    homeDirectory = vars.homeDirectory;
     stateVersion = "25.11";
   };
 }

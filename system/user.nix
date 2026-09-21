@@ -1,8 +1,8 @@
-{ userConfig, ... }:
+{ vars, ... }:
 {
-  users.users.${userConfig.user.name} = {
+  users.users.${vars.user.name} = {
     isNormalUser = true;
-    description = userConfig.user.fullName;
+    description = vars.user.fullName;
     extraGroups = [
       "networkmanager"
       "wheel"

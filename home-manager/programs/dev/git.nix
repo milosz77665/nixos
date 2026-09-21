@@ -1,5 +1,5 @@
 {
-  userConfig,
+  vars,
   config,
   lib,
   ...
@@ -16,8 +16,8 @@ in
     programs.git = {
       enable = true;
       settings.user = {
-        name = userConfig.git.username;
-        email = userConfig.git.email;
+        name = vars.git.username;
+        email = vars.git.email;
       };
     };
   };

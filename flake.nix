@@ -20,172 +20,35 @@
       nixpkgs-unstable,
       home-manager,
       nix-on-droid,
-    }:
+    }@inputs:
     let
-      userConfig =
-        if builtins.pathExists ./vars/default.nix then
-          import ./vars/default.nix
-        else
-          import ./vars/default.example.nix;
-
-      mkSystem =
-        {
-          hostName,
-          system ? "x86_64-linux",
-          userConfig,
-        }:
-
-        let
-          pkgsUnstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-
-          specialArgs = {
-            inherit userConfig;
-            inherit hostName;
-            inherit pkgsUnstable;
-          };
-
-          modules = [
-            ./hosts/${hostName}/configuration.nix
-            ./hosts/${hostName}/modules.nix
-            ./system
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bak";
-              home-manager.extraSpecialArgs = {
-                inherit userConfig;
-                inherit hostName;
-                inherit pkgsUnstable;
-              };
-              home-manager.users.${userConfig.user.name} =
-                { pkgs, ... }:
-                {
-                  imports = [
-                    ./home-manager
-                    ./home-manager/programs
-                  ];
-                };
-            }
-          ];
-        };
-
-      mkNixOnDroid =
-        {
-          hostName,
-          system ? "aarch64-linux",
-          userConfig,
-        }:
-
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          pkgsUnstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-
-        nix-on-droid.lib.nixOnDroidConfiguration {
-          inherit pkgs;
-
-          extraSpecialArgs = {
-            inherit userConfig;
-            inherit hostName;
-            inherit pkgsUnstable;
-          };
-
-          modules = [
-            ./hosts/${hostName}/nix-on-droid.nix
-            ./hosts/${hostName}/modules.nix
-            {
-              home-manager.config = {
-                _module.args = {
-                  inherit userConfig;
-                  inherit hostName;
-                  inherit pkgsUnstable;
-                };
-
-                imports = [
-                  ./home-manager
-                  ./home-manager/programs
-                ];
-              };
-            }
-          ];
-        };
-
-      mkHome =
-        {
-          hostName,
-          system ? "x86_64-linux",
-          userConfig,
-        }:
-
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          pkgsUnstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          extraSpecialArgs = {
-            inherit userConfig;
-            inherit hostName;
-            inherit pkgsUnstable;
-          };
-
-          modules = [
-            { targets.genericLinux.enable = true; }
-            ./home-manager
-            ./hosts/${hostName}/modules.nix
-            ./home-manager/programs
-          ];
-        };
+      localLib = import ./lib { inherit inputs; };
     in
     {
       nixosConfigurations = {
-        main = mkSystem {
+        main = localLib.builders.mkSystem {
           hostName = "main";
-          inherit userConfig;
         };
-        lowSpec = mkSystem {
+        lowSpec = localLib.builders.mkSystem {
           hostName = "lowSpec";
-          inherit userConfig;
         };
-        testWayland = mkSystem {
+
+        testWayland = localLib.builders.mkSystem {
           hostName = "testWayland";
-          inherit userConfig;
+          customModulesPath = ./hosts/test/wayland/modules.nix;
+          customConfigurationPath = ./hosts/test/wayland/configuration.nix;
         };
-        testX11 = mkSystem {
+        testX11 = localLib.builders.mkSystem {
           hostName = "testX11";
-          inherit userConfig;
+          customModulesPath = ./hosts/test/x11/modules.nix;
+          customConfigurationPath = ./hosts/test/x11/configuration.nix;
         };
       };
 
       nixOnDroidConfigurations = {
-        nixOnDroid = mkNixOnDroid {
+        nixOnDroid = localLib.builders.mkNixOnDroid {
           hostName = "nixOnDroid";
           system = "aarch64-linux";
-          inherit userConfig;
         };
       };
     };

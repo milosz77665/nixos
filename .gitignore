@@ -1,2 +1,2 @@
-vars/default.nix
-
+hosts/**/vars.nix
+!hosts/test/**/vars.nix
