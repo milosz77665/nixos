@@ -41,7 +41,6 @@ inputs.nixpkgs.lib.nixosSystem {
   };
 
   modules = [
-    ../../modules/core
     ../../modules/core/nixos
     (localLib.importers.mkModulesImporter {
       target = "system";
