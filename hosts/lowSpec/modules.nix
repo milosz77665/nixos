@@ -4,7 +4,6 @@
     browser-policies.brave.enable = true;
     tools.timeshift.enable = true;
     tools.wireshark.enable = true;
-    wm-wayland.swaylock.enable = true;
     audio.enable = true;
     battery.enable = true;
     bluetooth.enable = true;
@@ -24,7 +23,6 @@
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
-    core.packages.enable = true;
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;

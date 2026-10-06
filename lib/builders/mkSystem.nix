@@ -1,4 +1,4 @@
-{ inputs }:
+{ inputs, localLib }:
 {
   hostName,
   system ? "x86_64-linux",
@@ -6,8 +6,12 @@
   customModulesPath ? null,
   customConfigurationPath ? null,
 }:
-
 let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   vars =
     if customVarsPath != null then
       import customVarsPath
@@ -24,11 +28,6 @@ let
       customConfigurationPath
     else
       ../../hosts/${hostName}/configuration.nix;
-
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
 in
 
 inputs.nixpkgs.lib.nixosSystem {
@@ -36,14 +35,25 @@ inputs.nixpkgs.lib.nixosSystem {
 
   specialArgs = {
     inherit vars;
+    inherit localLib;
     inherit hostName;
     inherit pkgsUnstable;
   };
 
   modules = [
+    ../../modules/core
+    ../../modules/core/nixos
+    (localLib.importers.mkModulesImporter {
+      target = "system";
+      basePath = ../../modules/programs;
+      deep = true;
+    })
+    (localLib.importers.mkModulesImporter {
+      target = "system";
+      basePath = ../../modules/hardware;
+    })
     modulesPath
     configurationPath
-    ../../system
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
@@ -51,6 +61,7 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager.backupFileExtension = "bak";
       home-manager.extraSpecialArgs = {
         inherit vars;
+        inherit localLib;
         inherit hostName;
         inherit pkgsUnstable;
       };
@@ -58,8 +69,16 @@ inputs.nixpkgs.lib.nixosSystem {
         { pkgs, ... }:
         {
           imports = [
-            ../../home-manager
-            ../../home-manager/programs
+            ../../modules/core/home.nix
+            (localLib.importers.mkModulesImporter {
+              target = "home";
+              basePath = ../../modules/programs;
+              deep = true;
+            })
+            (localLib.importers.mkModulesImporter {
+              target = "home";
+              basePath = ../../modules/theme;
+            })
           ];
         };
     }

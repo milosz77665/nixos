@@ -22,7 +22,8 @@
       nix-on-droid,
     }@inputs:
     let
-      localLib = import ./lib { inherit inputs; };
+      lib = nixpkgs.lib;
+      localLib = import ./lib { inherit inputs lib; };
     in
     {
       nixosConfigurations = {

@@ -9,7 +9,6 @@
     tools.virtualbox.enable = true;
     tools.wireshark.enable = true;
     wm-x11.betterlockscreen.enable = true;
-    wm-x11.qtile.enable = true;
     audio.enable = true;
     battery.enable = true;
     bluetooth.enable = true;
@@ -33,7 +32,6 @@
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
     communicators.discord.enable = true;
-    core.packages.enable = true;
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;

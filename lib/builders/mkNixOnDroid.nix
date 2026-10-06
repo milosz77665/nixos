@@ -1,4 +1,4 @@
-{ inputs }:
+{ inputs, localLib }:
 {
   hostName,
   system ? "aarch64-linux",
@@ -6,8 +6,12 @@
   customModulesPath ? null,
   customNixOnDroidPath ? null,
 }:
-
 let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   vars =
     if customVarsPath != null then
       import customVarsPath
@@ -29,11 +33,6 @@ let
     inherit system;
     config.allowUnfree = true;
   };
-
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    inherit system;
-    config.allowUnfree = true;
-  };
 in
 
 inputs.nix-on-droid.lib.nixOnDroidConfiguration {
@@ -41,6 +40,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
 
   extraSpecialArgs = {
     inherit vars;
+    inherit localLib;
     inherit hostName;
     inherit pkgsUnstable;
   };
@@ -48,17 +48,37 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
   modules = [
     modulesPath
     nixOnDroidPath
+    (localLib.importers.mkModulesImporter {
+      target = "droid";
+      basePath = ../../modules/programs;
+      deep = true;
+    })
+    (localLib.importers.mkModulesImporter {
+      target = "droid";
+      basePath = ../../modules/theme;
+    })
     {
-      home-manager.config = {
-        _module.args = {
-          inherit vars;
-          inherit hostName;
-          inherit pkgsUnstable;
-        };
+      home-manager.extraSpecialArgs = {
+        inherit
+          vars
+          localLib
+          hostName
+          pkgsUnstable
+          ;
+      };
 
+      home-manager.config = {
         imports = [
-          ../../home-manager
-          ../../home-manager/programs
+          ../../modules/core/home.nix
+          (localLib.importers.mkModulesImporter {
+            target = "home";
+            basePath = ../../modules/programs;
+            deep = true;
+          })
+          (localLib.importers.mkModulesImporter {
+            target = "home";
+            basePath = ../../modules/theme;
+          })
         ];
       };
     }

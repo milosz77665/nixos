@@ -1,12 +1,7 @@
 { ... }:
 {
-  imports = [
-    ../../system/nix-on-droid/theme.nix
-  ];
-
-  usr.nix-on-droid.theme.enable = true;
-
   home-manager.config = {
+    usr.nix-on-droid.theme.enable = true;
     usr.cli-tools.yazi.enable = true;
     usr.cli-tools.atuin.enable = true;
     usr.cli-tools.lazygit.enable = true;
