@@ -45,6 +45,9 @@
           customConfigurationPath = ./hosts/test/x11/configuration.nix;
         };
       };
+      checks.x86_64-linux = localLib.checks.mkIsolationChecks {
+        basePath = ./modules/programs;
+      } { inherit lib localLib; };
 
       nixOnDroidConfigurations = {
         nixOnDroid = localLib.builders.mkNixOnDroid {

@@ -12,6 +12,9 @@ let
     utils = {
       getDirectories = import ./utils/getDirectories.nix { inherit lib; };
     };
+    checks = {
+      mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
+    };
   };
 in
 localLib
