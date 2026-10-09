@@ -51,7 +51,6 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
     (localLib.importers.mkModulesImporter {
       target = "droid";
       basePath = ../../modules/programs;
-      deep = true;
     })
     (localLib.importers.mkModulesImporter {
       target = "droid";
@@ -73,7 +72,6 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           (localLib.importers.mkModulesImporter {
             target = "home";
             basePath = ../../modules/programs;
-            deep = true;
           })
           (localLib.importers.mkModulesImporter {
             target = "home";

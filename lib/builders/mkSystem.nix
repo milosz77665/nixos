@@ -45,7 +45,6 @@ inputs.nixpkgs.lib.nixosSystem {
     (localLib.importers.mkModulesImporter {
       target = "system";
       basePath = ../../modules/programs;
-      deep = true;
     })
     (localLib.importers.mkModulesImporter {
       target = "system";
@@ -72,7 +71,6 @@ inputs.nixpkgs.lib.nixosSystem {
             (localLib.importers.mkModulesImporter {
               target = "home";
               basePath = ../../modules/programs;
-              deep = true;
             })
             (localLib.importers.mkModulesImporter {
               target = "home";

@@ -1,31 +1,27 @@
-{
-  target,
-  basePath,
-  deep ? false,
-}:
-{ lib, localLib, ... }:
+{ target, basePath }:
+{ lib, localLib, ... }@args:
 let
-  shallowImport = localLib.importers.mkImporter {
-    targets = [
-      "default"
-      target
-    ];
-    inherit basePath;
-  };
+  shallowPaths =
+    (localLib.importers.mkImporter {
+      targets = [
+        "default"
+        target
+      ];
+      inherit basePath;
+    } args).imports;
 
   subDirectories = localLib.utils.getDirectories basePath;
-
-  deepImports = lib.map (
+  deepPaths = lib.concatMap (
     subDirectory:
-    localLib.importers.mkImporter {
+    (localLib.importers.mkImporter {
       targets = [
         "default"
         target
       ];
       basePath = basePath + "/${subDirectory}";
-    }
+    } args).imports
   ) subDirectories;
 in
 {
-  imports = if deep then deepImports else [ shallowImport ];
+  imports = shallowPaths ++ deepPaths;
 }
