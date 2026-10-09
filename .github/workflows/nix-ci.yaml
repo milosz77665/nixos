@@ -19,6 +19,9 @@ jobs:
       - name: Check syntax and inputs (Flake Check)
         run: nix flake check
 
+      - name: Run localLib Unit Tests
+        run: nix eval --raw --file lib/tests/default.nix
+
       - name: Evaluate testWayland (Dry Run)
         run: nix build .#nixosConfigurations.testWayland.config.system.build.toplevel --dry-run
 
