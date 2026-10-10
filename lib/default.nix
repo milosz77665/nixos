@@ -2,6 +2,7 @@
 let
   localLib = {
     builders = {
+      mkHome = import ./builders/mkHome.nix { inherit inputs localLib; };
       mkSystem = import ./builders/mkSystem.nix { inherit inputs localLib; };
       mkNixOnDroid = import ./builders/mkNixOnDroid.nix { inherit inputs localLib; };
     };

@@ -1,25 +1,30 @@
+{ vars, ... }:
 {
-    home = [
-    ../../home-manager/programs/cli-tools/lazygit.nix
-    ../../home-manager/programs/cli-tools/yazi.nix
-    ../../home-manager/programs/cli-tools/atuin.nix
-    ../../home-manager/programs/cli-tools/starship.nix
-    ../../home-manager/programs/shells/bash.nix
-    ../../home-manager/programs/dev/neovim.nix
-    ../../home-manager/programs/file-managers/nemo.nix
-    ../../home-manager/programs/network/network-manager.nix
-    ../../home-manager/programs/terminals/ghostty.nix
-    ../../home-manager/programs/wm-wayland/fuzzel.nix
-    ../../home-manager/programs/wm-wayland/swaybg.nix
-    ../../home-manager/programs/wm-wayland/flameshot.nix
-    ../../home-manager/programs/wm-wayland/wl-clipboard.nix
-    ../../home-manager/programs/wm-wayland/wdisplays.nix
-    ../../home-manager/programs/wm-wayland/swaync.nix
-    ../../home-manager/programs/wm-wayland/swaylock.nix
-    ../../home-manager/programs/wm-wayland/waybar.nix
-    ../../home-manager/programs/wm-wayland/niri.nix
-    ../../home-manager/programs/wm-wayland/ozone-fix.nix
-    ../../home-manager/programs/gtk.nix
-    ../../home-manager/programs/wallpapers.nix
-  ];
+   usr = {
+    cli-tools.atuin.enable = true;
+    cli-tools.lazydocker.enable = true;
+    cli-tools.lazygit.enable = true;
+    cli-tools.starship.enable = true;
+    cli-tools.yazi.enable = true;
+    cli-tools.zellij.enable = true;
+    desktop.fonts.enable = true;
+    gtk.enable = true;
+    desktop.wallpapers.enable = true;
+    desktop.xdg.enable = true;
+    dev.neovim.enable = true;
+    file-managers.nemo.enable = true;
+    network.network-manager.enable = true;
+    shells.bash.enable = true;
+    terminals.ghostty.enable = true;
+    wm-wayland.flameshot.enable = true;
+    wm-wayland.fuzzel.enable = true;
+    wm-wayland.niri.enable = true;
+    wm-wayland.ozone.enable = true;
+    wm-wayland.swaybg.enable = true;
+    wm-wayland.swaylock.enable = true;
+    wm-wayland.swaync.enable = true;
+    wm-wayland.waybar.enable = true;
+    wm-wayland.wdisplays.enable = true;
+    wm-wayland.clipboard.enable = true;
+  };
 }

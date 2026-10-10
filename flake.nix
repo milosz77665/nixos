@@ -55,5 +55,11 @@
           system = "aarch64-linux";
         };
       };
+
+      homeConfigurations = {
+        "home" = localLib.builders.mkHome {
+          hostName = "home";
+        };
+      };
     };
 }
