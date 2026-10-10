@@ -57,28 +57,36 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       basePath = ../../modules/theme;
     })
     {
-      home-manager.extraSpecialArgs = {
-        inherit
-          vars
-          localLib
-          hostName
-          pkgsUnstable
-          ;
-      };
-
-      home-manager.config = {
-        imports = [
-          ../../modules/core/home.nix
-          (localLib.importers.mkModulesImporter {
-            target = "home";
-            basePath = ../../modules/programs;
-          })
-          (localLib.importers.mkModulesImporter {
-            target = "home";
-            basePath = ../../modules/theme;
-          })
-        ];
-      };
+      home-manager = {
+        extraSpecialArgs = {
+          inherit
+            vars
+            localLib
+            hostName
+            pkgsUnstable
+            ;
+        };
+        config = {
+          programs.home-manager.enable = true;
+          home = {
+            username = vars.user.name;
+            homeDirectory = vars.homeDirectory;
+            stateVersion = vars.stateVersion;
+          };
+          
+          imports = [
+            ../../modules/core/essentials.nix
+            (localLib.importers.mkModulesImporter {
+              target = "home";
+              basePath = ../../modules/programs;
+            })
+            (localLib.importers.mkModulesImporter {
+              target = "home";
+              basePath = ../../modules/theme;
+            })
+          ];
+        };
+      }
     }
   ];
 }

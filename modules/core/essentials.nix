@@ -1,17 +1,5 @@
+{ pkgs, ...  }:
 {
-  pkgs,
-  vars,
-  ...
-}:
-{
-  programs.home-manager.enable = true;
-
-  home = {
-    username = vars.user.name;
-    homeDirectory = vars.homeDirectory;
-    stateVersion = "25.11";
-  };
-
   home.packages = with pkgs; [
     git
     tree

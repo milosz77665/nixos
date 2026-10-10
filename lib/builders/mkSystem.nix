@@ -54,30 +54,39 @@ inputs.nixpkgs.lib.nixosSystem {
     configurationPath
     inputs.home-manager.nixosModules.home-manager
     {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "bak";
-      home-manager.extraSpecialArgs = {
-        inherit vars;
-        inherit localLib;
-        inherit hostName;
-        inherit pkgsUnstable;
-      };
-      home-manager.users.${vars.user.name} =
-        { pkgs, ... }:
-        {
-          imports = [
-            ../../modules/core/home.nix
-            (localLib.importers.mkModulesImporter {
-              target = "home";
-              basePath = ../../modules/programs;
-            })
-            (localLib.importers.mkModulesImporter {
-              target = "home";
-              basePath = ../../modules/theme;
-            })
-          ];
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true; 
+        backupFileExtension = "bak"; 
+        extraSpecialArgs = {
+          inherit vars;
+          inherit localLib;
+          inherit hostName;
+          inherit pkgsUnstable;
         };
+        users.${vars.user.name} =
+          { pkgs, ... }:
+          {
+            programs.home-manager.enable = true;
+            home = {
+              username = vars.user.name;
+              homeDirectory = vars.homeDirectory;
+              stateVersion = vars.stateVersion;
+            };
+            
+            imports = [
+              ../../modules/core/essentials.nix
+              (localLib.importers.mkModulesImporter {
+                target = "home";
+                basePath = ../../modules/programs;
+              })
+              (localLib.importers.mkModulesImporter {
+                target = "home";
+                basePath = ../../modules/theme;
+              })
+            ];
+          };
+      }
     }
   ];
 }
