@@ -3,6 +3,7 @@
   pkgs,
   config,
   osConfig ? {},
+  isNixos,
   ...
 }:
 let
@@ -10,9 +11,9 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
+    home.packages = lib.mkIf isNixOS (with pkgs; [
       niri
-    ];
+    ]);
 
     xdg.configFile."niri" = {
       source = ./dotfiles;
