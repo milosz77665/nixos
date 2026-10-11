@@ -73,7 +73,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
             homeDirectory = vars.homeDirectory;
             stateVersion = vars.stateVersion;
           };
-          
+
           imports = [
             ../../modules/core/essentials.nix
             (localLib.importers.mkModulesImporter {
@@ -86,7 +86,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
             })
           ];
         };
-      }
+      };
     }
   ];
 }

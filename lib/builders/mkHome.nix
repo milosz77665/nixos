@@ -25,10 +25,7 @@ let
       import ../../hosts/test/vars.nix;
 
   modulesPath =
-    if customModulesPath != null then 
-      customModulesPath 
-    else 
-      ../../hosts/${hostName}/modules.nix;
+    if customModulesPath != null then customModulesPath else ../../hosts/${hostName}/modules.nix;
 in
 
 inputs.home-manager.lib.homeManagerConfiguration {
@@ -62,3 +59,4 @@ inputs.home-manager.lib.homeManagerConfiguration {
     }
   ];
 }
+

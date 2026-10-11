@@ -56,8 +56,8 @@ inputs.nixpkgs.lib.nixosSystem {
     {
       home-manager = {
         useGlobalPkgs = true;
-        useUserPackages = true; 
-        backupFileExtension = "bak"; 
+        useUserPackages = true;
+        backupFileExtension = "bak";
         extraSpecialArgs = {
           inherit vars;
           inherit localLib;
@@ -73,7 +73,7 @@ inputs.nixpkgs.lib.nixosSystem {
               homeDirectory = vars.homeDirectory;
               stateVersion = vars.stateVersion;
             };
-            
+
             imports = [
               ../../modules/core/essentials.nix
               (localLib.importers.mkModulesImporter {
@@ -86,7 +86,7 @@ inputs.nixpkgs.lib.nixosSystem {
               })
             ];
           };
-      }
+      };
     }
   ];
 }
