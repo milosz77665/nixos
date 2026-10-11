@@ -11,8 +11,9 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = lib.mkIf isNixOS (with pkgs; [
+    home.packages = lib.mkIf isNixos (with pkgs; [
       niri
+      brightnessctl
     ]);
 
     xdg.configFile."niri" = {

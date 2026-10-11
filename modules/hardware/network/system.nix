@@ -19,5 +19,6 @@ in
     # Enable networking
     networking.networkmanager.enable = true;
     users.users.${vars.user.name}.extraGroups = [ "networkmanager" ];
+    environment.systemPackages = with pkgs; [ net-tools ];
   };
 }
