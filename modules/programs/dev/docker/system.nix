@@ -1,4 +1,5 @@
 {
+  vars,
   lib,
   pkgs,
   config,
@@ -16,5 +17,7 @@ in
     environment.systemPackages = with pkgs; [
       docker-compose
     ];
+
+    users.users.${vars.user.name}.extraGroups = [ "docker" ];
   };
 }

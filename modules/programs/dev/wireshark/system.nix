@@ -1,4 +1,5 @@
 {
+  vars,
   lib,
   pkgs,
   config,
@@ -13,5 +14,7 @@ in
       enable = true;
       package = pkgs.wireshark;
     };
+
+    users.users.${vars.user.name}.extraGroups = [ "wireshark" ];
   };
 }
