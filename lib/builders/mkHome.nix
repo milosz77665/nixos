@@ -36,6 +36,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     inherit localLib;
     inherit hostName;
     inherit pkgsUnstable;
+    isNixos = false;
   };
 
   modules = [

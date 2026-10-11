@@ -59,12 +59,11 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
     {
       home-manager = {
         extraSpecialArgs = {
-          inherit
-            vars
-            localLib
-            hostName
-            pkgsUnstable
-            ;
+          inherit vars;
+          inherit localLib;
+          inherit hostName;
+          inherit pkgsUnstable;
+          isNixos = false;
         };
         config = {
           programs.home-manager.enable = true;

@@ -63,6 +63,7 @@ inputs.nixpkgs.lib.nixosSystem {
           inherit localLib;
           inherit hostName;
           inherit pkgsUnstable;
+          isNixos = true;
         };
         users.${vars.user.name} =
           { pkgs, ... }:
