@@ -52,13 +52,30 @@
       nixOnDroidConfigurations = {
         nixOnDroid = localLib.builders.mkNixOnDroid {
           hostName = "nixOnDroid";
-          system = "aarch64-linux";
+        };
+
+        testDroid = localLib.builders.mkNixOnDroid {
+          hostName = "testDroid";
+          customModulesPath = ./hosts/test/droid/modules.nix;
+          customNixOnDroidPath = ./hosts/test/droid/nix-on-droid.nix;
         };
       };
 
       homeConfigurations = {
-        "home" = localLib.builders.mkHome {
+        home = localLib.builders.mkHome {
           hostName = "home";
+        };
+
+        testHome = localLib.builders.mkHome {
+          hostName = "testHome";
+          customModulesPath = ./hosts/test/home/modules.nix;
+          customConfigurationPath = ./hosts/test/home/configuration.nix;
+        };
+        testMac = localLib.builders.mkHome {
+          hostName = "testMac";
+          system = "aarch64-darwin"; 
+          customModulesPath = ./hosts/test/mac/modules.nix;
+          customConfigurationPath = ./hosts/test/mac/configuration.nix;
         };
       };
     };

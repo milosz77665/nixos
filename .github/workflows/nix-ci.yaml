@@ -3,11 +3,11 @@ name: Nix Configuration CI
 on:
   push:
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-  test-flake:
-    name: Build & Test
+  test-linux:
+    name: Build & Test (Linux)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -15,6 +15,9 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            extra-platforms = aarch64-linux
 
       - name: Check syntax and inputs (Flake Check)
         run: nix flake check
@@ -28,3 +31,21 @@ jobs:
       - name: Evaluate testX11 (Dry Run)
         run: nix build .#nixosConfigurations.testX11.config.system.build.toplevel --dry-run
 
+      - name: Evaluate testHome (Dry Run)
+        run: nix build .#homeConfigurations.testHome.activationPackage --dry-run
+
+      - name: Evaluate testDroid (Dry Run)
+        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run
+
+  test-macos:
+    name: Build & Test (macOS)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Evaluate testMac (Standalone macOS)
+        run: nix build .#homeConfigurations.testMac.activationPackage --dry-run
