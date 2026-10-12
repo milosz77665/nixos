@@ -69,13 +69,11 @@
         testHome = localLib.builders.mkHome {
           hostName = "testHome";
           customModulesPath = ./hosts/test/home/modules.nix;
-          customConfigurationPath = ./hosts/test/home/configuration.nix;
         };
         testMac = localLib.builders.mkHome {
           hostName = "testMac";
           system = "aarch64-darwin"; 
           customModulesPath = ./hosts/test/mac/modules.nix;
-          customConfigurationPath = ./hosts/test/mac/configuration.nix;
         };
       };
     };
