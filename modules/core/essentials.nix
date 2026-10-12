@@ -29,7 +29,5 @@
     nixfmt-rfc-style
 
     ffmpeg
-    mpv
-    imv
   ];
 }

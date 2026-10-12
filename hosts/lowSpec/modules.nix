@@ -9,6 +9,7 @@
     bluetooth.enable = true;
     disk-utils.enable = true;
     network.enable = true;
+    storage.ntfs.enable = true;
     printing.hp.enable = true;
     display-managers.sddm.enable = true;
     secrets.enable = true;
@@ -37,6 +38,8 @@
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;
     file-managers.nemo.enable = true;
+    media.imv.enable = true;
+    media.mpv.enable = true;
     music.spotify.enable = true;
     network.network-manager.enable = true;
     notes.gnome-text-editor.enable = true;

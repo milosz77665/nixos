@@ -30,6 +30,8 @@
     gaming.heroic.enable = true;
     gaming.lutris.enable = true;
     gaming.wine.enable = true;
+    media.imv.enable = true;
+    media.mpv.enable = true;
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
     tools.evince.enable = true;

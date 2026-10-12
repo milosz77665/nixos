@@ -14,6 +14,7 @@
     bluetooth.enable = true;
     disk-utils.enable = true;
     network.enable = true;
+    storage.ntfs.enable = true;
     printing.hp.enable = true;
     display-managers.sddm.enable = true;
     secrets.enable = true;
@@ -53,6 +54,8 @@
     gaming.heroic.enable = true;
     gaming.lutris.enable = true;
     gaming.wine.enable = true;
+    media.imv.enable = true;
+    media.mpv.enable = true;
     music.spotify.enable = true;
     network.network-manager.enable = true;
     notes.gnome-text-editor.enable = true;
