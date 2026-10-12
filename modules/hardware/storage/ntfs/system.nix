@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  isNixOS,
+  isNixos,
   ...
 }:
 let
@@ -9,6 +9,6 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    boot.supportedFilesystems = lib.mkIf isNixOS [ "ntfs" ];
+    boot.supportedFilesystems = lib.mkIf isNixos [ "ntfs" ];
   };
 }
