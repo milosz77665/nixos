@@ -14,6 +14,5 @@
     desktop.fonts.enable = true;
     shells.bash.enable = true;
     terminals.alacritty.enable = true;
-    terminals.ghostty.enable = true;
   };
 }
