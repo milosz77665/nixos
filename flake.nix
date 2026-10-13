@@ -56,6 +56,7 @@
 
         testDroid = localLib.builders.mkNixOnDroid {
           hostName = "testDroid";
+          customVarsPath = ./hosts/test/droid/vars.nix;
           customModulesPath = ./hosts/test/droid/modules.nix;
           customNixOnDroidPath = ./hosts/test/droid/nix-on-droid.nix;
         };
@@ -72,7 +73,7 @@
         };
         testMac = localLib.builders.mkHome {
           hostName = "testMac";
-          system = "aarch64-darwin"; 
+          system = "aarch64-darwin";
           customModulesPath = ./hosts/test/mac/modules.nix;
         };
       };
