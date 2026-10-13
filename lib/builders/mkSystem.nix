@@ -38,6 +38,7 @@ inputs.nixpkgs.lib.nixosSystem {
     inherit localLib;
     inherit hostName;
     inherit pkgsUnstable;
+    isNixos = true;
   };
 
   modules = [

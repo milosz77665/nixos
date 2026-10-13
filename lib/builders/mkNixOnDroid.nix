@@ -43,6 +43,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
     inherit localLib;
     inherit hostName;
     inherit pkgsUnstable;
+    isNixos = false;
   };
 
   modules = [
