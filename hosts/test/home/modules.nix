@@ -1,16 +1,17 @@
 {
   usr = {
+    audio.pavucontrol.enable = true;
+    battery.acpi.enable = true;
     browser.brave.enable = true;
     browser.chrome.enable = true;
     browser.firefox.enable = true;
-    communicators.discord.enable = true;
-    music.spotify.enable = true;
     cli-tools.atuin.enable = true;
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
+    communicators.discord.enable = true;
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
@@ -24,6 +25,7 @@
     dev-languages.go.enable = true;
     dev-languages.nodejs.enable = true;
     disk.baobab.enable = true;
+    disk.gnome-disk-utility.enable = true;
     file-managers.nautilus.enable = true;
     file-managers.nemo.enable = true;
     file-managers.thunar.enable = true;
@@ -32,17 +34,22 @@
     gaming.wine.enable = true;
     media.imv.enable = true;
     media.mpv.enable = true;
+    music.spotify.enable = true;
+    network.network-manager.enable = true;
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
+    secrets.seahorse.enable = true;
+    shells.bash.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
     tools.evince.enable = true;
     tools.gimp.enable = true;
+    tools.gnome-system-monitor.enable = true;
     tools.libreoffice.enable = true;
     tools.okular.enable = true;
     tools.qalculate.enable = true;
     tools.qbittorrent.enable = true;
     tools.zathura.enable = true;
-    shells.bash.enable = true;
-    terminals.alacritty.enable = true;
-    terminals.ghostty.enable = true;
+    wm-x11.flameshot.enable = true;
   };
 }
