@@ -11,7 +11,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.zellij = {
       enable = true;
-      enableBashIntegration = true;
 
       settings = {
         #   default_layout = "compact";
