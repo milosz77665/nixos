@@ -13,11 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up QEMU for ARM64
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
           extra-conf: |
-            extra-platforms = aarch64-linux
+            extra-platforms = aarch64-linux i686-linux
+            extra-substituters = https://nix-on-droid.cachix.org
+            extra-trusted-public-keys = nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU=
 
       - name: Check syntax and inputs (Flake Check)
         run: nix flake check
@@ -35,7 +42,7 @@ jobs:
         run: nix build .#homeConfigurations.testHome.activationPackage --dry-run
 
       - name: Evaluate testDroid (Dry Run)
-        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure --extra-substituters "https://nix-on-droid.cachix.org" --extra-trusted-public-keys "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
+        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure
 
   test-macos:
     name: Build & Test (macOS)
