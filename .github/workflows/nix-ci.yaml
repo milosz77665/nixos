@@ -35,7 +35,8 @@ jobs:
         run: nix build .#homeConfigurations.testHome.activationPackage --dry-run
 
       - name: Evaluate testDroid (Dry Run)
-        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure
+        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure --extra-substituters "https://nix-on-droid.cachix.org" --extra-trusted-public-keys "nix-on-droid.cachix.org-1:56snoO8c9x5fH9L/iW31E1vH7c1Gus4uRk6o8f+d60U="
+
 
   test-macos:
     name: Build & Test (macOS)
