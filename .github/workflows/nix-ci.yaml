@@ -35,7 +35,7 @@ jobs:
         run: nix build .#homeConfigurations.testHome.activationPackage --dry-run
 
       - name: Evaluate testDroid (Dry Run)
-        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run
+        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure
 
   test-macos:
     name: Build & Test (macOS)

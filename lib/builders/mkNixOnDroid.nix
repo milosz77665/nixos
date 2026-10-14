@@ -37,7 +37,6 @@ in
 
 inputs.nix-on-droid.lib.nixOnDroidConfiguration {
   inherit pkgs;
-  home-manager-path = inputs.home-manager;
 
   extraSpecialArgs = {
     inherit vars;
