@@ -52,7 +52,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     modulesPath
     {
       programs.home-manager.enable = true;
-      targets.genericLinux.enable = true;
+      targets.genericLinux.enable = pkgs.stdenv.isLinux;
       home = {
         username = vars.user.name;
         homeDirectory = vars.homeDirectory;
