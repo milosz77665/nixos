@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.browser.firefox = {
+  options.programs.browsers.firefox = {
     enable = lib.mkEnableOption "Firefox Browser";
   };
 }

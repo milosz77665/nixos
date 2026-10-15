@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = osConfig.usr.browser.brave or config.usr.browser.brave;
+  cfg = osConfig.programs.browsers.brave or config.programs.browsers.brave;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.browser.chrome = {
+  options.programs.browsers.chrome = {
     enable = lib.mkEnableOption "Google Chrome Browser";
   };
 }

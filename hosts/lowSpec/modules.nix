@@ -1,7 +1,6 @@
 { vars, ... }:
 {
   sys = {
-    browser-policies.brave.enable = true;
     tools.timeshift.enable = true;
     tools.wireshark.enable = true;
     audio.enable = true;
@@ -15,10 +14,15 @@
     secrets.enable = true;
   };
 
+  home-manager.users.${vars.user.name} = {
+    programs = {
+      browsers.brave.enable = true;
+    }
+  };
+
   home-manager.users.${vars.user.name}.usr = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
-    browser.brave.enable = true;
     cli-tools.atuin.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;

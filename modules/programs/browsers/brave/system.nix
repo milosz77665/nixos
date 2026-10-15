@@ -4,11 +4,11 @@
   ...
 }:
 let
-  cfg = config.sys.browser-policies.chrome;
+  cfg = config.programs.browsers.brave;
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.etc."opt/chrome/policies/managed/managed_policies.json".text = builtins.toJSON {
+    environment.etc."brave/policies/managed/extensions.json".text = builtins.toJSON {
 
       ExtensionInstallForcelist = [
         "cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
@@ -22,6 +22,8 @@ in
       ];
 
       RestoreOnStartup = 5;
+      BraveRewardsDisabled = true;
+      BraveWalletDisabled = true;
     };
   };
 }

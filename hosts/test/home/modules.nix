@@ -1,10 +1,13 @@
 {
+  programs = {
+    browsers.brave.enable = true;
+    browsers.chrome.enable = true;
+    browsers.firefox.enable = true;
+  };
+    
   usr = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
-    browser.brave.enable = true;
-    browser.chrome.enable = true;
-    browser.firefox.enable = true;
     cli-tools.atuin.enable = true;
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
