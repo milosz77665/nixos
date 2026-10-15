@@ -1,7 +1,6 @@
 { pkgs, ...  }:
 {
   home.packages = with pkgs; [
-    git
     tree
     wget
     curl
@@ -11,8 +10,13 @@
     ripgrep
     fd
     bat
-    btop
     tldr
+    zoxide
+    eza
+    
+    btop
+    duf
+    dust
 
     gnumake
     gcc
@@ -24,10 +28,7 @@
     unzip
     gnutar
 
-    htop
     jq
     nixfmt-rfc-style
-
-    ffmpeg
   ];
 }

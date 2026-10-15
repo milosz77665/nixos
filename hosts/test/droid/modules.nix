@@ -11,6 +11,7 @@
     dev.neovim.enable = true;
     dev-languages.go.enable = true;
     dev-languages.nodejs.enable = true;
+    media.ffmpeg.enable = true;
     shells.bash.enable = true;
   };
 }

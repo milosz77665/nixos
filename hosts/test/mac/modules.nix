@@ -12,6 +12,7 @@
     dev-languages.go.enable = true;
     dev-languages.nodejs.enable = true;
     desktop.fonts.enable = true;
+    media.ffmpeg.enable = true;
     shells.bash.enable = true;
     terminals.alacritty.enable = true;
   };

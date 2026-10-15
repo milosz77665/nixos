@@ -32,6 +32,7 @@
     gaming.heroic.enable = true;
     gaming.lutris.enable = true;
     gaming.wine.enable = true;
+    media.ffmpeg.enable = true;
     media.imv.enable = true;
     media.mpv.enable = true;
     music.spotify.enable = true;

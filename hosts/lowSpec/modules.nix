@@ -38,6 +38,7 @@
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;
     file-managers.nemo.enable = true;
+    media.ffmpeg.enable = true;
     media.imv.enable = true;
     media.mpv.enable = true;
     music.spotify.enable = true;
