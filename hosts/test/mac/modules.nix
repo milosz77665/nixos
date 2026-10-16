@@ -1,4 +1,5 @@
 {
+  core.display-server = "none";
   usr = {
     cli-tools.atuin.enable = true;
     cli-tools.lazydocker.enable = true;

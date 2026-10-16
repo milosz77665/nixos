@@ -2,15 +2,16 @@
   lib,
   pkgs,
   vars,
+  isWayland,
   config,
   osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.flameshot or config.usr.wm-wayland.flameshot;
+  cfg = osConfig.programs.tools.flameshot or config.programs.tools.flameshot;
 in
 {
-  config = lib.mkIf cfg.enable {
+   config = lib.mkIf cfg.enable {
     services.flameshot = {
       enable = true;
       package = pkgs.flameshot;
@@ -21,13 +22,13 @@ in
           showStartupLaunchMessage = false;
           savePath = "${vars.homeDirectory}/Pictures/Screenshots";
           savePathFixed = true;
+        }
+        // lib.optionalAttrs isWayland {
           useGrimAdapter = true;
         };
       };
     };
 
-    home.packages = with pkgs; [
-      grim
-    ];
+    home.packages = lib.mkIf isWayland [ pkgs.grim ];
   };
 }

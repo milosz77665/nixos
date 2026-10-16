@@ -15,8 +15,10 @@
   };
 
   home-manager.users.${vars.user.name} = {
+    core.display-server = "wayland";
     programs = {
       browsers.brave.enable = true;
+      tools.flameshot.enable = true;
     }
   };
 
@@ -65,7 +67,6 @@
     tools.zathura.enable = true;
     wm-wayland.fuzzel.enable = true;
     wm-wayland.swaybg.enable = true;
-    wm-wayland.flameshot.enable = true;
     wm-wayland.clipboard.enable = true;
     wm-wayland.wdisplays.enable = true;
     wm-wayland.swaync.enable = true;

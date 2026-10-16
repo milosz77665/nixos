@@ -19,10 +19,12 @@
   };
 
   home-manager.users.${vars.user.name} = {
+    core.display-server = "x11";
     programs = {
       browsers.brave.enable = true;
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
+      tools.flameshot.enable = true;
     }
   };
     
@@ -80,7 +82,6 @@
     tools.zathura.enable = true;
     wm-x11.arandr.enable = true;
     wm-x11.feh.enable = true;
-    wm-x11.flameshot.enable = true;
     wm-x11.high-dpi.enable = true;
     wm-x11.picom.enable = true;
     wm-x11.pywal.enable = true;

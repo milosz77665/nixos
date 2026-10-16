@@ -1,5 +1,10 @@
 { vars, ... }:
 {
+   core.display-server = "wayland";
+   programs = {
+    tools.flameshot.enable = true;
+   };
+
    usr = {
     cli-tools.atuin.enable = true;
     cli-tools.lazydocker.enable = true;
@@ -16,7 +21,6 @@
     network.network-manager.enable = true;
     shells.bash.enable = true;
     terminals.ghostty.enable = true;
-    wm-wayland.flameshot.enable = true;
     wm-wayland.fuzzel.enable = true;
     wm-wayland.niri.enable = true;
     wm-wayland.ozone.enable = true;

@@ -1,4 +1,5 @@
 {
+  core.display-server = "none";
   usr = {
     nix-on-droid.theme.enable = true;
     cli-tools.atuin.enable = true;

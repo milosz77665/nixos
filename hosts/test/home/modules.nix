@@ -1,8 +1,10 @@
 {
+  core.display-server = "x11";
   programs = {
     browsers.brave.enable = true;
     browsers.chrome.enable = true;
     browsers.firefox.enable = true;
+    tools.flameshot.enable = true;
   };
     
   usr = {
@@ -54,6 +56,5 @@
     tools.qalculate.enable = true;
     tools.qbittorrent.enable = true;
     tools.zathura.enable = true;
-    wm-x11.flameshot.enable = true;
   };
 }
