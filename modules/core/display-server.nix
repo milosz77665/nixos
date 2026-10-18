@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   options.core.display-server = lib.mkOption {
     type = lib.types.enum [ "wayland" "x11" "none" ];
