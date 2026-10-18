@@ -17,7 +17,7 @@
     display-managers.sddm.enable = true;
     secrets.enable = true;
   };
-  
+
   home-manager.users.${vars.user.name} = {
     core.display-server = "x11";
     programs = {
@@ -25,7 +25,7 @@
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
       tools.flameshot.enable = true;
-    }
+    };
   };
 
   home-manager.users.${vars.user.name}.usr = {

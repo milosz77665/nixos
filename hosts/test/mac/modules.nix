@@ -18,3 +18,4 @@
     terminals.alacritty.enable = true;
   };
 }
+

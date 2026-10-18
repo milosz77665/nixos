@@ -19,7 +19,7 @@
     programs = {
       browsers.brave.enable = true;
       tools.flameshot.enable = true;
-    }
+    };
   };
 
   home-manager.users.${vars.user.name}.usr = {

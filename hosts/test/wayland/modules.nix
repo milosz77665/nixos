@@ -24,9 +24,9 @@
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
       tools.flameshot.enable = true;
-    }
+    };
   };
-    
+
   home-manager.users.${vars.user.name}.usr = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
