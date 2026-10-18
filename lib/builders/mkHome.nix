@@ -40,7 +40,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
   };
 
   modules = [
-    ../../modules/core/essentials.nix
+    ../../modules/core
     (localLib.importers.mkModulesImporter {
       target = "home";
       basePath = ../../modules/programs;

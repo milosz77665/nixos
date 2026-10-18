@@ -77,7 +77,7 @@ inputs.nixpkgs.lib.nixosSystem {
             };
 
             imports = [
-              ../../modules/core/essentials.nix
+              ../../modules/core
               (localLib.importers.mkModulesImporter {
                 target = "home";
                 basePath = ../../modules/programs;
