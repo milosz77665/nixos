@@ -7,7 +7,6 @@
     tools.virtualbox.enable = true;
     tools.wireshark.enable = true;
     wm-x11.betterlockscreen.enable = true;
-    bluetooth.enable = true;
     disk-utils.enable = true;
     network.enable = true;
     storage.ntfs.enable = true;
@@ -19,6 +18,7 @@
   hardware = {
     audio.enable = true;
     battery.enable = true;
+    bluetooth.enable = true;
   };
 
   home-manager.users.${vars.user.name} = {

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.bluetooth = {
-    enable = lib.mkEnableOption "Bluetooth";
+  options.hardware.bluetooth = {
+    enable = lib.mkEnableOption "Bluetooth hardware support and Blueman applet";
   };
 }
