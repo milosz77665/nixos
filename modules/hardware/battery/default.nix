@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.battery = {
-    enable = lib.mkEnableOption "Battery";
+  options.hardware.battery = {
+    enable = lib.mkEnableOption "TLP power management and battery optimization";
   };
 }

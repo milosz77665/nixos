@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.sys.battery;
+  cfg = config.hardware.battery;
 in
 {
   config = lib.mkIf cfg.enable {
