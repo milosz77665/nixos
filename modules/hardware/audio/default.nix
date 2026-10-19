@@ -4,6 +4,6 @@
 }:
 {
   options.sys.audio = {
-    enable = lib.mkEnableOption "Audio";
+    enable = lib.mkEnableOption "PipeWire audio server with ALSA and PulseAudio compatibility";
   };
 }
