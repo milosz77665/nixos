@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.network = {
-    enable = lib.mkEnableOption "Network";
+  options.hardware.network = {
+    enable = lib.mkEnableOption "NetworkManager and basic networking configuration";
   };
 }

@@ -1,25 +1,17 @@
 {
   vars,
   lib,
-  pkgs,
   config,
   ...
 }:
 let
-  cfg = config.sys.network;
+  cfg = config.hardware.network;
 in
 {
   config = lib.mkIf cfg.enable {
-    networking.hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networking.hostName = lib.mkIf (vars ? hostName) vars.hostName;
 
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable networking
     networking.networkmanager.enable = true;
     users.users.${vars.user.name}.extraGroups = [ "networkmanager" ];
-    environment.systemPackages = with pkgs; [ net-tools ];
   };
 }
