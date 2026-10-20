@@ -1,14 +1,13 @@
 {
   lib,
   config,
-  isNixos,
   ...
 }:
 let
-  cfg = config.sys.storage.ntfs;
+  cfg = config.hardware.storage.ntfs;
 in
 {
   config = lib.mkIf cfg.enable {
-    boot.supportedFilesystems = lib.mkIf isNixos [ "ntfs" ];
+    boot.supportedFilesystems = [ "ntfs" ];
   };
 }

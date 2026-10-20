@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.storage.ntfs = {
-    enable = lib.mkEnableOption "NTFS";
+  options.hardware.storage.ntfs = {
+    enable = lib.mkEnableOption "NTFS filesystem support";
   };
 }

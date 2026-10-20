@@ -8,7 +8,6 @@
     tools.wireshark.enable = true;
     wm-x11.betterlockscreen.enable = true;
     disk-utils.enable = true;
-    storage.ntfs.enable = true;
     printing.hp.enable = true;
     display-managers.sddm.enable = true;
     secrets.enable = true;
@@ -19,6 +18,7 @@
     battery.enable = true;
     bluetooth.enable = true;
     network.enable = true;
+    storage.ntfs.enable = true;
   };
 
   home-manager.users.${vars.user.name} = {
