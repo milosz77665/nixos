@@ -43,6 +43,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
   modules = [
     ../../modules/core/nixos
+    ../../modules/core/display-server.nix
     (localLib.importers.mkModulesImporter {
       target = "system";
       basePath = ../../modules/programs;
@@ -77,7 +78,8 @@ inputs.nixpkgs.lib.nixosSystem {
             };
 
             imports = [
-              ../../modules/core
+              ../../modules/core/essentials.nix
+              ../../modules/core/display-server.nix
               (localLib.importers.mkModulesImporter {
                 target = "home";
                 basePath = ../../modules/programs;

@@ -49,6 +49,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
   modules = [
     modulesPath
     nixOnDroidPath
+    ../../modules/core/display-server.nix
     (localLib.importers.mkModulesImporter {
       target = "droid";
       basePath = ../../modules/programs;
@@ -75,7 +76,8 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           };
 
           imports = [
-            ../../modules/core
+            ../../modules/core/essentials.nix
+            ../../modules/core/display-server.nix
             (localLib.importers.mkModulesImporter {
               target = "home";
               basePath = ../../modules/programs;
