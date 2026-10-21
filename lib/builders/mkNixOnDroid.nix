@@ -76,6 +76,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           };
 
           imports = [
+            modulesPath
             ../../modules/core/essentials.nix
             ../../modules/core/display-server.nix
             (localLib.importers.mkModulesImporter {
