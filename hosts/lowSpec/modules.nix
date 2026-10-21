@@ -20,12 +20,12 @@
   home-manager.users.${vars.user.name} = {
     core.display-server = "wayland";
     programs = {
+      audio.pavucontrol.enable = true;
       browsers.brave.enable = true;
       tools.flameshot.enable = true;
     };
 
     usr = {
-      audio.pavucontrol.enable = true;
       battery.acpi.enable = true;
       cli-tools.atuin.enable = true;
       cli-tools.lazygit.enable = true;

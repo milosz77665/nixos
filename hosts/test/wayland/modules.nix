@@ -23,6 +23,7 @@
   home-manager.users.${vars.user.name} = {
     core.display-server = "wayland";
     programs = {
+      audio.pavucontrol.enable = true;
       browsers.brave.enable = true;
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
@@ -30,7 +31,6 @@
     };
 
     usr = {
-      audio.pavucontrol.enable = true;
       battery.acpi.enable = true;
       cli-tools.atuin.enable = true;
       cli-tools.lazydocker.enable = true;

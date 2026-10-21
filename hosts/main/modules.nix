@@ -24,6 +24,7 @@
   home-manager.users.${vars.user.name} = {
     core.display-server = "x11";
     programs = {
+      audio.pavucontrol.enable = true;
       browsers.brave.enable = true;
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
@@ -31,7 +32,6 @@
     };
 
     home-manager.users.${vars.user.name}.usr = {
-      audio.pavucontrol.enable = true;
       battery.acpi.enable = true;
       cli-tools.atuin.enable = true;
       cli-tools.lazydocker.enable = true;
