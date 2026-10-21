@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.cli-tools.atuin = {
+  options.programs.cli-tools.atuin = {
     enable = lib.mkEnableOption "Atuin";
   };
 }

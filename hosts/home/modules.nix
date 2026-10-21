@@ -1,12 +1,12 @@
 { vars, ... }:
 {
-   core.display-server = "wayland";
-   programs = {
-    tools.flameshot.enable = true;
-   };
-
-   usr = {
+  core.display-server = "wayland";
+  programs = {
     cli-tools.atuin.enable = true;
+    tools.flameshot.enable = true;
+  };
+
+  usr = {
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;

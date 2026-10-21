@@ -1,16 +1,21 @@
 { ... }:
 {
   home-manager.config = {
-    usr.nix-on-droid.theme.enable = true;
-    usr.cli-tools.yazi.enable = true;
-    usr.cli-tools.atuin.enable = true;
-    usr.cli-tools.lazygit.enable = true;
-    usr.cli-tools.zellij.enable = true;
-    usr.cli-tools.starship.enable = true;
-    usr.dev.neovim.enable = true;
-    usr.dev.direnv.enable = true;
-    usr.dev-languages.go.enable = true;
-    usr.dev-languages.nodejs.enable = true;
-    usr.shells.bash.enable = true;
+    programs = {
+      cli-tools.atuin.enable = true;
+    };
+
+    usr = {
+      nix-on-droid.theme.enable = true;
+      cli-tools.yazi.enable = true;
+      cli-tools.lazygit.enable = true;
+      cli-tools.zellij.enable = true;
+      cli-tools.starship.enable = true;
+      dev.neovim.enable = true;
+      dev.direnv.enable = true;
+      dev-languages.go.enable = true;
+      dev-languages.nodejs.enable = true;
+      shells.bash.enable = true;
+    };
   };
 }

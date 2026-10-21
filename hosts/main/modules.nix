@@ -28,12 +28,12 @@
       browsers.brave.enable = true;
       browsers.chrome.enable = true;
       browsers.firefox.enable = true;
+      cli-tools.atuin.enable = true;
       tools.flameshot.enable = true;
     };
 
     home-manager.users.${vars.user.name}.usr = {
       battery.acpi.enable = true;
-      cli-tools.atuin.enable = true;
       cli-tools.lazydocker.enable = true;
       cli-tools.lazygit.enable = true;
       cli-tools.starship.enable = true;

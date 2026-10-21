@@ -1,7 +1,10 @@
 {
   core.display-server = "none";
-  usr = {
+  programs = {
     cli-tools.atuin.enable = true;
+  };
+
+  usr = {
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
@@ -18,4 +21,3 @@
     terminals.alacritty.enable = true;
   };
 }
-

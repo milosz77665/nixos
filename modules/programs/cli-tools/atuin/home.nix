@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.cli-tools.atuin or config.usr.cli-tools.atuin;
+  cfg = config.programs.cli-tools.atuin;
 in
 {
   config = lib.mkIf cfg.enable {

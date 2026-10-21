@@ -1,8 +1,11 @@
 {
   core.display-server = "none";
+  programs = {
+    cli-tools.atuin.enable = true;
+  };
+
   usr = {
     nix-on-droid.theme.enable = true;
-    cli-tools.atuin.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
@@ -16,3 +19,4 @@
     shells.bash.enable = true;
   };
 }
+

@@ -22,12 +22,12 @@
     programs = {
       audio.pavucontrol.enable = true;
       browsers.brave.enable = true;
+      cli-tools.atuin.enable = true;
       tools.flameshot.enable = true;
     };
 
     usr = {
       battery.acpi.enable = true;
-      cli-tools.atuin.enable = true;
       cli-tools.lazygit.enable = true;
       cli-tools.starship.enable = true;
       cli-tools.yazi.enable = true;
