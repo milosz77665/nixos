@@ -86,7 +86,7 @@ inputs.nixpkgs.lib.nixosSystem {
                 basePath = ../../modules/programs;
               })
               (localLib.importers.mkModulesImporter {
-                target = "system";
+                target = "home";
                 basePath = ../../modules/hardware;
               })
               (localLib.importers.mkModulesImporter {
