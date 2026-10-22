@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.sys.audio;
+  cfg = config.hardware.audio;
 in
 {
   config = lib.mkIf cfg.enable {

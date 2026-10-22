@@ -83,10 +83,6 @@ inputs.nixpkgs.lib.nixosSystem {
               ../../modules/core/display-server.nix
               (localLib.importers.mkModulesImporter {
                 target = "home";
-                basePath = ../../modules/hardware;
-              })
-              (localLib.importers.mkModulesImporter {
-                target = "home";
                 basePath = ../../modules/programs;
               })
               (localLib.importers.mkModulesImporter {
