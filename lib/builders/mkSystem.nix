@@ -52,6 +52,10 @@ inputs.nixpkgs.lib.nixosSystem {
       target = "system";
       basePath = ../../modules/hardware;
     })
+    (localLib.importers.mkModulesImporter {
+      target = "system";
+      basePath = ../../modules/theme;
+    })
     modulesPath
     configurationPath
     inputs.home-manager.nixosModules.home-manager
