@@ -12,7 +12,7 @@
   hardware = {
     audio.enable = true;
     battery.enable = true;
-    bluetooth.enable = true;
+    bt.enable = true;
     network.enable = true;
     storage.ntfs.enable = true;
   };
