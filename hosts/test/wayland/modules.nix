@@ -14,8 +14,8 @@
 
   hardware = {
     audio.enable = true;
+    battery.enable = true;
     bt.enable = true;
-    bluetooth.enable = true;
     network.enable = true;
     storage.ntfs.enable = true;
   };
