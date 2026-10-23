@@ -2,6 +2,7 @@
   core.display-server = "x11";
   programs = {
     audio.pavucontrol.enable = true;
+    battery.acpi.enable = true;
     browsers.brave.enable = true;
     browsers.chrome.enable = true;
     browsers.firefox.enable = true;
@@ -10,7 +11,6 @@
   };
 
   usr = {
-    battery.acpi.enable = true;
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
@@ -58,4 +58,3 @@
     tools.zathura.enable = true;
   };
 }
-

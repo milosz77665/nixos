@@ -2,16 +2,18 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.battery.acpi or config.usr.battery.acpi;
+  cfg = config.programs.battery.acpi;
 in
 {
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      acpi
-    ];
+    home.packages = lib.mkIf pkgs.stdenv.isLinux (
+      with pkgs;
+      [
+        acpi
+      ]
+    );
   };
 }
