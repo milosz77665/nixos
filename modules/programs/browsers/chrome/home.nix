@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.programs.browsers.chrome or config.programs.browsers.chrome;
+  cfg = config.programs.browsers.chrome;
 in
 {
   config = lib.mkIf cfg.enable {

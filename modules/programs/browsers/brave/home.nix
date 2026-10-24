@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.programs.browsers.brave or config.programs.browsers.brave;
+  cfg = config.programs.browsers.brave;
 in
 {
   config = lib.mkIf cfg.enable {

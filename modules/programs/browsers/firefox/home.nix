@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.programs.browsers.firefox or config.programs.browsers.firefox;
+  cfg = config.programs.browsers.firefox;
 in
 {
   config = lib.mkIf cfg.enable {
