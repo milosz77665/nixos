@@ -9,7 +9,6 @@
     wm-x11.betterlockscreen.enable = true;
     disk-utils.enable = true;
     printing.hp.enable = true;
-    display-managers.sddm.enable = true;
     secrets.enable = true;
   };
 
@@ -29,6 +28,7 @@
     browsers.chrome.enable = true;
     browsers.firefox.enable = true;
     cli-tools.atuin.enable = true;
+    desktop.sddm.enable = true;
     tools.flameshot.enable = true;
   };
 

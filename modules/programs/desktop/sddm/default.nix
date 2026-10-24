@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.display-managers.sddm = {
-    enable = lib.mkEnableOption "SDDM";
+  options.desktop.sddm = {
+    enable = lib.mkEnableOption "SDDM display manager (with Astronaut theme)";
   };
 }

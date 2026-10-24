@@ -2,10 +2,11 @@
   lib,
   pkgs,
   config,
+  isWayland,
   ...
 }:
 let
-  cfg = config.sys.display-managers.sddm;
+  cfg = config.desktop.sddm;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -15,7 +16,7 @@ in
 
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland.enable = isWayland;
       theme = "sddm-astronaut-theme";
       package = pkgs.kdePackages.sddm;
       settings = {
