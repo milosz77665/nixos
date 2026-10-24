@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.cli-tools.starship or config.usr.cli-tools.starship;
+  cfg = config.programs.cli-tools.starship;
 in
 {
   config = lib.mkIf cfg.enable {

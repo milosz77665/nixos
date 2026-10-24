@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.cli-tools.yazi = {
-    enable = lib.mkEnableOption "Yazi";
+  options.programs.cli-tools.yazi = {
+    enable = lib.mkEnableOption "yazi (blazing fast terminal file manager)";
   };
 }

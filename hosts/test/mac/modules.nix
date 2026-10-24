@@ -2,14 +2,14 @@
   core.display-server = "none";
   programs = {
     cli-tools.atuin.enable = true;
-  };
-
-  usr = {
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
+  };
+
+  usr = {
     dev.direnv.enable = true;
     dev.git.enable = true;
     dev.neovim.enable = true;

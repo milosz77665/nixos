@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.cli-tools.lazydocker = {
-    enable = lib.mkEnableOption "Lazydocker";
+  options.programs.cli-tools.lazydocker = {
+    enable = lib.mkEnableOption "lazydocker (terminal UI for Docker)";
   };
 }

@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.cli-tools.zellij or config.usr.cli-tools.zellij;
+  cfg = config.programs.cli-tools.zellij;
 in
 {
   config = lib.mkIf cfg.enable {

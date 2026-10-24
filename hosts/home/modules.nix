@@ -3,16 +3,16 @@
   core.display-server = "wayland";
   programs = {
     cli-tools.atuin.enable = true;
-    desktop.xdg.enable = true;
-    tools.flameshot.enable = true;
-  };
-
-  usr = {
     cli-tools.lazydocker.enable = true;
     cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
+    desktop.xdg.enable = true;
+    tools.flameshot.enable = true;
+  };
+
+  usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;

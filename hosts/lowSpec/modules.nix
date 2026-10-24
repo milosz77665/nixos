@@ -22,16 +22,16 @@
     battery.acpi.enable = true;
     browsers.brave.enable = true;
     cli-tools.atuin.enable = true;
+    cli-tools.lazygit.enable = true;
+    cli-tools.starship.enable = true;
+    cli-tools.yazi.enable = true;
+    cli-tools.zellij.enable = true;
     desktop.sddm.enable = true;
     desktop.xdg.enable = true;
     tools.flameshot.enable = true;
   };
 
   usr = {
-    cli-tools.lazygit.enable = true;
-    cli-tools.starship.enable = true;
-    cli-tools.yazi.enable = true;
-    cli-tools.zellij.enable = true;
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
