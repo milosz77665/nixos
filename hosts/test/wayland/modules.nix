@@ -28,6 +28,7 @@
     browsers.firefox.enable = true;
     cli-tools.atuin.enable = true;
     desktop.sddm.enable = true;
+    desktop.xdg.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -41,7 +42,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    desktop.xdg.enable = true;
     dev.direnv.enable = true;
     dev.drawio.enable = true;
     dev.git.enable = true;

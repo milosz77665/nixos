@@ -1,14 +1,13 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.desktop.xdg or config.usr.desktop.xdg;
+  cfg = config.desktop.xdg;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux){
     xdg.mimeApps = {
       enable = true;
 

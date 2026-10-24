@@ -3,6 +3,7 @@
   core.display-server = "wayland";
   programs = {
     cli-tools.atuin.enable = true;
+    desktop.xdg.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -15,7 +16,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    desktop.xdg.enable = true;
     dev.neovim.enable = true;
     file-managers.nemo.enable = true;
     network.network-manager.enable = true;

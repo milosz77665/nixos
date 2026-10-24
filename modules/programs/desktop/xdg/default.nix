@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.desktop.xdg = {
-    enable = lib.mkEnableOption "Xdg";
+  options.desktop.xdg = {
+    enable = lib.mkEnableOption "XDG default applications (MIME types)";
   };
 }
