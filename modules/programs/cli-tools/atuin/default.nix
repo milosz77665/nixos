@@ -4,6 +4,6 @@
 }:
 {
   options.programs.cli-tools.atuin = {
-    enable = lib.mkEnableOption "Atuin";
+    enable = lib.mkEnableOption "atuin (magical shell history)";
   };
 }
