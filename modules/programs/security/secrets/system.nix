@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.sys.secrets;
+  cfg = config.programs.security.secrets;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.gnome.gnome-keyring.enable = true;
 
     security.polkit.enable = true;

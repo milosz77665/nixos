@@ -3,7 +3,6 @@
   sys = {
     tools.timeshift.enable = true;
     wm-x11.betterlockscreen.enable = true;
-    secrets.enable = true;
   };
 
   hardware = {
@@ -62,14 +61,15 @@
     office.okular.enable = true;
     office.zathura.enable = true;
     printing.hp.enable = true;
+    security.polkit-gnome.enable = true;
+    security.seahorse.enable = true;
+    security.secrets.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    secrets.polkit-gnome.enable = true;
-    secrets.seahorse.enable = true;
     shells.bash.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;

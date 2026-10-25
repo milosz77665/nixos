@@ -2,14 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.secrets.polkit-gnome or config.usr.secrets.polkit-gnome;
+  cfg = config.programs.security.polkit-gnome;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.polkit-gnome.enable = true;
 
     systemd.user.services.polkit-gnome-authentication-agent-1 = {

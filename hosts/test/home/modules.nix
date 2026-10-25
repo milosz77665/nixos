@@ -45,13 +45,13 @@
     office.libreoffice.enable = true;
     office.okular.enable = true;
     office.zathura.enable = true;
+    security.seahorse.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    secrets.seahorse.enable = true;
     shells.bash.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
