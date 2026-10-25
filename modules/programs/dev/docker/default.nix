@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.tools.docker = {
-    enable = lib.mkEnableOption "Docker";
+  options.programs.dev.docker = {
+    enable = lib.mkEnableOption "Docker (containerization platform and daemon)";
   };
 }

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.dev.neovim = {
-    enable = lib.mkEnableOption "Neovim";
+  options.programs.dev.neovim = {
+    enable = lib.mkEnableOption "Neovim (text editor with IDE dependencies: LSPs, formatters)";
   };
 }

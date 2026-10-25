@@ -26,6 +26,12 @@
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
+    dev.direnv.enable = true;
+    dev.git.enable = true;
+    dev.neovim.enable = true;
+    dev.vscode.enable = true;
+    dev.go.enable = true;
+    dev.nodejs.enable = true;
     desktop.sddm.enable = true;
     desktop.xdg.enable = true;
     tools.flameshot.enable = true;
@@ -35,12 +41,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    dev.direnv.enable = true;
-    dev.git.enable = true;
-    dev.neovim.enable = true;
-    dev.vscode.enable = true;
-    dev-languages.go.enable = true;
-    dev-languages.nodejs.enable = true;
     disk.baobab.enable = true;
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;

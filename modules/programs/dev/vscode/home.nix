@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev.vscode or config.usr.dev.vscode;
+  cfg = config.programs.dev.vscode;
 in
 {
   config = lib.mkIf cfg.enable {

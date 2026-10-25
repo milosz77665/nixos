@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.sys.tools.docker;
+  cfg = config.programs.dev.docker;
 in
 {
   config = lib.mkIf cfg.enable {

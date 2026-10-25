@@ -2,10 +2,7 @@
 {
   sys = {
     gaming.steam.enable = true;
-    tools.docker.enable = true;
     tools.timeshift.enable = true;
-    tools.virtualbox.enable = true;
-    tools.wireshark.enable = true;
     disk-utils.enable = true;
     printing.hp.enable = true;
     secrets.enable = true;
@@ -32,24 +29,27 @@
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
-    desktop.sddm.enable = true;
-    desktop.xdg.enable = true;
-    tools.flameshot.enable = true;
-  };
-
-  usr = {
     communicators.discord.enable = true;
-    desktop.fonts.enable = true;
-    gtk.enable = true;
-    desktop.wallpapers.enable = true;
     dev.direnv.enable = true;
     dev.drawio.enable = true;
     dev.git.enable = true;
     dev.neovim.enable = true;
     dev.postman.enable = true;
     dev.vscode.enable = true;
-    dev-languages.go.enable = true;
-    dev-languages.nodejs.enable = true;
+    dev.go.enable = true;
+    dev.nodejs.enable = true;
+    dev.docker.enable = true;
+    dev.virtualbox.enable = true;
+    dev.wireshark.enable = true;
+    desktop.sddm.enable = true;
+    desktop.xdg.enable = true;
+    tools.flameshot.enable = true;
+  };
+
+  usr = {
+    desktop.fonts.enable = true;
+    gtk.enable = true;
+    desktop.wallpapers.enable = true;
     disk.baobab.enable = true;
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;

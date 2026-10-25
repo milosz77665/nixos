@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.sys.tools.virtualbox;
+  cfg = config.programs.dev.virtualbox;
 in
 {
   config = lib.mkIf cfg.enable {

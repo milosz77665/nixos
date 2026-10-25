@@ -2,11 +2,10 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev.postman or config.usr.dev.postman;
+  cfg = config.programs.dev.postman;
 in
 {
   config = lib.mkIf cfg.enable {

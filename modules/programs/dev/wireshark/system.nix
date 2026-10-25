@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.sys.tools.wireshark;
+  cfg = config.programs.dev.wireshark;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.dev.drawio = {
-    enable = lib.mkEnableOption "Drawio";
+  options.programs.dev.drawio = {
+    enable = lib.mkEnableOption "draw.io (desktop diagramming application)";
   };
 }

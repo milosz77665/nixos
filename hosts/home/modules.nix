@@ -8,6 +8,7 @@
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
+    dev.neovim.enable = true;
     desktop.xdg.enable = true;
     tools.flameshot.enable = true;
   };
@@ -16,7 +17,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    dev.neovim.enable = true;
     file-managers.nemo.enable = true;
     network.network-manager.enable = true;
     shells.bash.enable = true;

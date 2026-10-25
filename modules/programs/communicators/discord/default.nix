@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.communicators.discord = {
-    enable = lib.mkEnableOption "Discord";
+  options.programs.communicators.discord = {
+    enable = lib.mkEnableOption "Discord (voice and text chat)";
   };
 }

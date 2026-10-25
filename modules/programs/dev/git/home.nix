@@ -2,11 +2,10 @@
   vars,
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev.git or config.usr.dev.git;
+  cfg = config.programs.dev.git;
 in
 {
   config = lib.mkIf cfg.enable {

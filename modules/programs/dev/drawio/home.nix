@@ -2,11 +2,10 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev.drawio or config.usr.dev.drawio;
+  cfg = config.programs.dev.drawio;
 in
 {
   config = lib.mkIf cfg.enable {

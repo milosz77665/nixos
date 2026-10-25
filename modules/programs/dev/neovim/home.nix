@@ -2,11 +2,10 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev.neovim or config.usr.dev.neovim;
+  cfg = config.programs.dev.neovim;
 in
 {
   config = lib.mkIf cfg.enable {

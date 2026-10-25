@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.communicators.discord or config.usr.communicators.discord;
+  cfg = config.programs.communicators.discord;
 in
 {
   config = lib.mkIf cfg.enable {

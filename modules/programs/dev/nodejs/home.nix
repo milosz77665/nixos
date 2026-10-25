@@ -2,11 +2,10 @@
   lib,
   pkgsUnstable,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.dev-languages.nodejs or config.usr.dev-languages.nodejs;
+  cfg = config.programs.dev.nodejs;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.tools.wireshark = {
-    enable = lib.mkEnableOption "Wireshark";
+  options.programs.dev.wireshark = {
+    enable = lib.mkEnableOption "Wireshark (network protocol analyzer)";
   };
 }

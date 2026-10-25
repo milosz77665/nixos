@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.dev-languages.nodejs = {
-    enable = lib.mkEnableOption "Node.js";
+  options.programs.dev.nodejs = {
+    enable = lib.mkEnableOption "Node.js (JavaScript runtime environment)";
   };
 }

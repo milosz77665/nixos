@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.dev.git = {
-    enable = lib.mkEnableOption "Git";
+  options.programs.dev.git = {
+    enable = lib.mkEnableOption "Git (version control system)";
   };
 }

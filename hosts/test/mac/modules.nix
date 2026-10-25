@@ -7,14 +7,14 @@
     cli-tools.starship.enable = true;
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
-  };
-
-  usr = {
     dev.direnv.enable = true;
     dev.git.enable = true;
     dev.neovim.enable = true;
-    dev-languages.go.enable = true;
-    dev-languages.nodejs.enable = true;
+    dev.go.enable = true;
+    dev.nodejs.enable = true;
+  };
+
+  usr = {
     desktop.fonts.enable = true;
     media.ffmpeg.enable = true;
     shells.bash.enable = true;

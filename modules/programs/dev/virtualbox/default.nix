@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.tools.virtualbox = {
-    enable = lib.mkEnableOption "Virtualbox";
+  options.programs.dev.virtualbox = {
+    enable = lib.mkEnableOption "VirtualBox (hypervisor and host utilities)";
   };
 }
