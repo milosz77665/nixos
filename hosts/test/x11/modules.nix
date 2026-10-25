@@ -74,13 +74,13 @@
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
     tools.flameshot.enable = true;
+    tools.qalculate.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    tools.qalculate.enable = true;
     wm-x11.arandr.enable = true;
     wm-x11.feh.enable = true;
     wm-x11.high-dpi.enable = true;

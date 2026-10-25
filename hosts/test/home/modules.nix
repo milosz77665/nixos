@@ -50,12 +50,12 @@
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
     tools.flameshot.enable = true;
+    tools.qalculate.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    tools.qalculate.enable = true;
   };
 }

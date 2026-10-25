@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.tools.qalculate = {
-    enable = lib.mkEnableOption "Qalculate";
+  options.programs.tools.qalculate = {
+    enable = lib.mkEnableOption "Qalculate! (powerful and versatile desktop calculator)";
   };
 }
