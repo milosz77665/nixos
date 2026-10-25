@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.tools.qbittorrent = {
-    enable = lib.mkEnableOption "Qbittorrent";
+  options.programs.network.qbittorrent = {
+    enable = lib.mkEnableOption "qBittorrent";
   };
 }

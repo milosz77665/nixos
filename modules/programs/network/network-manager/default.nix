@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.network.network-manager = {
-    enable = lib.mkEnableOption "Network Manager";
+  options.programs.network.network-manager = {
+    enable = lib.mkEnableOption "Network Manager Applet (nm-applet GUI)";
   };
 }

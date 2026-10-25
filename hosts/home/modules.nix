@@ -11,6 +11,7 @@
     dev.neovim.enable = true;
     desktop.xdg.enable = true;
     file-managers.nemo.enable = true;
+    network.network-manager.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -18,7 +19,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    network.network-manager.enable = true;
     shells.bash.enable = true;
     terminals.ghostty.enable = true;
     wm-wayland.fuzzel.enable = true;

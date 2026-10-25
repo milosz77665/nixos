@@ -2,18 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.network.network-manager or config.usr.network.network-manager;
+  cfg = config.programs.network.network-manager;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.network-manager-applet.enable = true;
-
-    home.packages = with pkgs; [
-      networkmanagerapplet
-    ];
   };
 }
