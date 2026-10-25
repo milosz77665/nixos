@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.notifications.dunst = {
-    enable = lib.mkEnableOption "Dunst";
+  options.programs.notifications.dunst = {
+    enable = lib.mkEnableOption "Dunst (lightweight and customizable notification daemon)";
   };
 }

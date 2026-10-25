@@ -1,14 +1,15 @@
 {
   lib,
+  pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.notifications.dunst or config.usr.notifications.dunst;
+  cfg = config.programs.notifications.dunst;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.dunst = {
       enable = true;
       settings = {
