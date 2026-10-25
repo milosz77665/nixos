@@ -2,7 +2,6 @@
 {
   sys = {
     tools.timeshift.enable = true;
-    printing.hp.enable = true;
     secrets.enable = true;
   };
 
@@ -67,6 +66,7 @@
     office.libreoffice.enable = true;
     office.okular.enable = true;
     office.zathura.enable = true;
+    printing.hp.enable = true;
   };
 
   usr = {

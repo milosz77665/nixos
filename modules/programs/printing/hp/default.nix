@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.printing.hp = {
-    enable = lib.mkEnableOption "HP printing";
+  options.programs.printing.hp = {
+    enable = lib.mkEnableOption "HP Printing (CUPS service with HPLIP proprietary plugin)";
   };
 }

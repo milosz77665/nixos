@@ -2,8 +2,6 @@
 {
   sys = {
     tools.timeshift.enable = true;
-    tools.wireshark.enable = true;
-    printing.hp.enable = true;
     secrets.enable = true;
   };
 
@@ -31,6 +29,7 @@
     dev.vscode.enable = true;
     dev.go.enable = true;
     dev.nodejs.enable = true;
+    dev.wireshark.enable = true;
     disk.baobab.enable = true;
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;
@@ -53,6 +52,7 @@
     office.libreoffice.enable = true;
     office.okular.enable = true;
     office.zathura.enable = true;
+    printing.hp.enable = true;
   };
 
   usr = {

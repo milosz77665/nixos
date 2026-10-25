@@ -3,7 +3,6 @@
   sys = {
     tools.timeshift.enable = true;
     wm-x11.betterlockscreen.enable = true;
-    printing.hp.enable = true;
     secrets.enable = true;
   };
 
@@ -68,6 +67,7 @@
     office.libreoffice.enable = true;
     office.okular.enable = true;
     office.zathura.enable = true;
+    printing.hp.enable = true;
   };
 
   usr = {

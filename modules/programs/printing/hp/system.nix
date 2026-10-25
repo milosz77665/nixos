@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.sys.printing.hp;
+  cfg = config.programs.printing.hp;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     environment.systemPackages = with pkgs; [
       system-config-printer
       hplipWithPlugin
