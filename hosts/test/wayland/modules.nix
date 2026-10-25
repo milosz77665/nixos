@@ -52,6 +52,7 @@
     gaming.lutris.enable = true;
     gaming.wine.enable = true;
     gaming.steam.enable = true;
+    graphics.gimp.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -73,7 +74,6 @@
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
     tools.evince.enable = true;
-    tools.gimp.enable = true;
     tools.gnome-system-monitor.enable = true;
     tools.libreoffice.enable = true;
     tools.okular.enable = true;

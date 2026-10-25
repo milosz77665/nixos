@@ -2,11 +2,10 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.tools.gimp or config.usr.tools.gimp;
+  cfg = config.programs.graphics.gimp;
 in
 {
   config = lib.mkIf cfg.enable {

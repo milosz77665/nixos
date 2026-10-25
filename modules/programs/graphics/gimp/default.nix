@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.tools.gimp = {
-    enable = lib.mkEnableOption "Gimp";
+  options.programs.graphics.gimp = {
+    enable = lib.mkEnableOption "GIMP (GNU Image Manipulation Program)";
   };
 }
