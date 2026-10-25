@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.shells.bash = {
-    enable = lib.mkEnableOption "Bash";
+  options.programs.shells.bash = {
+    enable = lib.mkEnableOption "Bash (GNU Bourne-Again SHell)";
   };
 }

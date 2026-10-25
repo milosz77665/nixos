@@ -46,13 +46,13 @@
     office.okular.enable = true;
     office.zathura.enable = true;
     security.seahorse.enable = true;
+    shells.bash.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    shells.bash.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
     tools.gnome-system-monitor.enable = true;
