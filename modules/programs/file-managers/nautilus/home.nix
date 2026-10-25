@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.file-managers.nautilus or config.usr.file-managers.nautilus;
+  cfg = config.programs.file-managers.nautilus;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       nautilus
     ];

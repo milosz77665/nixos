@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.file-managers.nemo or config.usr.file-managers.nemo;
+  cfg = config.programs.file-managers.nemo;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       nemo-with-extensions
     ];

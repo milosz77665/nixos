@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.file-managers.nemo = {
-    enable = lib.mkEnableOption "Nemo File Manager";
+  options.programs.file-managers.nemo = {
+    enable = lib.mkEnableOption "Nemo (advanced file manager from Cinnamon)";
   };
 }

@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.file-managers.thunar or config.usr.file-managers.thunar;
+  cfg = config.programs.file-managers.thunar;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       xfce.thunar
       xfce.thunar-archive-plugin

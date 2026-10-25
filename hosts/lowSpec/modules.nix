@@ -37,6 +37,7 @@
     disk.disk-utils.enable = true;
     desktop.sddm.enable = true;
     desktop.xdg.enable = true;
+    file-managers.nemo.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -44,7 +45,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    file-managers.nemo.enable = true;
     media.ffmpeg.enable = true;
     media.imv.enable = true;
     media.mpv.enable = true;

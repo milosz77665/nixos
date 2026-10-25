@@ -43,6 +43,7 @@
     disk.disk-utils.enable = true;
     desktop.sddm.enable = true;
     desktop.xdg.enable = true;
+    file-managers.nemo.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -50,7 +51,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    file-managers.nemo.enable = true;
     gaming.heroic.enable = true;
     gaming.lutris.enable = true;
     gaming.wine.enable = true;

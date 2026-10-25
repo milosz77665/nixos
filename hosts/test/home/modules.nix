@@ -25,6 +25,9 @@
     disk.gnome-disk-utility.enable = true;
     disk.disk-utils.enable = true;
     desktop.xdg.enable = true;
+    file-managers.nautilus.enable = true;
+    file-managers.nemo.enable = true;
+    file-managers.thunar.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -32,9 +35,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    file-managers.nautilus.enable = true;
-    file-managers.nemo.enable = true;
-    file-managers.thunar.enable = true;
     gaming.heroic.enable = true;
     gaming.lutris.enable = true;
     gaming.wine.enable = true;
