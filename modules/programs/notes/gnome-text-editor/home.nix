@@ -2,14 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.notes.gnome-text-editor or config.usr.notes.gnome-text-editor;
+  cfg = config.programs.notes.gnome-text-editor;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       gnome-text-editor
     ];

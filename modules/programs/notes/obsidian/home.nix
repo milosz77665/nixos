@@ -2,14 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.notes.obsidian or config.usr.notes.obsidian;
+  cfg = config.programs.notes.obsidian;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       obsidian
     ];

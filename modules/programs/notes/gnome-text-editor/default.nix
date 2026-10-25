@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.notes.gnome-text-editor = {
-    enable = lib.mkEnableOption "Gnome Text Editor";
+  options.programs.notes.gnome-text-editor = {
+    enable = lib.mkEnableOption "GNOME Text Editor";
   };
 }

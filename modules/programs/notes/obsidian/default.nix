@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.notes.obsidian = {
+  options.programs.notes.obsidian = {
     enable = lib.mkEnableOption "Obsidian";
   };
 }

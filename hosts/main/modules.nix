@@ -53,6 +53,8 @@
     media.mpv.enable = true;
     music.spotify.enable = true;
     network.network-manager.enable = true;
+    notes.gnome-text-editor.enable = true;
+    notes.obsidian.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -60,8 +62,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    notes.gnome-text-editor.enable = true;
-    notes.obsidian.enable = true;
     notifications.dunst.enable = true;
     secrets.polkit-gnome.enable = true;
     secrets.seahorse.enable = true;
