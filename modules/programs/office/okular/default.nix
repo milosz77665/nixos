@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.tools.okular = {
-    enable = lib.mkEnableOption "Okular";
+  options.programs.office.okular = {
+    enable = lib.mkEnableOption "Okular (universal document viewer by KDE)";
   };
 }

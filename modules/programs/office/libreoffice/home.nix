@@ -2,16 +2,20 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.tools.libreoffice or config.usr.tools.libreoffice;
+  cfg = config.programs.office.libreoffice;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       libreoffice
+
+      hunspell
+      hunspellDicts.pl_PL
+      hunspellDicts.en_US-large
     ];
   };
 }

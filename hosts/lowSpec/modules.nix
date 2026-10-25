@@ -44,10 +44,15 @@
     media.mpv.enable = true;
     music.spotify.enable = true;
     network.network-manager.enable = true;
+    network.qbittorrent.enable = true;
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
     notifications.dunst.enable = true;
     tools.flameshot.enable = true;
+    office.evince.enable = true;
+    office.libreoffice.enable = true;
+    office.okular.enable = true;
+    office.zathura.enable = true;
   };
 
   usr = {
@@ -59,13 +64,8 @@
     shells.bash.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
-    tools.evince.enable = true;
     tools.gnome-system-monitor.enable = true;
-    tools.libreoffice.enable = true;
-    tools.okular.enable = true;
     tools.qalculate.enable = true;
-    tools.qbittorrent.enable = true;
-    tools.zathura.enable = true;
     wm-wayland.fuzzel.enable = true;
     wm-wayland.swaybg.enable = true;
     wm-wayland.clipboard.enable = true;

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.tools.evince = {
-    enable = lib.mkEnableOption "Evince";
+  options.programs.office.evince = {
+    enable = lib.mkEnableOption "Evince (document viewer for PDF)";
   };
 }

@@ -2,14 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
+
   ...
 }:
 let
-  cfg = osConfig.usr.tools.evince or config.usr.tools.evince;
+  cfg = config.programs.office.evince;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       evince
     ];
