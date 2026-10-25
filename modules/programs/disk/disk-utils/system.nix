@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.sys.disk-utils;
+  cfg = config.programs.disk.disk-utils;
 in
 {
   config = lib.mkIf cfg.enable {

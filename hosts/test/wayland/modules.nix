@@ -3,7 +3,6 @@
   sys = {
     gaming.steam.enable = true;
     tools.timeshift.enable = true;
-    disk-utils.enable = true;
     printing.hp.enable = true;
     secrets.enable = true;
   };
@@ -41,6 +40,10 @@
     dev.docker.enable = true;
     dev.virtualbox.enable = true;
     dev.wireshark.enable = true;
+    disk.baobab.enable = true;
+    disk.gnome-disk-utility.enable = true;
+    disk.udiskie.enable = true;
+    disk.disk-utils.enable = true;
     desktop.sddm.enable = true;
     desktop.xdg.enable = true;
     tools.flameshot.enable = true;
@@ -50,9 +53,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    disk.baobab.enable = true;
-    disk.gnome-disk-utility.enable = true;
-    disk.udiskie.enable = true;
     file-managers.nautilus.enable = true;
     file-managers.nemo.enable = true;
     file-managers.thunar.enable = true;

@@ -1,14 +1,13 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.disk.udiskie or config.usr.disk.udiskie;
+  cfg = config.programs.disk.udiskie;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.udiskie = {
       enable = true;
       tray = "always";

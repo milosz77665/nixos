@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.disk.udiskie = {
-    enable = lib.mkEnableOption "Udiskie";
+  options.programs.disk.udiskie = {
+    enable = lib.mkEnableOption "udiskie (automounter for removable media)";
   };
 }

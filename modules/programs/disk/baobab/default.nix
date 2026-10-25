@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.disk.baobab = {
-    enable = lib.mkEnableOption "Baobab";
+  options.programs.disk.baobab = {
+    enable = lib.mkEnableOption "baobab (GNOME Disk Usage Analyzer)";
   };
 }
