@@ -4,11 +4,10 @@
   vars,
   isWayland,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.programs.tools.flameshot or config.programs.tools.flameshot;
+  cfg = config.programs.tools.flameshot;
 in
 {
    config = lib.mkIf cfg.enable {
