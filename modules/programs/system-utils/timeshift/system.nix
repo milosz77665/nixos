@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.sys.tools.timeshift;
+  cfg = config.programs.system-utils.timeshift;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     environment.systemPackages = with pkgs; [
       timeshift
     ];

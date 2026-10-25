@@ -47,6 +47,7 @@
     office.zathura.enable = true;
     security.seahorse.enable = true;
     shells.bash.enable = true;
+    system-utils.gnome-system-monitor.enable = true;
   };
 
   usr = {
@@ -55,7 +56,6 @@
     desktop.wallpapers.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
-    tools.gnome-system-monitor.enable = true;
     tools.qalculate.enable = true;
   };
 }

@@ -1,7 +1,6 @@
 { vars, ... }:
 {
   sys = {
-    tools.timeshift.enable = true;
     wm-x11.betterlockscreen.enable = true;
   };
 
@@ -65,6 +64,8 @@
     security.seahorse.enable = true;
     security.secrets.enable = true;
     shells.bash.enable = true;
+    system-utils.gnome-system-monitor.enable = true;
+    system-utils.timeshift.enable = true;
   };
 
   usr = {
@@ -73,7 +74,6 @@
     desktop.wallpapers.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
-    tools.gnome-system-monitor.enable = true;
     tools.qalculate.enable = true;
     wm-x11.arandr.enable = true;
     wm-x11.feh.enable = true;

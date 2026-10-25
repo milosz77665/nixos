@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.tools.timeshift = {
-    enable = lib.mkEnableOption "Timeshift";
+  options.programs.system-utils.timeshift = {
+    enable = lib.mkEnableOption "Timeshift (system backup and restore utility)";
   };
 }
