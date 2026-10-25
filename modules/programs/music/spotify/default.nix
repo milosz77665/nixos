@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.music.spotify = {
+  options.programs.music.spotify = {
     enable = lib.mkEnableOption "Spotify";
   };
 }
