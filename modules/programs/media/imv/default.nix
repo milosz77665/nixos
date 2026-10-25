@@ -3,8 +3,8 @@
   ...
 }:
 {
-  options.usr.media.imv = {
-    enable = lib.mkEnableOption "imv image viewer";
+  options.programs.media.imv = {
+    enable = lib.mkEnableOption "imv (image viewer)";
   };
 }
 

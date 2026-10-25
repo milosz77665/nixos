@@ -53,6 +53,9 @@
     gaming.wine.enable = true;
     gaming.steam.enable = true;
     graphics.gimp.enable = true;
+    media.ffmpeg.enable = true;
+    media.imv.enable = true;
+    media.mpv.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -60,9 +63,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    media.ffmpeg.enable = true;
-    media.imv.enable = true;
-    media.mpv.enable = true;
     music.spotify.enable = true;
     network.network-manager.enable = true;
     notes.gnome-text-editor.enable = true;

@@ -11,11 +11,11 @@
     dev.neovim.enable = true;
     dev.go.enable = true;
     dev.nodejs.enable = true;
+    media.ffmpeg.enable = true;
   };
 
   usr = {
     nix-on-droid.theme.enable = true;
-    media.ffmpeg.enable = true;
     shells.bash.enable = true;
   };
 }

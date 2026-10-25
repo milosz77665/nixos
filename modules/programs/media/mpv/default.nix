@@ -3,8 +3,8 @@
   ...
 }:
 {
-  options.usr.media.mpv = {
-    enable = lib.mkEnableOption "mpv media player";
+  options.programs.media.mpv = {
+    enable = lib.mkEnableOption "mpv (media player)";
   };
 }
 
