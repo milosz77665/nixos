@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.sys.gaming.steam;
+  cfg = config.programs.gaming.steam;
 in
 {
   config = lib.mkIf cfg.enable {

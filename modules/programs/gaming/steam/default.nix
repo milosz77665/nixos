@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.sys.gaming.steam = {
+  options.programs.gaming.steam = {
     enable = lib.mkEnableOption "Steam";
   };
 }

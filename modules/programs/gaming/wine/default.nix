@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.gaming.wine = {
-    enable = lib.mkEnableOption "Wine";
+  options.programs.gaming.wine = {
+    enable = lib.mkEnableOption "Wine (compatibility layer for Windows applications and games)";
   };
 }

@@ -1,14 +1,13 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.gaming.lutris or config.usr.gaming.lutris;
+  cfg = config.programs.gaming.lutris;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.lutris.enable = true;
   };
 }

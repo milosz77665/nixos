@@ -28,6 +28,9 @@
     file-managers.nautilus.enable = true;
     file-managers.nemo.enable = true;
     file-managers.thunar.enable = true;
+    gaming.heroic.enable = true;
+    gaming.lutris.enable = true;
+    gaming.wine.enable = true;
     tools.flameshot.enable = true;
   };
 
@@ -35,9 +38,6 @@
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    gaming.heroic.enable = true;
-    gaming.lutris.enable = true;
-    gaming.wine.enable = true;
     media.ffmpeg.enable = true;
     media.imv.enable = true;
     media.mpv.enable = true;

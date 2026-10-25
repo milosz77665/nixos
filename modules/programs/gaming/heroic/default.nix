@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.gaming.heroic = {
-    enable = lib.mkEnableOption "Heroic";
+  options.programs.gaming.heroic = {
+    enable = lib.mkEnableOption "Heroic Games Launcher (Epic, GOG, and Amazon Games)";
   };
 }
