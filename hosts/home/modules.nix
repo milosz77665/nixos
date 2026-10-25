@@ -12,15 +12,15 @@
     desktop.xdg.enable = true;
     file-managers.nemo.enable = true;
     network.network-manager.enable = true;
-    tools.flameshot.enable = true;
     shells.bash.enable = true;
+    terminals.ghostty.enable = true;
+    tools.flameshot.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    terminals.ghostty.enable = true;
     wm-wayland.fuzzel.enable = true;
     wm-wayland.niri.enable = true;
     wm-wayland.ozone.enable = true;

@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.terminals.alacritty or config.usr.terminals.alacritty;
+  cfg = config.programs.terminals.alacritty;
 in
 {
   config = lib.mkIf cfg.enable {

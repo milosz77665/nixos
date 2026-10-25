@@ -14,10 +14,11 @@
     dev.nodejs.enable = true;
     media.ffmpeg.enable = true;
     shells.bash.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
-    terminals.alacritty.enable = true;
   };
 }

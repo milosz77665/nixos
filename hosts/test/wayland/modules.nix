@@ -56,7 +56,6 @@
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
     notifications.dunst.enable = true;
-    tools.flameshot.enable = true;
     office.evince.enable = true;
     office.libreoffice.enable = true;
     office.okular.enable = true;
@@ -68,14 +67,15 @@
     shells.bash.enable = true;
     system-utils.gnome-system-monitor.enable = true;
     system-utils.timeshift.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
+    tools.flameshot.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    terminals.alacritty.enable = true;
-    terminals.ghostty.enable = true;
     tools.qalculate.enable = true;
     wm-wayland.fuzzel.enable = true;
     wm-wayland.niri.enable = true;

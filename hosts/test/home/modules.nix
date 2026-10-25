@@ -40,7 +40,6 @@
     network.qbittorrent.enable = true;
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
-    tools.flameshot.enable = true;
     office.evince.enable = true;
     office.libreoffice.enable = true;
     office.okular.enable = true;
@@ -48,14 +47,15 @@
     security.seahorse.enable = true;
     shells.bash.enable = true;
     system-utils.gnome-system-monitor.enable = true;
+    terminals.alacritty.enable = true;
+    terminals.ghostty.enable = true;
+    tools.flameshot.enable = true;
   };
 
   usr = {
     desktop.fonts.enable = true;
     gtk.enable = true;
     desktop.wallpapers.enable = true;
-    terminals.alacritty.enable = true;
-    terminals.ghostty.enable = true;
     tools.qalculate.enable = true;
   };
 }

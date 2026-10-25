@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.terminals.ghostty or config.usr.terminals.ghostty;
+  cfg = config.programs.terminals.ghostty;
 in
 {
   config = lib.mkIf cfg.enable {
