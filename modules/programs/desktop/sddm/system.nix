@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.desktop.sddm;
+  cfg = config.programs.desktop.sddm;
 in
 {
   config = lib.mkIf cfg.enable {

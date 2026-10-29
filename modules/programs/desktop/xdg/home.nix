@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.desktop.xdg;
+  cfg = config.programs.desktop.xdg;
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux){
