@@ -26,9 +26,9 @@
     wm-wayland.wl-clipboard.enable = true;
   };
 
-  usr = {
-    desktop.fonts.enable = true;
+  theme = {
+    fonts.enable = true;
     gtk.enable = true;
-    desktop.wallpapers.enable = true;
+    wallpapers.enable = true;
   };
 }

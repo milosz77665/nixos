@@ -15,8 +15,8 @@
     shells.bash.enable = true;
   };
 
-  usr = {
-    nix-on-droid.theme.enable = true;
+  theme = {
+    nix-on-droid-theme.enable = true;
   };
 }
 

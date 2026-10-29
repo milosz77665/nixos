@@ -1,11 +1,10 @@
 {
   lib,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.desktop.wallpapers or config.usr.desktop.wallpapers;
+  cfg = config.theme.wallpapers;
 in
 {
   config = lib.mkIf cfg.enable {

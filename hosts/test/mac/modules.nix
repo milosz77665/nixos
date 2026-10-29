@@ -18,7 +18,7 @@
     terminals.ghostty.enable = true;
   };
 
-  usr = {
-    desktop.fonts.enable = true;
+  theme = {
+    fonts.enable = true;
   };
 }

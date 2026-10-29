@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.usr.nix-on-droid.theme;
+  cfg = config.theme.nix-on-droid-theme;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.nix-on-droid.theme = {
-    enable = lib.mkEnableOption "Theme for nix-on-droid";
+  options.theme.nix-on-droid-theme = {
+    enable = lib.mkEnableOption "Nix-on-Droid theme (JetBrains Mono font and custom terminal colors)";
   };
 }

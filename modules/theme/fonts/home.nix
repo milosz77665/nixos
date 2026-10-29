@@ -2,11 +2,10 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.desktop.fonts or config.usr.desktop.fonts;
+  cfg = config.theme.fonts;
 in
 {
   config = lib.mkIf cfg.enable {
