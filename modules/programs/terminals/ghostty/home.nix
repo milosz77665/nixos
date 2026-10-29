@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }:
@@ -7,7 +8,7 @@ let
   cfg = config.programs.terminals.ghostty;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.ghostty = {
       enable = true;
       settings = {
