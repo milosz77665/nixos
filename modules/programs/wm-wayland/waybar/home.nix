@@ -1,14 +1,14 @@
 {
   lib,
+  pkgs,
   config,
-  osConfig,
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.waybar or config.usr.wm-wayland.waybar;
+  cfg = config.programs.wm-wayland.waybar;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.waybar = {
       enable = true;
     };

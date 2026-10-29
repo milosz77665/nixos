@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.swaylock or config.usr.wm-wayland.swaylock;
+  cfg = config.programs.wm-wayland.swaylock;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;

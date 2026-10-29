@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.swaync or config.usr.wm-wayland.swaync;
+  cfg = config.programs.wm-wayland.swaync;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       swaynotificationcenter
     ];

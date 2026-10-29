@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-wayland.swaync = {
-    enable = lib.mkEnableOption "Swaync";
+  options.programs.wm-wayland.swaync = {
+    enable = lib.mkEnableOption "SwayNotificationCenter (notification daemon for Wayland)";
   };
 }

@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.fuzzel or config.usr.wm-wayland.fuzzel;
+  cfg = config.programs.wm-wayland.fuzzel;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.fuzzel = {
       enable = true;
       settings = {

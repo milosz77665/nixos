@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-wayland.waybar = {
-    enable = lib.mkEnableOption "Waybar";
+  options.programs.wm-wayland.waybar = {
+    enable = lib.mkEnableOption "Waybar (highly customizable status bar for Wayland)";
   };
 }

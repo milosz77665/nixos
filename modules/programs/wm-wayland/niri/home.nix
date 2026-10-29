@@ -2,15 +2,14 @@
   lib,
   pkgs,
   config,
-  osConfig ? {},
   isNixos,
   ...
 }:
 let
-  cfg = osConfig.usr.wm-wayland.niri or config.usr.wm-wayland.niri;
+  cfg = config.programs.wm-wayland.niri;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = lib.mkIf isNixos (with pkgs; [
       niri
       brightnessctl

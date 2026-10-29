@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-wayland.swaylock = {
-    enable = lib.mkEnableOption "Swaylock";
+  options.programs.wm-wayland.swaylock = {
+    enable = lib.mkEnableOption "swaylock (screen locker for Wayland)";
   };
 }

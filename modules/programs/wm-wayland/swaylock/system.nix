@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.usr.wm-wayland.swaylock;
+  cfg = config.programs.wm-wayland.swaylock;
 in
 {
   config = lib.mkIf cfg.enable {

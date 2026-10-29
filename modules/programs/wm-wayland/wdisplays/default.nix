@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-wayland.wdisplays = {
-    enable = lib.mkEnableOption "Wdisplays";
+  options.programs.wm-wayland.wdisplays = {
+    enable = lib.mkEnableOption "wdisplays (graphical display configuration tool for Wayland)";
   };
 }
