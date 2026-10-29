@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-x11.qtile = {
-    enable = lib.mkEnableOption "Qtile";
+  options.programs.wm-x11.qtile = {
+    enable = lib.mkEnableOption "Qtile (tiling window manager for X11)";
   };
 }

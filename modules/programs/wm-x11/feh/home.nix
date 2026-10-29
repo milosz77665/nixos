@@ -1,14 +1,14 @@
 {
   lib,
+  pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-x11.feh or config.usr.wm-x11.feh;
+  cfg = config.programs.wm-x11.feh;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.feh.enable = true;
   };
 }

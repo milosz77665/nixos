@@ -3,7 +3,7 @@
   ...
 }:
 {
-  options.usr.wm-x11.arandr = {
-    enable = lib.mkEnableOption "Arandr";
+  options.programs.wm-x11.arandr = {
+    enable = lib.mkEnableOption "arandr (graphical interface for xrandr screen configuration)";
   };
 }

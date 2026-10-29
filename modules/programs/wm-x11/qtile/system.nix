@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.usr.wm-x11.qtile;
+  cfg = config.programs.wm-x11.qtile;
 in
 {
   config = lib.mkIf cfg.enable {

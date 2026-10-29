@@ -1,9 +1,5 @@
 { vars, ... }:
 {
-  sys = {
-    wm-x11.betterlockscreen.enable = true;
-  };
-
   hardware = {
     audio.enable = true;
     battery.enable = true;
@@ -69,13 +65,8 @@
     terminals.ghostty.enable = true;
     tools.flameshot.enable = true;
     tools.qalculate.enable = true;
-  };
-
-  usr = {
-    desktop.fonts.enable = true;
-    gtk.enable = true;
-    desktop.wallpapers.enable = true;
     wm-x11.arandr.enable = true;
+    wm-x11.betterlockscreen.enable = true;
     wm-x11.feh.enable = true;
     wm-x11.high-dpi.enable = true;
     wm-x11.picom.enable = true;
@@ -83,5 +74,11 @@
     wm-x11.qtile.enable = true;
     wm-x11.rofi.enable = true;
     wm-x11.xclip.enable = true;
+  };
+
+  usr = {
+    desktop.fonts.enable = true;
+    gtk.enable = true;
+    desktop.wallpapers.enable = true;
   };
 }

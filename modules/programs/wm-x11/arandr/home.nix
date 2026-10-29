@@ -2,14 +2,13 @@
   lib,
   pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-x11.arandr or config.usr.wm-x11.arandr;
+  cfg = config.programs.wm-x11.arandr;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       arandr
     ];

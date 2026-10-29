@@ -1,14 +1,14 @@
 {
   lib,
+  pkgs,
   config,
-  osConfig ? { },
   ...
 }:
 let
-  cfg = osConfig.usr.wm-x11.rofi or config.usr.wm-x11.rofi;
+  cfg = config.programs.wm-x11.rofi;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.rofi.enable = true;
     xdg.configFile."rofi".source = ./dotfiles;
   };

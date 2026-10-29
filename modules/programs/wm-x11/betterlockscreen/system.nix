@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.sys.wm-x11.betterlockscreen;
+  cfg = config.programs.wm-x11.betterlockscreen;
 in
 {
   config = lib.mkIf cfg.enable {
