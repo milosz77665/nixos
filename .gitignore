@@ -1,2 +1,3 @@
-hosts/**/vars.nix
+hosts/*/vars.nix
 !hosts/test/**/vars.nix
+!hosts/**/vars.example.nix
