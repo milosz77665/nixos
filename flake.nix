@@ -36,11 +36,13 @@
 
         testWayland = localLib.builders.mkSystem {
           hostName = "testWayland";
+          customVarsPath = ./hosts/test/vars.nix;
           customModulesPath = ./hosts/test/wayland/modules.nix;
           customConfigurationPath = ./hosts/test/wayland/configuration.nix;
         };
         testX11 = localLib.builders.mkSystem {
           hostName = "testX11";
+          customVarsPath = ./hosts/test/vars.nix;
           customModulesPath = ./hosts/test/x11/modules.nix;
           customConfigurationPath = ./hosts/test/x11/configuration.nix;
         };
@@ -69,11 +71,13 @@
 
         testHome = localLib.builders.mkHome {
           hostName = "testHome";
+          customVarsPath = ./hosts/test/vars.nix;
           customModulesPath = ./hosts/test/home/modules.nix;
         };
         testMac = localLib.builders.mkHome {
           hostName = "testMac";
           system = "aarch64-darwin";
+          customVarsPath = ./hosts/test/mac/vars.nix;
           customModulesPath = ./hosts/test/mac/modules.nix;
         };
       };
