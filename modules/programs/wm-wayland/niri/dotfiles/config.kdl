@@ -1,4 +1,4 @@
-spawn-at-startup "swaybg" "-i" "/home/milosz/wallpapers/fog.jpg"
+spawn-at-startup "sh" "-c" "exec swaybg -i \"$HOME/wallpapers/fog.jpg\""
 spawn-at-startup "swaync"
 spawn-at-startup "waybar"
 layout {
@@ -37,7 +37,7 @@ binds {
         quit
     }
     Mod+Alt+L {
-        spawn "swaylock" "-f" "-i" "/home/milosz/wallpapers/fog.jpg"
+        spawn "sh" "-c" "exec swaylock -f -i \"$HOME/wallpapers/fog.jpg\""
     }
     XF86MonBrightnessUp allow-when-locked=true {
         spawn "brightnessctl" "set" "5%+"
