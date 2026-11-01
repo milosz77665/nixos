@@ -9,6 +9,10 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    home.packages = with pkgs; [
+      pywal
+    ];
+
     programs.rofi.enable = true;
     xdg.configFile."rofi".source = ./dotfiles;
   };
