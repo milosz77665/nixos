@@ -1,28 +1,29 @@
+{ lib, ... }:
 {
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  time.timeZone = lib.mkDefault "Europe/Warsaw";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "pl_PL.UTF-8";
+  i18n.defaultLocale = lib.mkDefault "pl_PL.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pl_PL.UTF-8";
-    LC_IDENTIFICATION = "pl_PL.UTF-8";
-    LC_MEASUREMENT = "pl_PL.UTF-8";
-    LC_MONETARY = "pl_PL.UTF-8";
-    LC_NAME = "pl_PL.UTF-8";
-    LC_NUMERIC = "pl_PL.UTF-8";
-    LC_PAPER = "pl_PL.UTF-8";
-    LC_TELEPHONE = "pl_PL.UTF-8";
-    LC_TIME = "pl_PL.UTF-8";
+    LC_ADDRESS = lib.mkDefault "pl_PL.UTF-8";
+    LC_IDENTIFICATION = lib.mkDefault "pl_PL.UTF-8";
+    LC_MEASUREMENT = lib.mkDefault "pl_PL.UTF-8";
+    LC_MONETARY = lib.mkDefault "pl_PL.UTF-8";
+    LC_NAME = lib.mkDefault "pl_PL.UTF-8";
+    LC_NUMERIC = lib.mkDefault "pl_PL.UTF-8";
+    LC_PAPER = lib.mkDefault "pl_PL.UTF-8";
+    LC_TELEPHONE = lib.mkDefault "pl_PL.UTF-8";
+    LC_TIME = lib.mkDefault "pl_PL.UTF-8";
   };
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "pl";
-    variant = "";
+    layout = lib.mkDefault "pl";
+    variant = lib.mkDefault "";
   };
 
   # Configure console keymap
-  console.keyMap = "pl2";
+  console.keyMap = lib.mkDefault "pl2";
 }
