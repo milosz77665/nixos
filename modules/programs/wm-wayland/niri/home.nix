@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  isNixos,
   ...
 }:
 let
@@ -10,10 +9,23 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
-    home.packages = lib.mkIf isNixos (with pkgs; [
+    home.packages = with pkgs; [
       niri
+      swaybg
+      swaynotificationcenter
+      waybar
+      ghostty
+      fuzzel
+      brave
+      gedit
+      obsidian
+      psmisc
+      swaylock-effects
       brightnessctl
-    ]);
+      wireplumber
+      playerctl
+      flameshot
+    ];
 
     xdg.configFile."niri" = {
       source = ./dotfiles;
