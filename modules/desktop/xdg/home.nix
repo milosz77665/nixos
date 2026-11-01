@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.programs.desktop.xdg;
+  cfg = config.desktop.xdg;
 in
 {
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux){
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     xdg.mimeApps = {
       enable = true;
 

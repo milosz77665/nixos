@@ -50,6 +50,10 @@ inputs.nixpkgs.lib.nixosSystem {
       target = "system";
       basePath = ../../modules/theme;
     })
+    (localLib.importers.mkModulesImporter {
+      target = "system";
+      basePath = ../../modules/desktop;
+    })
     modulesPath
     configurationPath
     inputs.home-manager.nixosModules.home-manager
@@ -90,6 +94,10 @@ inputs.nixpkgs.lib.nixosSystem {
               (localLib.importers.mkModulesImporter {
                 target = "home";
                 basePath = ../../modules/theme;
+              })
+              (localLib.importers.mkModulesImporter {
+                target = "home";
+                basePath = ../../modules/desktop;
               })
             ];
           };

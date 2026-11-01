@@ -52,6 +52,10 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       target = "droid";
       basePath = ../../modules/theme;
     })
+    (localLib.importers.mkModulesImporter {
+      target = "droid";
+      basePath = ../../modules/desktop;
+    })
     {
       home-manager = {
         extraSpecialArgs = {
@@ -80,6 +84,10 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
             (localLib.importers.mkModulesImporter {
               target = "home";
               basePath = ../../modules/theme;
+            })
+            (localLib.importers.mkModulesImporter {
+              target = "home";
+              basePath = ../../modules/desktop;
             })
           ];
         };

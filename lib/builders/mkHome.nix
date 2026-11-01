@@ -44,6 +44,10 @@ inputs.home-manager.lib.homeManagerConfiguration {
       target = "home";
       basePath = ../../modules/theme;
     })
+    (localLib.importers.mkModulesImporter {
+      target = "home";
+      basePath = ../../modules/desktop;
+    })
     modulesPath
     {
       programs.home-manager.enable = true;

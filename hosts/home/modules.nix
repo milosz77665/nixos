@@ -1,6 +1,7 @@
 { vars, ... }:
 {
   core.display-server = "wayland";
+  desktop.xdg.enable = true;
   programs = {
     cli-tools.atuin.enable = true;
     cli-tools.lazydocker.enable = true;
@@ -9,7 +10,6 @@
     cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
     dev.neovim.enable = true;
-    desktop.xdg.enable = true;
     file-managers.nemo.enable = true;
     network.network-manager.enable = true;
     shells.bash.enable = true;

@@ -9,6 +9,7 @@
   };
 
   core.display-server = "x11";
+  desktop.xdg.enable = true;
   programs = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
@@ -38,7 +39,6 @@
     disk.udiskie.enable = true;
     disk.disk-utils.enable = true;
     desktop.sddm.enable = true;
-    desktop.xdg.enable = true;
     file-managers.nautilus.enable = true;
     file-managers.nemo.enable = true;
     file-managers.thunar.enable = true;
