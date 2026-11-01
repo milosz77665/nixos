@@ -12,13 +12,7 @@ let
     config.allowUnfree = true;
   };
 
-  vars =
-    if customVarsPath != null then
-      import customVarsPath
-    else if builtins.pathExists ../../hosts/${hostName}/vars.nix then
-      import ../../hosts/${hostName}/vars.nix
-    else
-      import ../../hosts/test/vars.nix;
+  vars = import ./loadVars.nix { inherit hostName customVarsPath; };
 
   modulesPath =
     if customModulesPath != null then customModulesPath else ../../hosts/${hostName}/modules.nix;
