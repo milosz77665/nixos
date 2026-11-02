@@ -9,6 +9,17 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    assertions = [
+      {
+        assertion = config.theme.fonts.enable;
+        message = "theme.gtk requires theme.fonts.enable.";
+      }
+      {
+        assertion = config.theme.icons.enable;
+        message = "theme.gtk requires theme.icons.enable.";
+      }
+    ];
+
     gtk = {
       enable = true;
 
@@ -20,14 +31,14 @@ in
       };
 
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        name = config.theme.icons.name;
+        package = config.theme.icons.package;
       };
 
       font = {
-        name = "JetBrainsMono Nerd Font";
+        name = config.theme.fonts.monospace.name;
         size = 11;
-        package = pkgs.nerd-fonts.jetbrains-mono;
+        package = config.theme.fonts.monospace.package;
       };
 
       cursorTheme = {

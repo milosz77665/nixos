@@ -79,6 +79,7 @@
   theme = {
     fonts.enable = true;
     gtk.enable = true;
+    icons.enable = true;
     wallpapers.enable = true;
   };
 }
