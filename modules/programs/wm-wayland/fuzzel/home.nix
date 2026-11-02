@@ -14,16 +14,24 @@ in
         assertion = config.core.display-server == "wayland";
         message = "programs.wm-wayland.fuzzel requires core.display-server = \"wayland\".";
       }
+      {
+        assertion = config.theme.fonts.enable;
+        message = "programs.wm-wayland.fuzzel requires theme.fonts.enable.";
+      }
+      {
+        assertion = config.theme.icons.enable;
+        message = "programs.wm-wayland.fuzzel requires theme.icons.enable.";
+      }
     ];
 
     programs.fuzzel = {
       enable = true;
       settings = {
         main = {
-          font = "JetBrainsMono Nerd Font:size=13";
+          font = "${config.theme.fonts.monospace.name}:size=13";
           terminal = "${pkgs.ghostty}/bin/ghostty -e";
           prompt = "❯  ";
-          icon-theme = "Papirus-Dark";
+          icon-theme = config.theme.icons.name;
           layer = "overlay";
           lines = 10;
           width = 40;
