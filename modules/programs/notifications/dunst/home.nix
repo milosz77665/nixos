@@ -9,6 +9,13 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    assertions = [
+      {
+        assertion = config.theme.fonts.enable;
+        message = "programs.notifications.dunst requires theme.fonts.enable.";
+      }
+    ];
+
     services.dunst = {
       enable = true;
       settings = {
@@ -17,7 +24,7 @@ in
           origin = "top-right";
           transparency = 10;
           frame_color = "#eceff4";
-          font = "FiraCode Nerd Font 10";
+          font = "${config.theme.fonts.monospace.name} 10";
         };
       };
     };
