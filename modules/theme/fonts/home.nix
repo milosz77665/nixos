@@ -12,6 +12,7 @@ in
     fonts.fontconfig.enable = true;
 
     home.packages = with pkgs; [
+      cfg.monospace.package
       nerd-fonts.fira-code
       nerd-fonts.hack
       noto-fonts
