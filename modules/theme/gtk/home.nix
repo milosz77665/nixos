@@ -40,12 +40,6 @@ in
         size = 11;
         package = config.theme.fonts.monospace.package;
       };
-
-      cursorTheme = {
-        name = "Bibata-Modern-Ice";
-        package = pkgs.bibata-cursors;
-        size = 24;
-      };
     };
 
     dconf.settings = {

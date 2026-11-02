@@ -54,6 +54,7 @@
   };
 
   theme = {
+    cursors.enable = true;
     fonts.enable = true;
     gtk.enable = true;
     icons.enable = true;
