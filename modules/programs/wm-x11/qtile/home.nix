@@ -17,29 +17,10 @@ in
     ];
 
     home.packages = with pkgs; [
-      acpi
-      alacritty
       alsa-utils
-      arandr
-      baobab
-      betterlockscreen
-      blueman
-      bluez
-      brave
       brightnessctl
-      dunst
-      feh
-      flameshot
-      gnome-text-editor
-      networkmanager
-      networkmanagerapplet
-      obsidian
-      picom
+      iproute2
       psmisc
-      pywal
-      rofi
-      swaybg
-      vscode
       xorg.xinput
     ];
 
