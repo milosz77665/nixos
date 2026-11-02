@@ -9,6 +9,13 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    assertions = [
+      {
+        assertion = config.core.display-server == "x11";
+        message = "programs.wm-x11.qtile requires core.display-server = \"x11\".";
+      }
+    ];
+
     home.packages = with pkgs; [
       acpi
       alacritty

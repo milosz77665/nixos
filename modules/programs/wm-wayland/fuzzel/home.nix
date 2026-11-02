@@ -9,6 +9,13 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    assertions = [
+      {
+        assertion = config.core.display-server == "wayland";
+        message = "programs.wm-wayland.fuzzel requires core.display-server = \"wayland\".";
+      }
+    ];
+
     programs.fuzzel = {
       enable = true;
       settings = {
