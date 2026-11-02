@@ -16,6 +16,13 @@ in
       }
     ];
 
+    home.packages = with pkgs; [
+      blueman
+      networkmanagerapplet
+      pavucontrol
+      swaynotificationcenter
+    ];
+
     programs.waybar = {
       enable = true;
     };
