@@ -9,8 +9,11 @@ let
 in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
-    home.packages = with pkgs; [
-      pywal
+    assertions = [
+      {
+        assertion = config.programs.wm-x11.pywal.enable;
+        message = "programs.wm-x11.rofi requires programs.wm-x11.pywal.enable.";
+      }
     ];
 
     programs.rofi.enable = true;
