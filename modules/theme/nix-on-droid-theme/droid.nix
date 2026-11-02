@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -10,7 +9,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     terminal = {
-      font = "${pkgs.nerd-fonts.jetbrains-mono}/share/fonts/truetype/NerdFonts/JetBrainsMono/JetBrainsMonoNerdFont-Regular.ttf";
+      font = config.theme.fonts.monospace.file;
 
       colors = {
         background = "#191328";
