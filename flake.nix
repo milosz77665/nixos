@@ -66,6 +66,18 @@
             "desktop"
           ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        } { inherit lib localLib; }
+        // localLib.checks.mkModuleEvalChecks {
+          basePath = ./modules;
+          roots = [
+            "programs"
+            "hardware"
+            "theme"
+            "desktop"
+          ];
+          inherit nixpkgs nixpkgs-unstable;
+          varsPath = ./hosts/test/vars.nix;
+          checkPkgs = nixpkgs.legacyPackages.x86_64-linux;
         } { inherit lib localLib; };
 
       nixOnDroidConfigurations =

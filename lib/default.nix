@@ -21,6 +21,7 @@ let
     checks = {
       mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
       mkStructureChecks = import ./checks/mkStructureChecks.nix;
+      mkModuleEvalChecks = import ./checks/mkModuleEvalChecks.nix;
     };
   };
 in
