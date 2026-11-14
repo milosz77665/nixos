@@ -13,9 +13,14 @@ let
     utils = {
       getDirectories = import ./utils/getDirectories.nix { inherit lib; };
       getModuleDirectories = import ./utils/getModuleDirectories.nix { inherit lib; };
+      getOptionPaths = import ./utils/getOptionPaths.nix { inherit lib; };
+      getFiles = import ./utils/getFiles.nix { inherit lib; };
+      getOrphanModuleFiles = import ./utils/getOrphanModuleFiles.nix { inherit lib; };
+      checkVarsSchema = import ./utils/checkVarsSchema.nix { inherit lib; };
     };
     checks = {
       mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
+      mkStructureChecks = import ./checks/mkStructureChecks.nix;
     };
   };
 in
