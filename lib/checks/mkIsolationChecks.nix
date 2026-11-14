@@ -1,39 +1,33 @@
 {
   basePath,
-  system ? "x86_64-linux",
+  pkgs,
 }:
-{ lib, localLib, ... }@args:
+{ lib, localLib, ... }:
 let
-  allModules =
-    (localLib.importers.mkModulesImporter {
-      target = "default";
-      inherit basePath;
-    } args).imports;
+  modules = localLib.utils.getModuleDirectories { inherit basePath; };
 
   checks = builtins.listToAttrs (
     builtins.map (
-      modulePath:
+      module:
       let
-        moduleName = builtins.baseNameOf (builtins.dirOf modulePath);
+        evaluated = lib.evalModules {
+          modules = [ (module.path + "/default.nix") ];
+        };
+
+        # Force option declarations to evaluate the module without building a system.
+        optionNames = builtins.attrNames evaluated.options;
+        name = "isolation-${module.name}";
       in
       {
-        name = "isolation-${moduleName}";
-        value =
-          (lib.nixosSystem {
-            inherit system;
-            modules = [
-              (
-                { ... }:
-                {
-                  system.stateVersion = "25.11";
-                  boot.isContainer = true;
-                }
-              )
-              modulePath
-            ];
-          }).config.system.build.toplevel;
+        inherit name;
+        value = pkgs.writeText name (
+          if optionNames == [ ] then
+            throw "Module ${module.name} does not declare any options."
+          else
+            "ok\n"
+        );
       }
-    ) allModules
+    ) modules
   );
 in
 checks

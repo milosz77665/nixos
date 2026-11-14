@@ -15,6 +15,7 @@ let
 
   allTests =
     (import ./utils/getDirectories.test.nix { inherit lib localLib; })
+    // (import ./utils/getModuleDirectories.test.nix { inherit lib localLib; })
     // (import ./importers/mkImporter.test.nix { inherit lib localLib; })
     // (import ./importers/mkModulesImporter.test.nix { inherit lib localLib; });
 

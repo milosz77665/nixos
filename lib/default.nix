@@ -12,6 +12,7 @@ let
     };
     utils = {
       getDirectories = import ./utils/getDirectories.nix { inherit lib; };
+      getModuleDirectories = import ./utils/getModuleDirectories.nix { inherit lib; };
     };
     checks = {
       mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
