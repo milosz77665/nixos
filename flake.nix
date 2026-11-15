@@ -78,7 +78,16 @@
           inherit nixpkgs nixpkgs-unstable;
           varsPath = ./hosts/test/vars.nix;
           checkPkgs = nixpkgs.legacyPackages.x86_64-linux;
-        } { inherit lib localLib; };
+        } { inherit lib localLib; }
+        // {
+          host-testWayland = self.nixosConfigurations.testWayland.config.system.build.toplevel;
+          host-testX11 = self.nixosConfigurations.testX11.config.system.build.toplevel;
+          host-testHome = self.homeConfigurations.testHome.activationPackage;
+        };
+
+      checks.aarch64-darwin = {
+        host-testMac = self.homeConfigurations.testMac.activationPackage;
+      };
 
       nixOnDroidConfigurations =
         {
