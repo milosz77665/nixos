@@ -6,7 +6,9 @@ let
   green = "${esc}[32m";
   yellow = "${esc}[33m";
 
-  lib = (builtins.getFlake "nixpkgs").lib;
+  flakeLock = builtins.fromJSON (builtins.readFile ../../flake.lock);
+  pinnedNixpkgs = builtins.fetchTree flakeLock.nodes.nixpkgs.locked;
+  lib = (import pinnedNixpkgs { }).lib;
 
   localLib = import ../default.nix {
     inputs = { };
