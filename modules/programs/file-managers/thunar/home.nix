@@ -10,9 +10,9 @@ in
 {
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
-      xfce.thunar
-      xfce.thunar-archive-plugin
-      xfce.thunar-volman
+      thunar
+      thunar-archive-plugin
+      thunar-volman
     ];
   };
 }
