@@ -54,7 +54,13 @@
         // mkHostIfVars "lowSpec" localLib.builders.mkSystem { };
       checks.x86_64-linux =
         localLib.checks.mkIsolationChecks {
-          basePath = ./modules/programs;
+          basePath = ./modules;
+          roots = [
+            "programs"
+            "hardware"
+            "theme"
+            "desktop"
+          ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         } { inherit lib localLib; }
         // localLib.checks.mkStructureChecks {

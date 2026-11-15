@@ -1,10 +1,11 @@
 {
   basePath,
   pkgs,
+  roots,
 }:
 { lib, localLib, ... }:
 let
-  modules = localLib.utils.getModuleDirectories { inherit basePath; };
+  modules = localLib.utils.getModuleDirectories { inherit basePath roots; };
 
   checks = builtins.listToAttrs (
     builtins.map (
