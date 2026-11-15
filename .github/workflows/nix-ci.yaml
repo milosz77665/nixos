@@ -61,8 +61,8 @@ jobs:
       - name: Build testHome
         run: nix build --no-link .#homeConfigurations.testHome.activationPackage
 
-  test-macos:
-    name: Build & Test (macOS)
+  home-macos:
+    name: Home Manager (macOS)
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -71,5 +71,8 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v23
 
-      - name: Evaluate testMac (Standalone macOS)
+      - name: Evaluate testMac
+        run: nix eval --raw .#homeConfigurations.testMac.config.home.homeDirectory
+
+      - name: Dry build testMac
         run: nix build .#homeConfigurations.testMac.activationPackage --dry-run
