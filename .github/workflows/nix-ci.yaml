@@ -6,43 +6,47 @@ on:
     branches: ["master"]
 
 jobs:
-  test-linux:
-    name: Build & Test (Linux)
+  checks:
+    name: Eval, structure and format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up QEMU for ARM64
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm64
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Evaluate flake checks
+        run: nix flake check --no-build
+
+      - name: Run localLib unit tests
+        run: nix eval --raw --file lib/tests/default.nix
+
+      - name: Check formatting
+        run: nix fmt -- --check
+
+      - name: Ensure only test hosts are present
+        run: |
+          test "$(nix eval --json .#nixosConfigurations --apply builtins.attrNames)" = '["testWayland","testX11"]'
+          test "$(nix eval --json .#homeConfigurations --apply builtins.attrNames)" = '["testHome","testMac"]'
+          test "$(nix eval --json .#nixOnDroidConfigurations --apply builtins.attrNames)" = '["testDroid"]'
+
+  nixos:
+    name: NixOS ${{ matrix.host }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [testWayland, testX11]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            extra-platforms = aarch64-linux i686-linux
-            extra-substituters = https://nix-on-droid.cachix.org
-            extra-trusted-public-keys = nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU=
 
-      - name: Check syntax and inputs (Flake Check)
-        run: nix flake check
-
-      - name: Run localLib Unit Tests
-        run: nix eval --raw --file lib/tests/default.nix
-
-      - name: Evaluate testWayland (Dry Run)
-        run: nix build .#nixosConfigurations.testWayland.config.system.build.toplevel --dry-run
-
-      - name: Evaluate testX11 (Dry Run)
-        run: nix build .#nixosConfigurations.testX11.config.system.build.toplevel --dry-run
-
-      - name: Evaluate testHome (Dry Run)
-        run: nix build .#homeConfigurations.testHome.activationPackage --dry-run
-
-      - name: Evaluate testDroid (Dry Run)
-        run: nix build .#nixOnDroidConfigurations.testDroid.activationPackage --dry-run --impure
+      - name: Build ${{ matrix.host }}
+        run: nix build --no-link .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
 
   test-macos:
     name: Build & Test (macOS)
