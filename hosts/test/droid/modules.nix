@@ -19,4 +19,3 @@
     nix-on-droid-theme.enable = true;
   };
 }
-

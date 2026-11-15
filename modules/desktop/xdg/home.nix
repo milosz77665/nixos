@@ -13,9 +13,7 @@ let
 
   roleMappings =
     role: app:
-    lib.genAttrs applications.${role}.mimeTypes (
-      _: applications.${role}.applications.${app}.desktop
-    );
+    lib.genAttrs applications.${role}.mimeTypes (_: applications.${role}.applications.${app}.desktop);
 
   roleDefault = role: app: lib.mkIf (roleEnabled role app) (roleMappings role app);
 in

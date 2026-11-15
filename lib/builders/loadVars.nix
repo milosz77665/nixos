@@ -1,10 +1,9 @@
-{ hostName, customVarsPath ? null }:
+{
+  hostName,
+  customVarsPath ? null,
+}:
 let
-  varsPath =
-    if customVarsPath != null then
-      customVarsPath
-    else
-      ../../hosts/${hostName}/vars.nix;
+  varsPath = if customVarsPath != null then customVarsPath else ../../hosts/${hostName}/vars.nix;
 
   hint =
     if customVarsPath != null then

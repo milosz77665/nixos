@@ -41,7 +41,9 @@ let
 in
 builtins.map (path: "missing ${pathToString path}") missing
 ++ builtins.map (path: "${pathToString path} is not a string") notString
-++ lib.optional (lib.isString stateVersion && builtins.match "[0-9]+\\.[0-9]+" stateVersion == null)
-  "stateVersion must look like 25.11"
-++ lib.optional (lib.isString homeDirectory && !(lib.hasPrefix "/" homeDirectory))
-  "homeDirectory must be an absolute path"
+++ lib.optional (
+  lib.isString stateVersion && builtins.match "[0-9]+\\.[0-9]+" stateVersion == null
+) "stateVersion must look like 25.11"
+++ lib.optional (
+  lib.isString homeDirectory && !(lib.hasPrefix "/" homeDirectory)
+) "homeDirectory must be an absolute path"

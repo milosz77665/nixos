@@ -12,5 +12,3 @@ in
     home.packages = with pkgs; [ mpv ];
   };
 }
-
-

@@ -7,4 +7,3 @@
     enable = lib.mkEnableOption "FFmpeg (audio and video converter)";
   };
 }
-

@@ -12,4 +12,3 @@ in
     home.packages = with pkgs; [ imv ];
   };
 }
-

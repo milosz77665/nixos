@@ -13,12 +13,10 @@ in
   ],
 }:
 let
-  nixFiles = builtins.filter (file: lib.hasSuffix ".nix" (lib.last file)) (
-    getFiles {
-      inherit basePath roots;
-      ignoredDirectories = [ "dotfiles" ];
-    }
-  );
+  nixFiles = builtins.filter (file: lib.hasSuffix ".nix" (lib.last file)) (getFiles {
+    inherit basePath roots;
+    ignoredDirectories = [ "dotfiles" ];
+  });
 
   filePath = segments: basePath + ("/" + lib.concatStringsSep "/" segments);
   fileName = file: lib.last file;

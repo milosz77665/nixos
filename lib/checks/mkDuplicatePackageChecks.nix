@@ -29,8 +29,7 @@ let
     };
 
   entries = lib.concatMap (
-    hostName:
-    lib.mapAttrsToList (scope: packages: checkScope hostName scope packages) hosts.${hostName}
+    hostName: lib.mapAttrsToList (scope: packages: checkScope hostName scope packages) hosts.${hostName}
   ) (builtins.attrNames hosts);
 in
 builtins.listToAttrs entries

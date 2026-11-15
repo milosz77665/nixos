@@ -41,23 +41,22 @@
         self.nixosConfigurations.${hostName}.config.home-manager.users.${builtins.head (builtins.attrNames users)}.home.packages;
     in
     {
-      nixosConfigurations =
-        {
-          testWayland = localLib.builders.mkSystem {
-            hostName = "testWayland";
-            customVarsPath = ./hosts/test/vars.nix;
-            customModulesPath = ./hosts/test/wayland/modules.nix;
-            customConfigurationPath = ./hosts/test/wayland/configuration.nix;
-          };
-          testX11 = localLib.builders.mkSystem {
-            hostName = "testX11";
-            customVarsPath = ./hosts/test/vars.nix;
-            customModulesPath = ./hosts/test/x11/modules.nix;
-            customConfigurationPath = ./hosts/test/x11/configuration.nix;
-          };
-        }
-        // mkHostIfVars "main" localLib.builders.mkSystem { }
-        // mkHostIfVars "lowSpec" localLib.builders.mkSystem { };
+      nixosConfigurations = {
+        testWayland = localLib.builders.mkSystem {
+          hostName = "testWayland";
+          customVarsPath = ./hosts/test/vars.nix;
+          customModulesPath = ./hosts/test/wayland/modules.nix;
+          customConfigurationPath = ./hosts/test/wayland/configuration.nix;
+        };
+        testX11 = localLib.builders.mkSystem {
+          hostName = "testX11";
+          customVarsPath = ./hosts/test/vars.nix;
+          customModulesPath = ./hosts/test/x11/modules.nix;
+          customConfigurationPath = ./hosts/test/x11/configuration.nix;
+        };
+      }
+      // mkHostIfVars "main" localLib.builders.mkSystem { }
+      // mkHostIfVars "lowSpec" localLib.builders.mkSystem { };
       checks.x86_64-linux =
         localLib.checks.mkIsolationChecks {
           basePath = ./modules;
@@ -121,7 +120,8 @@
           eval-testDroid = nixpkgs.legacyPackages.x86_64-linux.writeText "eval-testDroid" (
             builtins.toJSON {
               theme = builtins.attrNames self.nixOnDroidConfigurations.testDroid.config.home-manager.config.theme;
-              homeDirectory = self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.homeDirectory;
+              homeDirectory =
+                self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.homeDirectory;
             }
           );
         };
@@ -130,31 +130,29 @@
         host-testMac = self.homeConfigurations.testMac.activationPackage;
       };
 
-      nixOnDroidConfigurations =
-        {
-          testDroid = localLib.builders.mkNixOnDroid {
-            hostName = "testDroid";
-            customVarsPath = ./hosts/test/droid/vars.nix;
-            customModulesPath = ./hosts/test/droid/modules.nix;
-            customNixOnDroidPath = ./hosts/test/droid/nix-on-droid.nix;
-          };
-        }
-        // mkHostIfVars "nixOnDroid" localLib.builders.mkNixOnDroid { };
+      nixOnDroidConfigurations = {
+        testDroid = localLib.builders.mkNixOnDroid {
+          hostName = "testDroid";
+          customVarsPath = ./hosts/test/droid/vars.nix;
+          customModulesPath = ./hosts/test/droid/modules.nix;
+          customNixOnDroidPath = ./hosts/test/droid/nix-on-droid.nix;
+        };
+      }
+      // mkHostIfVars "nixOnDroid" localLib.builders.mkNixOnDroid { };
 
-      homeConfigurations =
-        {
-          testHome = localLib.builders.mkHome {
-            hostName = "testHome";
-            customVarsPath = ./hosts/test/vars.nix;
-            customModulesPath = ./hosts/test/home/modules.nix;
-          };
-          testMac = localLib.builders.mkHome {
-            hostName = "testMac";
-            system = "aarch64-darwin";
-            customVarsPath = ./hosts/test/mac/vars.nix;
-            customModulesPath = ./hosts/test/mac/modules.nix;
-          };
-        }
-        // mkHostIfVars "home" localLib.builders.mkHome { };
+      homeConfigurations = {
+        testHome = localLib.builders.mkHome {
+          hostName = "testHome";
+          customVarsPath = ./hosts/test/vars.nix;
+          customModulesPath = ./hosts/test/home/modules.nix;
+        };
+        testMac = localLib.builders.mkHome {
+          hostName = "testMac";
+          system = "aarch64-darwin";
+          customVarsPath = ./hosts/test/mac/vars.nix;
+          customModulesPath = ./hosts/test/mac/modules.nix;
+        };
+      }
+      // mkHostIfVars "home" localLib.builders.mkHome { };
     };
 }

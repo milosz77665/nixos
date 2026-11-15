@@ -10,7 +10,7 @@ let
   cfg = config.programs.tools.flameshot;
 in
 {
-   config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.flameshot = {
       enable = true;
       package = pkgs.flameshot;

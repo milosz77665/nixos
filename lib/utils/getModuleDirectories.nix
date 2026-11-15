@@ -2,7 +2,10 @@
 let
   getDirectories = import ./getDirectories.nix { inherit lib; };
 in
-{ basePath, roots ? null }:
+{
+  basePath,
+  roots ? null,
+}:
 let
   walk =
     prefix: directory:

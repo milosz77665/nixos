@@ -1,7 +1,11 @@
 { lib, config, ... }:
 {
   options.core.display-server = lib.mkOption {
-    type = lib.types.enum [ "wayland" "x11" "none" ];
+    type = lib.types.enum [
+      "wayland"
+      "x11"
+      "none"
+    ];
     default = "none";
     description = "Display server protocol used by host (Wayland, X11, or none)";
   };

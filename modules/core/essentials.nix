@@ -1,4 +1,4 @@
-{ pkgs, ...  }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     tree
@@ -13,7 +13,7 @@
     tldr
     zoxide
     eza
-    
+
     btop
     duf
     dust

@@ -22,10 +22,7 @@ let
       {
         inherit name;
         value = pkgs.writeText name (
-          if optionNames == [ ] then
-            throw "Module ${module.name} does not declare any options."
-          else
-            "ok\n"
+          if optionNames == [ ] then throw "Module ${module.name} does not declare any options." else "ok\n"
         );
       }
     ) modules

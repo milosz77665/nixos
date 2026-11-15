@@ -7,4 +7,3 @@
     enable = lib.mkEnableOption "imv (image viewer)";
   };
 }
-

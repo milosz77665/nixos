@@ -23,21 +23,33 @@ in
 
     imageEditor = mkRoleOption "imageEditor" "gimp" "Default application for editable image formats.";
 
-    codeEditor = mkRoleOption "codeEditor" "vscode" "Default application for SVG and source code files.";
+    codeEditor =
+      mkRoleOption "codeEditor" "vscode"
+        "Default application for SVG and source code files.";
 
-    pdfViewer = mkRoleOption "pdfViewer" "okular" "Default application for PDF, EPUB, DjVu and PostScript documents.";
+    pdfViewer =
+      mkRoleOption "pdfViewer" "okular"
+        "Default application for PDF, EPUB, DjVu and PostScript documents.";
 
-    textEditor = mkRoleOption "textEditor" "gnome-text-editor" "Default application for plain text, Markdown and configuration files.";
+    textEditor =
+      mkRoleOption "textEditor" "gnome-text-editor"
+        "Default application for plain text, Markdown and configuration files.";
 
     officeWriter = mkRoleOption "officeWriter" "libreoffice" "Default application for text documents.";
 
-    officeSpreadsheet = mkRoleOption "officeSpreadsheet" "libreoffice" "Default application for spreadsheets.";
+    officeSpreadsheet =
+      mkRoleOption "officeSpreadsheet" "libreoffice"
+        "Default application for spreadsheets.";
 
-    officePresentation = mkRoleOption "officePresentation" "libreoffice" "Default application for presentations.";
+    officePresentation =
+      mkRoleOption "officePresentation" "libreoffice"
+        "Default application for presentations.";
 
     mediaPlayer = mkRoleOption "mediaPlayer" "mpv" "Default application for audio and video files.";
 
-    torrentClient = mkRoleOption "torrentClient" "qbittorrent" "Default application for torrent files and magnet links.";
+    torrentClient =
+      mkRoleOption "torrentClient" "qbittorrent"
+        "Default application for torrent files and magnet links.";
 
     fileManager = mkRoleOption "fileManager" "nemo" "Default application for directories.";
   };

@@ -7,4 +7,3 @@
     enable = lib.mkEnableOption "mpv (media player)";
   };
 }
-

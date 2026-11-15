@@ -21,8 +21,7 @@ let
   droidStub = import ./stubs/nix-on-droid.nix { inherit lib; };
 
   platformLabel =
-    system:
-    if system == "x86_64-linux" || system == "aarch64-linux" then "linux" else "darwin";
+    system: if system == "x86_64-linux" || system == "aarch64-linux" then "linux" else "darwin";
 
   displayFor =
     module:
@@ -62,7 +61,9 @@ let
           droidStub;
 
       evaluated = lib.evalModules {
-        modules = [ stub ]
+        modules = [
+          stub
+        ]
         ++ allDefaults
         ++ [
           (lib.setAttrByPath (module.relative ++ [ "enable" ]) true)

@@ -12,9 +12,9 @@ let
   checkModule =
     module:
     let
-      declared = localLib.utils.getOptionPaths (
-        lib.evalModules { modules = [ (module.path + "/default.nix") ]; }
-      ).options;
+      declared =
+        localLib.utils.getOptionPaths
+          (lib.evalModules { modules = [ (module.path + "/default.nix") ]; }).options;
 
       wrong = builtins.filter (
         path: lib.take (builtins.length module.relative) path != module.relative

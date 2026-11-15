@@ -12,7 +12,9 @@ in
     programs.neovim = {
       enable = true;
       extraWrapperArgs = [
-        "--set" "NIX_MANAGED" "1"
+        "--set"
+        "NIX_MANAGED"
+        "1"
       ];
     };
 
