@@ -83,12 +83,19 @@
           ];
           inherit nixpkgs nixpkgs-unstable;
           varsPath = ./hosts/test/vars.nix;
+          droidVarsPath = ./hosts/test/droid/vars.nix;
           checkPkgs = nixpkgs.legacyPackages.x86_64-linux;
         } { inherit lib localLib; }
         // {
           host-testWayland = self.nixosConfigurations.testWayland.config.system.build.toplevel;
           host-testX11 = self.nixosConfigurations.testX11.config.system.build.toplevel;
           host-testHome = self.homeConfigurations.testHome.activationPackage;
+          eval-testDroid = nixpkgs.legacyPackages.x86_64-linux.writeText "eval-testDroid" (
+            builtins.toJSON {
+              theme = builtins.attrNames self.nixOnDroidConfigurations.testDroid.config.home-manager.config.theme;
+              homeDirectory = self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.homeDirectory;
+            }
+          );
         };
 
       checks.aarch64-darwin = {

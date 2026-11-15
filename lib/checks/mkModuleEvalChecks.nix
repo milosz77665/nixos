@@ -4,6 +4,7 @@
   nixpkgs,
   nixpkgs-unstable,
   varsPath,
+  droidVarsPath,
   checkPkgs,
 }:
 { lib, localLib, ... }:
@@ -13,11 +14,15 @@ let
   allDefaults = builtins.map (module: module.path + "/default.nix") modules;
 
   vars = import varsPath;
+  droidVars = import droidVarsPath;
 
   homeStub = import ./stubs/home-manager.nix { inherit lib; };
   systemStub = import ./stubs/nixos.nix { inherit lib; };
+  droidStub = import ./stubs/nix-on-droid.nix { inherit lib; };
 
-  platformLabel = system: if system == "x86_64-linux" then "linux" else "darwin";
+  platformLabel =
+    system:
+    if system == "x86_64-linux" || system == "aarch64-linux" then "linux" else "darwin";
 
   displayFor =
     module:
@@ -47,11 +52,17 @@ let
       display = displayFor module;
       pkgs = nixpkgs.legacyPackages.${system};
       pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
+      moduleVars = if kind == "droid" then droidVars else vars;
+      stub =
+        if kind == "home" then
+          homeStub
+        else if kind == "system" then
+          systemStub
+        else
+          droidStub;
 
       evaluated = lib.evalModules {
-        modules = [
-          (if kind == "home" then homeStub else systemStub)
-        ]
+        modules = [ stub ]
         ++ allDefaults
         ++ [
           (lib.setAttrByPath (module.relative ++ [ "enable" ]) true)
@@ -59,10 +70,11 @@ let
           { core.display-server = display; }
         ];
         specialArgs = {
-          inherit pkgs pkgsUnstable vars;
+          inherit pkgs pkgsUnstable;
+          vars = moduleVars;
           isNixos = kind == "system";
           isWayland = display == "wayland";
-          hostName = "test";
+          hostName = if kind == "droid" then "testDroid" else "test";
         };
       };
 
@@ -85,6 +97,9 @@ let
     )
     ++ lib.optional (builtins.pathExists (module.path + "/system.nix")) (
       evalCheck "system" "x86_64-linux" module
+    )
+    ++ lib.optional (builtins.pathExists (module.path + "/droid.nix")) (
+      evalCheck "droid" "aarch64-linux" module
     )
   ) modules;
 in
