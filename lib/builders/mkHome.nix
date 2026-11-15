@@ -48,6 +48,10 @@ inputs.home-manager.lib.homeManagerConfiguration {
       target = "home";
       basePath = ../../modules/desktop;
     })
+    (localLib.importers.mkModulesImporter {
+      target = "home";
+      basePath = ../../modules/profiles;
+    })
     modulesPath
     {
       programs.home-manager.enable = true;
