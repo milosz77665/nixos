@@ -48,6 +48,19 @@ jobs:
       - name: Build ${{ matrix.host }}
         run: nix build --no-link .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
 
+  home-linux:
+    name: Home Manager (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v23
+
+      - name: Build testHome
+        run: nix build --no-link .#homeConfigurations.testHome.activationPackage
+
   test-macos:
     name: Build & Test (macOS)
     runs-on: macos-latest
