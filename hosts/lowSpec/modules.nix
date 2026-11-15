@@ -1,5 +1,10 @@
-{ vars, ... }:
+{ ... }:
 {
+  profiles = {
+    dev.enable = true;
+    wayland.enable = true;
+  };
+
   hardware = {
     audio.enable = true;
     battery.enable = true;
@@ -8,20 +13,14 @@
     storage.ntfs.enable = true;
   };
 
-  core.display-server = "wayland";
   desktop.xdg.enable = true;
   programs = {
     audio.pavucontrol.enable = true;
     battery.acpi.enable = true;
     browsers.brave.enable = true;
-    cli-tools.atuin.enable = true;
-    cli-tools.lazygit.enable = true;
     cli-tools.starship.enable = true;
-    cli-tools.yazi.enable = true;
     cli-tools.zellij.enable = true;
     dev.direnv.enable = true;
-    dev.git.enable = true;
-    dev.neovim.enable = true;
     dev.vscode.enable = true;
     dev.go.enable = true;
     dev.nodejs.enable = true;
@@ -30,7 +29,6 @@
     disk.gnome-disk-utility.enable = true;
     disk.udiskie.enable = true;
     disk.disk-utils.enable = true;
-    desktop.sddm.enable = true;
     file-managers.nemo.enable = true;
     graphics.gimp.enable = true;
     media.ffmpeg.enable = true;
@@ -41,7 +39,6 @@
     network.qbittorrent.enable = true;
     notes.gnome-text-editor.enable = true;
     notes.obsidian.enable = true;
-    notifications.dunst.enable = true;
     office.evince.enable = true;
     office.libreoffice.enable = true;
     office.okular.enable = true;
@@ -50,22 +47,11 @@
     security.polkit-gnome.enable = true;
     security.seahorse.enable = true;
     security.secrets.enable = true;
-    shells.bash.enable = true;
     system-utils.gnome-system-monitor.enable = true;
     system-utils.timeshift.enable = true;
     terminals.alacritty.enable = true;
     terminals.ghostty.enable = true;
-    tools.flameshot.enable = true;
     tools.qalculate.enable = true;
-    wm-wayland.fuzzel.enable = true;
-    wm-wayland.swaybg.enable = true;
-    wm-wayland.wl-clipboard.enable = true;
-    wm-wayland.wdisplays.enable = true;
-    wm-wayland.swaync.enable = true;
-    wm-wayland.swaylock.enable = true;
-    wm-wayland.waybar.enable = true;
-    wm-wayland.niri.enable = true;
-    wm-wayland.ozone-fix.enable = true;
   };
 
   theme = {
