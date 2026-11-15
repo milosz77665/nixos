@@ -174,15 +174,26 @@
             pkgs.nixfmt-rfc-style
           ];
           text = ''
-            # Empty fixture .nix files are intentional and nixfmt cannot parse them.
             files=()
-            while IFS= read -r -d "" file; do
-              if [ -s "$file" ]; then
-                files+=("$file")
-              fi
-            done < <(git ls-files -z -- "*.nix")
+            options=()
 
-            exec nixfmt "$@" "''${files[@]}"
+            for arg in "$@"; do
+              case "$arg" in
+                -*) options+=("$arg") ;;
+                *) files+=("$arg") ;;
+              esac
+            done
+
+            if [ "''${#files[@]}" -eq 0 ]; then
+              # Empty fixture .nix files are intentional and nixfmt cannot parse them.
+              while IFS= read -r -d "" file; do
+                if [ -s "$file" ]; then
+                  files+=("$file")
+                fi
+              done < <(git ls-files -z -- "*.nix")
+            fi
+
+            exec nixfmt "''${options[@]}" "''${files[@]}"
           '';
         }
       );

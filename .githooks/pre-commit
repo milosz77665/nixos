@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mapfile -t staged < <(git diff --cached --name-only --diff-filter=ACMR -- '*.nix')
+
+if [ "${#staged[@]}" -eq 0 ]; then
+  exit 0
+fi
+
+files=()
+
+for file in "${staged[@]}"; do
+  [ -f "$file" ] || continue
+  [ -s "$file" ] || continue
+
+  if ! git diff --quiet -- "$file"; then
+    echo "pre-commit: '$file' has unstaged changes; refusing to format it automatically." >&2
+    echo "pre-commit: stage the whole file or commit the remaining changes first." >&2
+    exit 1
+  fi
+
+  files+=("$file")
+done
+
+if [ "${#files[@]}" -eq 0 ]; then
+  exit 0
+fi
+
+nix fmt -- "${files[@]}"
+git add -- "${files[@]}"
