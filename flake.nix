@@ -168,10 +168,10 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         pkgs.writeShellApplication {
-          name = "nixfmt-rfc-style";
+          name = "nixfmt";
           runtimeInputs = [
             pkgs.git
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
           ];
           text = ''
             files=()

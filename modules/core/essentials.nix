@@ -29,6 +29,6 @@
     gnutar
 
     jq
-    nixfmt-rfc-style
+    nixfmt
   ];
 }

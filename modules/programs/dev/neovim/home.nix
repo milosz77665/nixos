@@ -30,7 +30,7 @@ in
       tailwindcss-language-server
       # Formatters
       stylua
-      nixfmt-rfc-style
+      nixfmt
       kdlfmt
       prettierd
       golangci-lint
