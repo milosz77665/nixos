@@ -13,6 +13,13 @@
     };
   };
 
+  nixConfig = {
+    extra-substituters = [ "https://nix-on-droid.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoQqvHJ9XCp+nidK7qkMQrU="
+    ];
+  };
+
   outputs =
     {
       self,
