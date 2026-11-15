@@ -17,11 +17,13 @@ let
       getFiles = import ./utils/getFiles.nix { inherit lib; };
       getOrphanModuleFiles = import ./utils/getOrphanModuleFiles.nix { inherit lib; };
       checkVarsSchema = import ./utils/checkVarsSchema.nix { inherit lib; };
+      getDuplicatePackages = import ./utils/getDuplicatePackages.nix { inherit lib; };
     };
     checks = {
       mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
       mkStructureChecks = import ./checks/mkStructureChecks.nix;
       mkModuleEvalChecks = import ./checks/mkModuleEvalChecks.nix;
+      mkDuplicatePackageChecks = import ./checks/mkDuplicatePackageChecks.nix;
     };
   };
 in

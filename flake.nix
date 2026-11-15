@@ -33,6 +33,12 @@
         lib.optionalAttrs (builtins.pathExists varsPath) {
           ${outputName} = builder ({ inherit hostName; } // extraArgs);
         };
+      nixosHomePackages =
+        hostName:
+        let
+          users = self.nixosConfigurations.${hostName}.config.home-manager.users;
+        in
+        self.nixosConfigurations.${hostName}.config.home-manager.users.${builtins.head (builtins.attrNames users)}.home.packages;
     in
     {
       nixosConfigurations =
@@ -85,6 +91,28 @@
           varsPath = ./hosts/test/vars.nix;
           droidVarsPath = ./hosts/test/droid/vars.nix;
           checkPkgs = nixpkgs.legacyPackages.x86_64-linux;
+        } { inherit lib localLib; }
+        // localLib.checks.mkDuplicatePackageChecks {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          hosts = {
+            testWayland = {
+              home = nixosHomePackages "testWayland";
+              system = self.nixosConfigurations.testWayland.config.environment.systemPackages;
+            };
+            testX11 = {
+              home = nixosHomePackages "testX11";
+              system = self.nixosConfigurations.testX11.config.environment.systemPackages;
+            };
+            testHome = {
+              home = self.homeConfigurations.testHome.config.home.packages;
+            };
+            testMac = {
+              home = self.homeConfigurations.testMac.config.home.packages;
+            };
+            testDroid = {
+              home = self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.packages;
+            };
+          };
         } { inherit lib localLib; }
         // {
           host-testWayland = self.nixosConfigurations.testWayland.config.system.build.toplevel;

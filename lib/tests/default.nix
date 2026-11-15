@@ -22,6 +22,7 @@ let
     // (import ./utils/getFiles.test.nix { inherit lib localLib; })
     // (import ./utils/getOrphanModuleFiles.test.nix { inherit lib localLib; })
     // (import ./utils/checkVarsSchema.test.nix { inherit lib localLib; })
+    // (import ./utils/getDuplicatePackages.test.nix { inherit lib localLib; })
     // (import ./importers/mkImporter.test.nix { inherit lib localLib; })
     // (import ./importers/mkModulesImporter.test.nix { inherit lib localLib; });
 
