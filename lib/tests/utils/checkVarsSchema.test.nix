@@ -20,6 +20,46 @@ in
     expected = [ ];
   };
 
+  "test utils.checkVarsSchema: should accept systemStateVersion when required" = {
+    expr = localLib.utils.checkVarsSchema {
+      vars = validVars // {
+        systemStateVersion = "24.05";
+      };
+      requireSystemStateVersion = true;
+    };
+
+    expected = [ ];
+  };
+
+  "test utils.checkVarsSchema: should report missing systemStateVersion when required" = {
+    expr = localLib.utils.checkVarsSchema {
+      vars = validVars;
+      requireSystemStateVersion = true;
+    };
+
+    expected = [ "missing systemStateVersion" ];
+  };
+
+  "test utils.checkVarsSchema: should report invalid systemStateVersion" = {
+    expr = localLib.utils.checkVarsSchema {
+      vars = validVars // {
+        systemStateVersion = "24";
+      };
+    };
+
+    expected = [ "systemStateVersion must look like 25.11" ];
+  };
+
+  "test utils.checkVarsSchema: should report non-string systemStateVersion" = {
+    expr = localLib.utils.checkVarsSchema {
+      vars = validVars // {
+        systemStateVersion = 2405;
+      };
+    };
+
+    expected = [ "systemStateVersion is not a string" ];
+  };
+
   "test utils.checkVarsSchema: should report missing paths" = {
     expr = localLib.utils.checkVarsSchema {
       vars = validVars // {

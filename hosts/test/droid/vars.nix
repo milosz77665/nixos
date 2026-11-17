@@ -5,6 +5,7 @@
   };
 
   homeStateVersion = "25.11";
+  systemStateVersion = "24.05";
   homeDirectory = "/data/data/com.termux.nix/files/home";
 
   git = {

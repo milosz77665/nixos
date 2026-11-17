@@ -4,6 +4,7 @@ rec {
     fullName = "full name";
   };
 
+  # Standalone Home Manager host: systemStateVersion is not required.
   homeStateVersion = "25.11";
   homeDirectory = "/Users/${user.name}";
 
