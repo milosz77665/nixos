@@ -31,25 +31,14 @@
     let
       lib = nixpkgs.lib;
       localLib = import ./lib { inherit inputs lib; };
-      mkHostIfVars = localLib.flake.mkHostIfVars ./hosts;
+      production = import ./hosts/production.nix { inherit localLib; };
+      test = import ./hosts/test { inherit localLib; };
     in
     {
-      nixosConfigurations = {
-        testWayland = localLib.builders.mkSystem {
-          hostName = "testWayland";
-          customVarsPath = ./hosts/test/vars.nix;
-          customModulesPath = ./hosts/test/wayland/modules.nix;
-          customConfigurationPath = ./hosts/test/wayland/configuration.nix;
-        };
-        testX11 = localLib.builders.mkSystem {
-          hostName = "testX11";
-          customVarsPath = ./hosts/test/vars.nix;
-          customModulesPath = ./hosts/test/x11/modules.nix;
-          customConfigurationPath = ./hosts/test/x11/configuration.nix;
-        };
-      }
-      // mkHostIfVars "main" localLib.builders.mkSystem { }
-      // mkHostIfVars "lowSpec" localLib.builders.mkSystem { };
+      nixosConfigurations = production.nixosConfigurations // test.nixosConfigurations;
+      homeConfigurations = production.homeConfigurations // test.homeConfigurations;
+      nixOnDroidConfigurations = production.nixOnDroidConfigurations // test.nixOnDroidConfigurations;
+
       checks = localLib.checks.mkFlakeChecks {
         inherit
           self
@@ -58,31 +47,6 @@
           localLib
           ;
       };
-
-      nixOnDroidConfigurations = {
-        testDroid = localLib.builders.mkNixOnDroid {
-          hostName = "testDroid";
-          customVarsPath = ./hosts/test/droid/vars.nix;
-          customModulesPath = ./hosts/test/droid/modules.nix;
-          customNixOnDroidPath = ./hosts/test/droid/nix-on-droid.nix;
-        };
-      }
-      // mkHostIfVars "nixOnDroid" localLib.builders.mkNixOnDroid { };
-
-      homeConfigurations = {
-        testHome = localLib.builders.mkHome {
-          hostName = "testHome";
-          customVarsPath = ./hosts/test/home/vars.nix;
-          customModulesPath = ./hosts/test/home/modules.nix;
-        };
-        testMac = localLib.builders.mkHome {
-          hostName = "testMac";
-          system = "aarch64-darwin";
-          customVarsPath = ./hosts/test/mac/vars.nix;
-          customModulesPath = ./hosts/test/mac/modules.nix;
-        };
-      }
-      // mkHostIfVars "home" localLib.builders.mkHome { };
 
       formatter = localLib.flake.mkFormatter { inherit lib nixpkgs; };
     };
