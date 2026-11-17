@@ -1,3 +1,4 @@
+# Shared Linux fixture for testWayland, testX11 and module eval checks.
 rec {
   user = {
     name = "name";

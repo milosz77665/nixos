@@ -150,7 +150,7 @@
       homeConfigurations = {
         testHome = localLib.builders.mkHome {
           hostName = "testHome";
-          customVarsPath = ./hosts/test/vars.nix;
+          customVarsPath = ./hosts/test/home/vars.nix;
           customModulesPath = ./hosts/test/home/modules.nix;
         };
         testMac = localLib.builders.mkHome {

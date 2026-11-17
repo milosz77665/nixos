@@ -52,6 +52,7 @@ let
   varsFixtures = [
     ../../hosts/vars.example.nix
     ../../hosts/test/vars.nix
+    ../../hosts/test/home/vars.nix
     ../../hosts/test/mac/vars.nix
     ../../hosts/test/droid/vars.nix
   ];
