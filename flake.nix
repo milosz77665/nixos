@@ -32,7 +32,6 @@
       lib = nixpkgs.lib;
       localLib = import ./lib { inherit inputs lib; };
       mkHostIfVars = localLib.flake.mkHostIfVars ./hosts;
-      nixosHomePackages = localLib.flake.nixosHomePackages self;
     in
     {
       nixosConfigurations = {
@@ -51,62 +50,13 @@
       }
       // mkHostIfVars "main" localLib.builders.mkSystem { }
       // mkHostIfVars "lowSpec" localLib.builders.mkSystem { };
-      checks.x86_64-linux =
-        localLib.checks.mkIsolationChecks {
-          basePath = ./modules;
-          roots = localLib.flake.moduleRoots;
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        } { inherit lib localLib; }
-        // localLib.checks.mkStructureChecks {
-          basePath = ./modules;
-          roots = localLib.flake.moduleRoots;
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        } { inherit lib localLib; }
-        // localLib.checks.mkModuleEvalChecks {
-          basePath = ./modules;
-          roots = localLib.flake.moduleRoots;
-          inherit nixpkgs nixpkgs-unstable;
-          varsPath = ./hosts/test/vars.nix;
-          droidVarsPath = ./hosts/test/droid/vars.nix;
-          checkPkgs = nixpkgs.legacyPackages.x86_64-linux;
-        } { inherit lib localLib; }
-        // localLib.checks.mkDuplicatePackageChecks {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          hosts = {
-            testWayland = {
-              home = nixosHomePackages "testWayland";
-              system = self.nixosConfigurations.testWayland.config.environment.systemPackages;
-            };
-            testX11 = {
-              home = nixosHomePackages "testX11";
-              system = self.nixosConfigurations.testX11.config.environment.systemPackages;
-            };
-            testHome = {
-              home = self.homeConfigurations.testHome.config.home.packages;
-            };
-            testMac = {
-              home = self.homeConfigurations.testMac.config.home.packages;
-            };
-            testDroid = {
-              home = self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.packages;
-            };
-          };
-        } { inherit lib localLib; }
-        // {
-          host-testWayland = self.nixosConfigurations.testWayland.config.system.build.toplevel;
-          host-testX11 = self.nixosConfigurations.testX11.config.system.build.toplevel;
-          host-testHome = self.homeConfigurations.testHome.activationPackage;
-          eval-testDroid = nixpkgs.legacyPackages.x86_64-linux.writeText "eval-testDroid" (
-            builtins.toJSON {
-              theme = builtins.attrNames self.nixOnDroidConfigurations.testDroid.config.home-manager.config.theme;
-              homeDirectory =
-                self.nixOnDroidConfigurations.testDroid.config.home-manager.config.home.homeDirectory;
-            }
-          );
-        };
-
-      checks.aarch64-darwin = {
-        host-testMac = self.homeConfigurations.testMac.activationPackage;
+      checks = localLib.checks.mkFlakeChecks {
+        inherit
+          self
+          inputs
+          lib
+          localLib
+          ;
       };
 
       nixOnDroidConfigurations = {

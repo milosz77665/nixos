@@ -20,6 +20,7 @@ let
       getDuplicatePackages = import ./utils/getDuplicatePackages.nix { inherit lib; };
     };
     checks = {
+      mkFlakeChecks = import ./checks/mkFlakeChecks.nix;
       mkIsolationChecks = import ./checks/mkIsolationChecks.nix;
       mkStructureChecks = import ./checks/mkStructureChecks.nix;
       mkModuleEvalChecks = import ./checks/mkModuleEvalChecks.nix;
