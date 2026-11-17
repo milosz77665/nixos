@@ -28,6 +28,7 @@ let
     flake = {
       mkFormatter = import ./flake/mkFormatter.nix;
       mkHostIfVars = import ./flake/mkHostIfVars.nix { inherit lib; };
+      moduleRoots = import ./flake/moduleRoots.nix;
       nixosHomePackages = import ./flake/nixosHomePackages.nix;
     };
   };

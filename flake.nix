@@ -54,32 +54,17 @@
       checks.x86_64-linux =
         localLib.checks.mkIsolationChecks {
           basePath = ./modules;
-          roots = [
-            "programs"
-            "hardware"
-            "theme"
-            "desktop"
-          ];
+          roots = localLib.flake.moduleRoots;
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         } { inherit lib localLib; }
         // localLib.checks.mkStructureChecks {
           basePath = ./modules;
-          roots = [
-            "programs"
-            "hardware"
-            "theme"
-            "desktop"
-          ];
+          roots = localLib.flake.moduleRoots;
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         } { inherit lib localLib; }
         // localLib.checks.mkModuleEvalChecks {
           basePath = ./modules;
-          roots = [
-            "programs"
-            "hardware"
-            "theme"
-            "desktop"
-          ];
+          roots = localLib.flake.moduleRoots;
           inherit nixpkgs nixpkgs-unstable;
           varsPath = ./hosts/test/vars.nix;
           droidVarsPath = ./hosts/test/droid/vars.nix;

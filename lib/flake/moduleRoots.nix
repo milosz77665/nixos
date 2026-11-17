@@ -1,0 +1,6 @@
+[
+  "programs"
+  "hardware"
+  "theme"
+  "desktop"
+]
