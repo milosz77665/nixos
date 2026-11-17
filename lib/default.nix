@@ -25,6 +25,10 @@ let
       mkModuleEvalChecks = import ./checks/mkModuleEvalChecks.nix;
       mkDuplicatePackageChecks = import ./checks/mkDuplicatePackageChecks.nix;
     };
+    flake = {
+      mkHostIfVars = import ./flake/mkHostIfVars.nix { inherit lib; };
+      nixosHomePackages = import ./flake/nixosHomePackages.nix;
+    };
   };
 in
 localLib

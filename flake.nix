@@ -31,21 +31,8 @@
     let
       lib = nixpkgs.lib;
       localLib = import ./lib { inherit inputs lib; };
-      mkHostIfVars =
-        outputName: builder: extraArgs:
-        let
-          hostName = extraArgs.hostName or outputName;
-          varsPath = extraArgs.customVarsPath or (./hosts/${hostName}/vars.nix);
-        in
-        lib.optionalAttrs (builtins.pathExists varsPath) {
-          ${outputName} = builder ({ inherit hostName; } // extraArgs);
-        };
-      nixosHomePackages =
-        hostName:
-        let
-          users = self.nixosConfigurations.${hostName}.config.home-manager.users;
-        in
-        self.nixosConfigurations.${hostName}.config.home-manager.users.${builtins.head (builtins.attrNames users)}.home.packages;
+      mkHostIfVars = localLib.flake.mkHostIfVars ./hosts;
+      nixosHomePackages = localLib.flake.nixosHomePackages self;
     in
     {
       nixosConfigurations = {
