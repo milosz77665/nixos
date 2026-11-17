@@ -4,7 +4,7 @@
     fullName = "full name";
   };
 
-  homeStateVersion = "25.11";
+  homeStateVersion = "26.05";
   systemStateVersion = "24.05";
   homeDirectory = "/data/data/com.termux.nix/files/home";
 

@@ -23,7 +23,7 @@ rec {
   };
 
   # Home Manager state version.
-  homeStateVersion = "25.11";
+  homeStateVersion = "26.05";
 
   # NixOS and nix-on-droid state version. Required only for system hosts;
   # standalone Home Manager hosts leave it out. It may differ from

@@ -5,7 +5,7 @@ rec {
     fullName = "full name";
   };
 
-  homeStateVersion = "25.11";
+  homeStateVersion = "26.05";
   systemStateVersion = "25.11";
   homeDirectory = "/home/${user.name}";
 

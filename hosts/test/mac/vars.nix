@@ -5,7 +5,7 @@ rec {
   };
 
   # Standalone Home Manager host: systemStateVersion is not required.
-  homeStateVersion = "25.11";
+  homeStateVersion = "26.05";
   homeDirectory = "/Users/${user.name}";
 
   git = {
