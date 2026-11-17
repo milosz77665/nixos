@@ -26,6 +26,7 @@ let
       mkDuplicatePackageChecks = import ./checks/mkDuplicatePackageChecks.nix;
     };
     flake = {
+      mkFormatter = import ./flake/mkFormatter.nix;
       mkHostIfVars = import ./flake/mkHostIfVars.nix { inherit lib; };
       nixosHomePackages = import ./flake/nixosHomePackages.nix;
     };
