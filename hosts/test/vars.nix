@@ -4,7 +4,7 @@ rec {
     fullName = "full name";
   };
 
-  stateVersion = "25.11";
+  homeStateVersion = "25.11";
   homeDirectory = "/home/${user.name}";
 
   git = {

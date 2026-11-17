@@ -4,7 +4,7 @@
     fullName = "full name";
   };
 
-  stateVersion = "25.11";
+  homeStateVersion = "25.11";
   homeDirectory = "/data/data/com.termux.nix/files/home";
 
   git = {

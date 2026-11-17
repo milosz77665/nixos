@@ -5,7 +5,7 @@ let
       name = "alice";
       fullName = "Alice Smith";
     };
-    stateVersion = "25.11";
+    homeStateVersion = "25.11";
     homeDirectory = "/home/alice";
     git = {
       username = "alice";
@@ -45,16 +45,16 @@ in
     expected = [ "user.name is not a string" ];
   };
 
-  "test utils.checkVarsSchema: should report invalid stateVersion and homeDirectory" = {
+  "test utils.checkVarsSchema: should report invalid homeStateVersion and homeDirectory" = {
     expr = localLib.utils.checkVarsSchema {
       vars = validVars // {
-        stateVersion = "25";
+        homeStateVersion = "25";
         homeDirectory = "home/alice";
       };
     };
 
     expected = [
-      "stateVersion must look like 25.11"
+      "homeStateVersion must look like 25.11"
       "homeDirectory must be an absolute path"
     ];
   };

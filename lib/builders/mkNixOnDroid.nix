@@ -74,7 +74,7 @@ inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           home = {
             username = vars.user.name;
             homeDirectory = vars.homeDirectory;
-            stateVersion = vars.stateVersion;
+            stateVersion = vars.homeStateVersion;
           };
 
           imports = [

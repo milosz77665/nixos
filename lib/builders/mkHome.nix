@@ -59,7 +59,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
       home = {
         username = vars.user.name;
         homeDirectory = vars.homeDirectory;
-        stateVersion = vars.stateVersion;
+        stateVersion = vars.homeStateVersion;
       };
     }
   ];

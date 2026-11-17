@@ -80,7 +80,7 @@ inputs.nixpkgs.lib.nixosSystem {
             home = {
               username = vars.user.name;
               homeDirectory = vars.homeDirectory;
-              stateVersion = vars.stateVersion;
+              stateVersion = vars.homeStateVersion;
             };
 
             imports = [

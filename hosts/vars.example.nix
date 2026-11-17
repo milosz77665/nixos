@@ -22,7 +22,7 @@ rec {
     fullName = "Alice Smith";
   };
 
-  stateVersion = "25.11";
+  homeStateVersion = "25.11";
 
   # Linux: "/home/${user.name}", macOS: "/Users/${user.name}",
   # nix-on-droid: "/data/data/com.termux.nix/files/home".
