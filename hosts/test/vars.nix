@@ -6,7 +6,7 @@ rec {
   };
 
   homeStateVersion = "26.05";
-  systemStateVersion = "25.11";
+  systemStateVersion = "26.05";
   homeDirectory = "/home/${user.name}";
 
   git = {

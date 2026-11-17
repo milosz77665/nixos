@@ -25,10 +25,10 @@ rec {
   # Home Manager state version.
   homeStateVersion = "26.05";
 
-  # NixOS and nix-on-droid state version. Required only for system hosts;
-  # standalone Home Manager hosts leave it out. It may differ from
-  # homeStateVersion, depending on the host.
-  systemStateVersion = "25.11";
+  # NixOS and nix-on-droid system state version. Required only for system
+  # hosts; standalone Home Manager hosts leave it out. It may differ from
+  # homeStateVersion.
+  systemStateVersion = "26.05";
 
   # Linux: "/home/${user.name}", macOS: "/Users/${user.name}",
   # nix-on-droid: "/data/data/com.termux.nix/files/home".
