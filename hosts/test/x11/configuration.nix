@@ -1,3 +1,4 @@
+{ vars, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,5 +15,5 @@
     };
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = vars.systemStateVersion;
 }
