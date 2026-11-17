@@ -12,7 +12,10 @@ let
     config.allowUnfree = true;
   };
 
-  vars = import ./loadVars.nix { inherit hostName customVarsPath; };
+  vars = import ./loadVars.nix {
+    inherit hostName customVarsPath;
+    requireSystemStateVersion = true;
+  };
 
   modulesPath =
     if customModulesPath != null then customModulesPath else ../../hosts/${hostName}/modules.nix;
